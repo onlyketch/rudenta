@@ -1,0 +1,186 @@
+.header {
+    position: relative;
+    background-color: #50C8E6;
+    height: 584px;
+    padding-top: 24px;
+    padding-bottom: 46px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100%;
+        z-index: 10;
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__top-left {
+        display: flex;
+        align-items: center;
+    }
+
+    &__logo {
+        display: block;
+        width: 138px;
+        height: 20px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        margin-left: 95px;
+        color: #FFFFFF;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+
+        a {
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            color: #FFFFFF;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 3px 0;
+            border-bottom: 1px solid transparent;
+            transition: all .3s ease-out; 
+        }
+
+        a:hover {
+            opacity: 0.7;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    &__drop {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-right: 55px;
+        cursor: pointer;
+
+        .drop-icon {
+            display: block;
+            width: 9px;
+            height: 5px;
+            background-image: url('../images/arrow-down-white.svg');
+            background-repeat: no-repeat;
+            background-size: 9px 5px;
+            background-position: center;
+            margin-left: 9px;
+            margin-top: 2px;
+        }
+
+        .dropbox-wrapp {
+            position: absolute;
+            top: 100%;
+            padding-top: 8px;
+            display: none;
+        }
+
+        .dropbox {
+            background-color: #ffffff;
+            padding: 24px 24px 17px 24px;
+            white-space: nowrap;
+            border-radius: 5px;
+
+            .dropbox-list {
+                li {
+                    margin-bottom: 7px;
+                }
+            }
+
+            .dropbox-link {
+                color: #202B39;
+                transition: all .3s ease-out;
+                
+                &:hover {
+                    opacity: 1;
+                    text-decoration: underline;  
+                }
+            }
+
+        }
+    }
+
+    &__drop:hover .dropbox-wrapp {
+        display: block;
+    }
+
+    &__top-right {
+        display: flex;
+        align-items: center;
+    }
+
+    &__phone {
+        margin-right: 82px;
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    &__menu {
+        border: none;
+        outline: none;
+        background: transparent;
+        appearance: none;
+        cursor: pointer;
+        width: 75px;
+        height: 24px;
+        text-align: right;
+        padding-right: 0;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #FFFFFF;
+        background-image: url('../images/burger.svg');
+        background-repeat: no-repeat;
+        background-size: 25px 12px;
+        background-position: left center;
+        transition: all .3s ease-out;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    &__info {
+        color: #FFFFFF;
+        max-width: 560px;
+    }
+
+    &__page-name {
+    }
+
+    &__title {
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 56px;
+        line-height: 56px;
+        margin-top: 106px;
+    }
+
+    &__subtitle {
+        margin-top: 23px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
