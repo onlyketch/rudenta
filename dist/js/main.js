@@ -125,6 +125,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    //Кнопка
+
+    let filtersBtnMob = document.querySelector('.filters-mobile__btn');
+    filtersBtnMob.addEventListener('click', function() {
+        console.log('tap');
+    });
+
 
 
 });

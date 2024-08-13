@@ -11,9 +11,11 @@
     &__specialization, &__search {
         width: 100%;
         max-width: 330px;
+        margin: 0 10px;
     }
 
     &__clinic {
+        margin-left: 0;
     }
 
     &__name {
@@ -59,6 +61,15 @@
         .bull-hod, .bull-bel {
             opacity: 0.4;
         }
+
+        @media (max-width: 1380px) {
+            font-size: 13px;
+            margin-right: 13px;
+        }
+
+        @media (max-width: 1110px) {
+            margin-right: 6px;
+        }
     }
 
     &__link-active {
@@ -89,6 +100,11 @@
         font-size: 16px;
         line-height: 20px;
         color: #202B39;
+
+        @media (max-width: 1380px) {
+            font-size: 13px;
+            line-height: 17px;
+        }
     }
 
     &__val-count {
@@ -103,6 +119,7 @@
         line-height: 10px;
         color: #202B39;
         margin-left: 8px;
+        box-sizing: border-box;
     }
 
     &__arrow-icon {
@@ -133,6 +150,16 @@
             font-size: 16px;
             line-height: 20px;
             color: #798088;
+
+            @media (max-width: 1380px) {
+                font-size: 13px;
+                line-height: 17px;
+            }
+        }
+
+        @media (max-width: 1380px) {
+            font-size: 13px;
+            line-height: 17px;
         }
     }
 
@@ -146,6 +173,7 @@
     }
 
     &__search {
+        margin-right: 0;
     }
 
     &__line {
@@ -224,5 +252,57 @@
         color: #798088;
         max-width: 200px;
     }
+
+    @media (max-width: 1022px) {
+        display: none;
+    }
 }
+
+.filters-mobile {
+    display: none;
+    margin-top: 20px;
+
+    &__btn {
+        border: none;
+        outline: none;
+        appearance: none;
+        padding: 18px;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #212121;
+        background-color: #F6F6F6;
+        width: 100%;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__wrap {
+        display: flex;
+        align-items: center;
+    }
+
+    &__count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 27px;
+        height: 24px;
+        border: 1px solid #D9DAE4;
+        border-radius: 24px;
+        font-size: 10px;
+        line-height: 10px;
+        color: #202B39;
+        margin-left: 8px;
+        box-sizing: border-box;
+        background-color: #FFFFFF; 
+    }
+
+    @media (max-width: 1022px) {
+        display: block;
+    }
+}
+
 

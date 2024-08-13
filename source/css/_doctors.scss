@@ -6,6 +6,30 @@
     &__row {
         display: flex;
         margin: 0 -10px 20px -10px;
+
+        @media (max-width: 1022px) {
+            flex-direction: column;
+            margin: 0 -10px 0 -10px;
+        }
+
+        @media (max-width: 388px) {
+            margin: 0;
+        }
+    }
+
+    &__col {
+        display: flex;
+        width: 50%;
+
+        @media (max-width: 1022px) {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 388px) {
+            flex-direction: column;
+            margin-bottom: 0;
+        }
     }
 
     &__card {
@@ -17,6 +41,26 @@
         border-radius: 8px;
         box-sizing: border-box;
         margin: 0 10px;
+        overflow: hidden;
+
+        @media (max-width: 1380px) {
+            height: 420px;
+        }
+
+        @media (max-width: 1200px) {
+            height: 338px;
+        }
+
+        @media (max-width: 1022px) {
+            max-width: none;
+            height: 0px;
+            padding-bottom: 56.25%;
+        }
+
+        @media (max-width: 388px) {
+            margin: 0 0 20px 0;
+            padding-bottom: 120%;
+        }
     }
 
     &__location {
@@ -34,6 +78,15 @@
                 opacity: 1;
                 
             }
+
+            @media (max-width: 1022px) {
+                margin-right: 4px;
+            }
+        }
+
+        @media (max-width: 1022px) {
+            top: 12px;
+            left: 12px;
         }
     }
 
@@ -70,6 +123,21 @@
             width: 100%;
             height: auto;
         }
+
+        @media (max-width: 1200px) {
+            width: 190px;
+            height: 250px;
+        }
+
+        @media (max-width: 1022px) {
+            width: 75.15%;
+            height: auto;
+            top: 15px;
+        }
+
+        @media (max-width: 500px) {
+            width: 79.37%;
+        }
     }
 
     &__info {
@@ -81,6 +149,10 @@
         padding: 16px;
         border-radius: 8px;
         z-index: 10;
+
+        @media (max-width: 1022px) {
+            padding: 12px;
+        }
     }
 
     &__info-name {
@@ -89,6 +161,16 @@
         line-height: 20px;
         color: #232323;
         max-width: 190px;
+
+        @media (max-width: 1022px) {
+            font-size: 11px;
+            line-height: 14px;
+        }
+
+        @media (max-width: 388px) {
+            font-size: 16px;
+            line-height: 20px;
+        }
     }
 
     &__info-spec {
@@ -96,6 +178,22 @@
         font-size: 12px;
         line-height: 16px;
         color: #798088;
+
+        @media (max-width: 1380px) {
+            max-width: 180px;
+        }
+
+        @media (max-width: 1022px) {
+            font-size: 10px;
+            line-height: 12px;
+            margin-top: 11px;
+        }
+
+        @media (max-width: 388px) {
+            font-size: 12px;
+            line-height: 16px;
+            max-width: 100%;
+        }
     }
 
     &__info-btn {
@@ -113,6 +211,15 @@
         background-repeat: no-repeat;
         background-size: 8px 7px;
         background-position: center;
+
+        @media (max-width: 1022px) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 1022px) {
+        margin-top: 20px;
+        margin-bottom: 68px;
     }
 }
 
@@ -125,6 +232,7 @@
     box-sizing: border-box;
     margin: 0 10px;
     padding: 32px 42px 42px 42px;
+    min-width: 48.2%;
 
     &__logo {
         width: 124px;
@@ -141,6 +249,20 @@
         line-height: 48px;
         color: #202B39;
         margin-top: 60px;
+
+        @media (max-width: 1200px) {
+            font-size: 32px;
+            line-height: 34px; 
+        }
+
+        @media (max-width: 1022px) {
+            margin-top: 64px;
+        }
+
+        @media (max-width: 388px) {
+            font-size: 26px;
+            line-height: 30px;
+        }
     }
 
     &__text {
@@ -149,6 +271,10 @@
         color: #202B39;
         margin-top: 152px;
         max-width: 314px;
+
+        @media (max-width: 1200px) {
+            margin-top: 16px; 
+        }
     }
 
     &__btn {
@@ -170,6 +296,32 @@
         line-height: 20px;
         color: #212121;
         cursor: pointer;
+
+        @media (max-width: 1200px) {
+            bottom: 28px;
+        }
+
+        @media (max-width: 1022px) {
+            right: auto;
+            left: 28px;
+        }
+    }
+
+    @media (max-width: 1380px) {
+        height: 420px;
+    }
+
+    @media (max-width: 1200px) {
+        height: 338px;
+    }
+
+    @media (max-width: 1022px) {
+        height: 350px;
+        padding: 28px;
+    }
+
+    @media (max-width: 388px) {
+        margin: 0 0 20px 0;
     }
 }
 

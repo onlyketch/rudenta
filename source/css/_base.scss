@@ -16,9 +16,13 @@ body {
 }
 
 .container {
-    max-width: 1380px; //1374
+    max-width: 1380px;
     margin: 0 auto;
     padding: 0 32px;
+
+    @media (max-width: 1022px) {
+        padding: 0 24px; 
+    }
 }
 
 .bull-hod, .bull-bel {
@@ -54,6 +58,13 @@ body {
     align-items: center;
     cursor: pointer;
     transition: opacity .5s ease-out;
+    z-index: 300;
+
+    @media (max-width: 1022px) {
+        left: auto;
+        right: 24px;
+        bottom: 45px;
+    }
 }
 
 .btn-up::before {
