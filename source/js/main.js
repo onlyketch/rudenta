@@ -18,6 +18,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    //Переключение фильтра «Клиника» мобильное меню
+    let filtersLinksMob = document.querySelectorAll('.mobile-filters-menu__item-value');
+    filtersLinksMob[0].classList.add('filters__link-active');
+
+    for (let i = 0; i < filtersLinksMob.length; i++) {
+        
+        filtersLinksMob[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            filtersLinksMob.forEach( function(item) {
+                item.classList.remove('filters__link-active');
+            });
+
+            filtersLinksMob[i].classList.add('filters__link-active');
+        });
+    }
+
+
     //Фильтр «Специализация»
 
     let filterSpecValue = document.querySelector('.filters__specialization .filters__val');
@@ -125,12 +143,61 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    //Кнопка
+    //Мобильное меню фильтры
 
-    let filtersBtnMob = document.querySelector('.filters-mobile__btn');
-    filtersBtnMob.addEventListener('click', function() {
-        console.log('tap');
+    let mobileFiltersBtn = document.querySelector('.filters-mobile__btn');
+    let mobileFiltersCloseBtn = document.querySelector('.mobile-filters-menu__close');
+    let mobileFiltersSubmitBtn = document.querySelector('.mobile-filters-menu__submit');
+    let mobileFiltersMenu = document.querySelector('.mobile-filters-menu');
+    let mobileFiltersOverlay = document.querySelector('.mobile-filters-menu__overlay');
+    let mobileFiltersBody = document.querySelector('.mobile-filters-menu__body');
+    let mobileFiltersBodyOpen = false;
+
+    mobileFiltersBtn.addEventListener('click', function() {
+        mobileFiltersMenu.style.visibility = 'visible';
+        document.body.classList.add('body-overflow');
+
+        if (!mobileFiltersBodyOpen) {
+            mobileFiltersBody.style.bottom = '0';
+            mobileFiltersBodyOpen = true; 
+        }
     });
+
+    mobileFiltersCloseBtn.addEventListener('click', function() {
+        if (mobileFiltersBodyOpen) {
+            mobileFiltersBody.style.bottom = '-100%';
+            mobileFiltersBodyOpen = false;
+        }
+
+        setTimeout(function() {
+            mobileFiltersMenu.style.visibility = 'hidden';
+            document.body.classList.remove('body-overflow');
+        }, 400);    
+    });
+
+    mobileFiltersSubmitBtn.addEventListener('click', function() {
+        if (mobileFiltersBodyOpen) {
+            mobileFiltersBody.style.bottom = '-100%';
+            mobileFiltersBodyOpen = false;
+        }
+
+        setTimeout(function() {
+            mobileFiltersMenu.style.visibility = 'hidden';
+            document.body.classList.remove('body-overflow');
+        }, 400);    
+    });
+
+    //при изменении размера окна (ресайзе), скрываем мобильное меню
+
+    window.addEventListener('resize', function() {
+        if (mobileFiltersBodyOpen) {
+            mobileFiltersBody.style.bottom = '-100%';
+            mobileFiltersBodyOpen = false;
+            mobileFiltersMenu.style.visibility = 'hidden';
+            document.body.classList.remove('body-overflow');
+        }
+    });
+
 
 
 
