@@ -589,9 +589,9 @@
 
                 <div class="mobile-filters-menu__item">
                     <div class="mobile-filters-menu__item-name">Оказываемые услуги</div>
-                    <div class="mobile-filters-menu__row">
+                    <div class="mobile-filters-menu__row" id="mob-filter-serv">
                         <div class="mobile-filters-menu__val-area">
-                            <div class="mobile-filters-menu__val">Гигиена</div>
+                            <div class="mobile-filters-menu__val mobile-filters-menu__val-serv">Гигиена</div>
                         </div>
                         <div class="mobile-filters-menu__arrow-icon"></div>
                     </div>
@@ -599,9 +599,9 @@
 
                 <div class="mobile-filters-menu__item">
                     <div class="mobile-filters-menu__item-name">Специализация</div>
-                    <div class="mobile-filters-menu__row">
+                    <div class="mobile-filters-menu__row" id="mob-filter-spec">
                         <div class="mobile-filters-menu__val-area">
-                            <div class="mobile-filters-menu__val">Терапевты</div>
+                            <div class="mobile-filters-menu__val mobile-filters-menu__val-spec">Терапевты</div>
                         </div>
                         <div class="mobile-filters-menu__arrow-icon"></div>
                     </div>
@@ -631,7 +631,7 @@
             <div class="mobile-spec-menu__switcher">
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-all" name="specialization" value="Все специализации" checked>
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-all" name="mob-specialization" value="Все специализации" checked>
                         <span class="mobile-spec-menu__switcher-name">Все специализации</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -641,7 +641,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-therapy" name="specialization" value="Терапия">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-therapy" name="mob-specialization" value="Терапия">
                         <span class="mobile-spec-menu__switcher-name">Терапия</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -651,7 +651,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-ortho" name="specialization" value="Ортопедия">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-ortho" name="mob-specialization" value="Ортопедия">
                         <span class="mobile-spec-menu__switcher-name">Ортопедия</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -661,7 +661,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-periodonto" name="specialization" value="Пародонтология">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-periodonto" name="mob-specialization" value="Пародонтология">
                         <span class="mobile-spec-menu__switcher-name">Пародонтология</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -671,7 +671,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other1" name="specialization" value="Еще пункт">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other1" name="mob-specialization" value="Еще пункт">
                         <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -681,7 +681,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other2" name="specialization" value="Еще пункт">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other2" name="mob-specialization" value="Еще пункт">
                         <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -691,7 +691,7 @@
 
                 <div class="mobile-spec-menu__switcher-item">
                     <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other3" name="specialization" value="Еще пункт">
+                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other3" name="mob-specialization" value="Еще пункт">
                         <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
                     </label>
                     <div class="mobile-spec-menu__switcher-desc">
@@ -703,6 +703,70 @@
 
             <button class="mobile-spec-menu__submit">Применить</button>
         </div>
+
+        <div class="mobile-serv-menu">
+            <div class="mobile-serv-menu__header">
+                <div class="mobile-serv-menu__title">Услуги</div>
+                <button class="mobile-serv-menu__reset">Сбросить</button>
+                <button class="mobile-serv-menu__close"></button>
+            </div>
+
+            <div class="mobile-serv-menu__switcher">
+                
+                <div class="mobile-serv-menu__switcher-item">
+                    <label class="mobile-serv-menu__switcher-group">
+                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-all" name="mob-services" value="Все услуги" checked>
+                        <span class="mobile-serv-menu__switcher-name">Все услуги</span>
+                    </label>
+                    <div class="mobile-serv-menu__switcher-desc">
+                        Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
+                    </div>
+                </div>
+
+                <div class="mobile-serv-menu__switcher-item">
+                    <label class="mobile-serv-menu__switcher-group">
+                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-therapy" name="mob-services" value="Лечение зубов">
+                        <span class="mobile-serv-menu__switcher-name">Лечение зубов</span>
+                    </label>
+                    <div class="mobile-serv-menu__switcher-desc">
+                        Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
+                    </div>
+                </div>
+
+                <div class="mobile-serv-menu__switcher-item">
+                    <label class="mobile-serv-menu__switcher-group">
+                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-hygiene" name="mob-services" value="Гигиена">
+                        <span class="mobile-serv-menu__switcher-name">Гигиена</span>
+                    </label>
+                    <div class="mobile-serv-menu__switcher-desc">
+                        Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
+                    </div>
+                </div>
+
+                <div class="mobile-serv-menu__switcher-item">
+                    <label class="mobile-serv-menu__switcher-group">
+                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-surgery" name="mob-services" value="Хирургия">
+                        <span class="mobile-serv-menu__switcher-name">Хирургия</span>
+                    </label>
+                    <div class="mobile-serv-menu__switcher-desc">
+                        Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
+                    </div>
+                </div>
+
+                <div class="mobile-serv-menu__switcher-item">
+                    <label class="mobile-serv-menu__switcher-group">
+                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-implantation" name="mob-services" value="Имплантация">
+                        <span class="mobile-serv-menu__switcher-name">Имплантация</span>
+                    </label>
+                    <div class="mobile-serv-menu__switcher-desc">
+                        Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="mobile-serv-menu__submit">Применить</button>
+        </div>   
     </div>
 
 

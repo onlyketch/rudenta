@@ -149,8 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let mobileFiltersCloseBtn = document.querySelector('.mobile-filters-menu__close');
     let mobileFiltersSubmitBtn = document.querySelector('.mobile-filters-menu__submit');
     let mobileFiltersMenu = document.querySelector('.mobile-filters-menu');
-    let mobileFiltersOverlay = document.querySelector('.mobile-filters-menu__overlay');
-    let mobileFiltersBody = document.querySelector('.mobile-filters-menu__body');
+    let mobileFiltersReset = document.querySelector('.mobile-filters-menu__reset');
+    let mobileFiltersBody = document.querySelector('.mobile-filters-menu__body'); 
+    let mobileFiltersSearchInput = document.querySelector('.mobile-filters-menu__search-input');
     let mobileFiltersBodyOpen = false;
 
     mobileFiltersBtn.addEventListener('click', function() {
@@ -175,6 +176,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);    
     });
 
+    mobileFiltersReset.addEventListener('click', function() {
+        
+        filtersLinksMob.forEach( function(item) {
+            item.classList.remove('filters__link-active');
+        });
+
+        filtersLinksMob[0].classList.add('filters__link-active');
+
+        mobileSpecRadio[0].checked = true;
+        mobSpecValueUpdate();
+
+        mobileServRadio[0].checked = true;
+        mobServValueUpdate();
+
+        mobileFiltersSearchInput.value = '';
+    });
+
     mobileFiltersSubmitBtn.addEventListener('click', function() {
         if (mobileFiltersBodyOpen) {
             mobileFiltersBody.style.bottom = '-100%';
@@ -187,7 +205,105 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);    
     });
 
-    //при изменении размера окна (ресайзе), скрываем мобильное меню
+    //Мобильное меню фильтры «Специализация»
+
+    let mobileFiltersSpecValue = document.querySelector('.mobile-filters-menu__val-spec');
+    let mobileSpecRadio = document.querySelectorAll('input[name="mob-specialization"]');
+
+    function mobSpecValueUpdate() {
+        for (let spec of mobileSpecRadio) {
+            if (spec.checked) {
+                mobileFiltersSpecValue.textContent = spec.value;
+            }
+        }
+    }
+
+    mobSpecValueUpdate();
+    
+    let mobileFilterSpec = document.getElementById('mob-filter-spec');
+    let mobileSpecMenu = document.querySelector('.mobile-spec-menu');
+    let mobileSpecMenuClose = document.querySelector('.mobile-spec-menu__close');
+    let mobileSpecMenuReset = document.querySelector('.mobile-spec-menu__reset'); 
+    let mobileSpecMenuSubmit = document.querySelector('.mobile-spec-menu__submit');
+    let mobileSpecMenuOpen = false;
+
+    mobileFilterSpec.addEventListener('click', function() {
+        if (!mobileSpecMenuOpen) {
+            mobileSpecMenu.style.bottom = '0';
+            mobileSpecMenuOpen = true;
+        }
+    });
+
+    mobileSpecMenuClose.addEventListener('click', function() {
+        if (mobileSpecMenuOpen) {
+            mobileSpecMenu.style.bottom = '-100%';
+            mobileSpecMenuOpen = false;
+        }
+    });
+
+    mobileSpecMenuReset.addEventListener('click', function() {
+        mobileSpecRadio[0].checked = true;
+        mobSpecValueUpdate();
+    });
+
+    mobileSpecMenuSubmit.addEventListener('click', function() {
+        if (mobileSpecMenuOpen) {
+            mobSpecValueUpdate();
+            mobileSpecMenu.style.bottom = '-100%';
+            mobileSpecMenuOpen = false;
+        }
+    });
+
+    //Мобильное меню фильтры «Услуги»
+
+    let mobileFiltersServValue = document.querySelector('.mobile-filters-menu__val-serv');
+    let mobileServRadio = document.querySelectorAll('input[name="mob-services"]');
+
+    function mobServValueUpdate() {
+        for (let spec of mobileServRadio) {
+            if (spec.checked) {
+                mobileFiltersServValue.textContent = spec.value;
+            }
+        }
+    }
+
+    mobServValueUpdate();
+
+    let mobileFilterServ = document.getElementById('mob-filter-serv');
+    let mobileServMenu = document.querySelector('.mobile-serv-menu');
+    let mobileServMenuClose = document.querySelector('.mobile-serv-menu__close');
+    let mobileServMenuReset = document.querySelector('.mobile-serv-menu__reset'); 
+    let mobileServMenuSubmit = document.querySelector('.mobile-serv-menu__submit');
+    let mobileServMenuOpen = false;
+
+    mobileFilterServ.addEventListener('click', function() {
+        if (!mobileServMenuOpen) {
+            mobileServMenu.style.bottom = '0';
+            mobileServMenuOpen = true;
+        }
+    });
+
+    mobileServMenuClose.addEventListener('click', function() {
+        if (mobileServMenuOpen) {
+            mobileServMenu.style.bottom = '-100%';
+            mobileServMenuOpen = false;
+        }
+    });
+
+    mobileServMenuReset.addEventListener('click', function() {
+        mobileServRadio[0].checked = true;
+        mobServValueUpdate();
+    });
+
+    mobileServMenuSubmit.addEventListener('click', function() {
+        if (mobileServMenuOpen) {
+            mobServValueUpdate();
+            mobileServMenu.style.bottom = '-100%';
+            mobileServMenuOpen = false;
+        }
+    });
+
+    //Скрытие всех меню при ресайзе
 
     window.addEventListener('resize', function() {
         if (mobileFiltersBodyOpen) {
@@ -196,7 +312,19 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileFiltersMenu.style.visibility = 'hidden';
             document.body.classList.remove('body-overflow');
         }
+
+        if (mobileSpecMenuOpen) {
+            mobileSpecMenu.style.bottom = '-100%';
+            mobileSpecMenuOpen = false;
+        }
+
+        if (mobileServMenuOpen) {
+            mobileServMenu.style.bottom = '-100%';
+            mobileServMenuOpen = false;
+        }
     });
+
+
 
 
 
