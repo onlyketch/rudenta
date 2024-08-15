@@ -424,6 +424,7 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: #202B39;
+  padding: 0;
 }
 .mobile-filters-menu__search-input::-webkit-input-placeholder {
   font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
