@@ -305,24 +305,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Скрытие всех меню при ресайзе
 
-    window.addEventListener('resize', function() {
-        if (mobileFiltersBodyOpen) {
-            mobileFiltersBody.style.bottom = '-100%';
-            mobileFiltersBodyOpen = false;
-            mobileFiltersMenu.style.visibility = 'hidden';
-            document.body.classList.remove('body-overflow');
-        }
+    // window.addEventListener('resize', function() {
+    //     if (mobileFiltersBodyOpen) {
+    //         mobileFiltersBody.style.bottom = '-100%';
+    //         mobileFiltersBodyOpen = false;
+    //         mobileFiltersMenu.style.visibility = 'hidden';
+    //         document.body.classList.remove('body-overflow');
+    //     }
 
-        if (mobileSpecMenuOpen) {
-            mobileSpecMenu.style.bottom = '-100%';
-            mobileSpecMenuOpen = false;
-        }
+    //     if (mobileSpecMenuOpen) {
+    //         mobileSpecMenu.style.bottom = '-100%';
+    //         mobileSpecMenuOpen = false;
+    //     }
 
-        if (mobileServMenuOpen) {
-            mobileServMenu.style.bottom = '-100%';
-            mobileServMenuOpen = false;
-        }
-    });
+    //     if (mobileServMenuOpen) {
+    //         mobileServMenu.style.bottom = '-100%';
+    //         mobileServMenuOpen = false;
+    //     }
+    // });
 
 
 
