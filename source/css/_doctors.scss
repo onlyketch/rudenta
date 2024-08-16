@@ -33,6 +33,7 @@
     }
 
     &__card {
+        display: block;
         position: relative;
         width: 100%;
         max-width: 330px;
@@ -60,6 +61,11 @@
             margin: 0 0 20px 0;
             padding-bottom: 120%;
         }
+    }
+
+    &__card:hover &__info-btn {
+        visibility: visible;
+        opacity: 1;
     }
 
     &__location {
@@ -200,6 +206,8 @@
     }
 
     &__info-btn {
+        visibility: hidden;
+        opacity: 0;
         position: absolute;
         bottom: 16px;
         right: 16px;
@@ -214,6 +222,7 @@
         background-repeat: no-repeat;
         background-size: 8px 7px;
         background-position: center;
+        transition: opacity .4s ease-out;
 
         @media (max-width: 1022px) {
             display: none;
@@ -299,6 +308,7 @@
         line-height: 20px;
         color: #212121;
         cursor: pointer;
+        transition: all 0.3s ease-out;
 
         @media (max-width: 1200px) {
             bottom: 28px;
@@ -307,6 +317,12 @@
         @media (max-width: 1022px) {
             right: auto;
             left: 28px;
+        }
+
+        &:hover {
+            color: #FFFFFF;
+            background-color: #42C8F8;
+            background-image: url('../images/arrow-right-light.svg'); 
         }
     }
 

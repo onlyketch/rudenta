@@ -239,11 +239,19 @@
         border: 1px solid #393F47;
         border-radius: 50%;
         margin-right: 16px;
-    }
+        transition: all 0.3s ease-out;
 
-    &__social-tg {
-        img {
-            padding-right: 1px;
+        svg {
+            fill: #FFFFFF; 
+        }
+
+        &:hover {
+            border: 1px solid #FFFFFF;
+            background-color: #FFFFFF;
+        }
+
+        &:hover svg {
+            fill: #080F19;
         }
     }
 

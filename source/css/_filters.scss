@@ -144,6 +144,7 @@
         font-size: 16px;
         line-height: 20px;
         color: #202B39;
+        padding: 0;
         
         &::placeholder {
             font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
@@ -244,6 +245,11 @@
         background-color: #42C8F8;
         background-image: url('../images/check.svg');
         border: 1px solid #42C8F8;
+    }
+
+    &__switcher-group:hover > &__radio:not(:checked) + &__switcher-name::after {
+        background-color: #8DDEFB;
+        border: 1px solid #5FD1F9;
     }
 
     &__switcher-desc {

@@ -56,18 +56,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let filterSpec = document.querySelector('.filters__specialization > .filters__row');
     let switcherSpec = document.querySelector('.filters__switcher-spec');
-    let switcherSpecNames = document.querySelectorAll('.filters__switcher-spec .filters__switcher-name');
+    let switcherSpecGroup = document.querySelectorAll('.filters__switcher-spec .filters__switcher-group');
 
     filterSpec.addEventListener('click', function() {
         switcherSpec.classList.toggle('switcher-active');
     });
 
-    for (let i = 0; i < switcherSpecNames.length; i++) {
-        switcherSpecNames[i].addEventListener('click', function() {
+    for (let i = 0; i < switcherSpecGroup.length; i++) {
+        switcherSpecGroup[i].addEventListener('click', function() {
             setTimeout( function() {
                 specValueUpdate();
                 switcherSpec.classList.remove('switcher-active');
-            }, 450);
+            }, 600);
             
         });
     }
@@ -99,18 +99,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     let filterServ = document.querySelector('.filters__services > .filters__row');
     let switcherServ = document.querySelector('.filters__switcher-serv');
-    let switcherServNames = document.querySelectorAll('.filters__switcher-serv .filters__switcher-name');
+    let switcherServGroup = document.querySelectorAll('.filters__switcher-serv .filters__switcher-group');
 
     filterServ.addEventListener('click', function() {
         switcherServ.classList.toggle('switcher-active');
     });
 
-    for (let i = 0; i < switcherServNames.length; i++) {
-        switcherServNames[i].addEventListener('click', function() {
+    for (let i = 0; i < switcherServGroup.length; i++) {
+        switcherServGroup[i].addEventListener('click', function() {
             setTimeout( function() {
                 servValueUpdate();
                 switcherServ.classList.remove('switcher-active');
-            }, 450);
+            }, 600);
             
         });
     }
@@ -302,27 +302,6 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileServMenuOpen = false;
         }
     });
-
-    //Скрытие всех меню при ресайзе
-
-    // window.addEventListener('resize', function() {
-    //     if (mobileFiltersBodyOpen) {
-    //         mobileFiltersBody.style.bottom = '-100%';
-    //         mobileFiltersBodyOpen = false;
-    //         mobileFiltersMenu.style.visibility = 'hidden';
-    //         document.body.classList.remove('body-overflow');
-    //     }
-
-    //     if (mobileSpecMenuOpen) {
-    //         mobileSpecMenu.style.bottom = '-100%';
-    //         mobileSpecMenuOpen = false;
-    //     }
-
-    //     if (mobileServMenuOpen) {
-    //         mobileServMenu.style.bottom = '-100%';
-    //         mobileServMenuOpen = false;
-    //     }
-    // });
 
 
 

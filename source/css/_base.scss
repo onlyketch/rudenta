@@ -3,6 +3,7 @@ body {
     font-size: 14px;
     line-height: 20px;
     color: #202B39;
+    user-select: none;
 }
 
 .body-overflow {
@@ -243,10 +244,16 @@ body {
         line-height: 20px;
         color: #798088;
 
+        &-first {
+            .bull-area {
+                width: 20px;
+                justify-content: space-between;
+            }
+        }
+
         .bull-area {
+            padding-top: 1px;
             margin-left: 6px;
-            width: 20px;
-            justify-content: space-between;
         }
 
         .bull-hod, .bull-bel {
@@ -355,7 +362,7 @@ body {
     right: 0;
     background-color: #FFFFFF;
     border-radius: 20px 20px 0 0;
-    min-height: 600px;
+    height: 600px;
     padding: 24px 24px 64px 24px;
     box-sizing: border-box;
     transition: bottom .3s ease-out;
@@ -482,7 +489,7 @@ body {
         width: 100%;
         padding: 20px 0;
         border-radius: 8px;
-        margin-top: 16px;
+        margin-top: 30px;
     }
 }
 

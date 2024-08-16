@@ -136,10 +136,10 @@
 
     &__phone {
         margin-right: 82px;
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
         font-size: 16px;
         line-height: 20px;
-        letter-spacing: 0.02em;
+        letter-spacing: 0.04em;
         color: #FFFFFF;
         text-decoration: none;
 
@@ -183,7 +183,7 @@
 
     &__info {
         color: #FFFFFF;
-        max-width: 640px;
+        max-width: 676px;
 
         @media (max-width: 1022px) {
             max-width: 342px; 
