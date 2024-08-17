@@ -308,6 +308,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #42C8F8;
+  visibility: hidden;
 }
 .mobile-filters-menu__close {
   position: absolute;
@@ -564,6 +565,7 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #42C8F8;
+  visibility: hidden;
 }
 .mobile-spec-menu__close, .mobile-serv-menu__close {
   position: absolute;

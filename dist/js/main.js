@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             filtersLinksMob[i].classList.add('filters__link-active');
+
+            mobileFiltersDefaultCheck();
         });
     }
 
@@ -191,6 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
         mobServValueUpdate();
 
         mobileFiltersSearchInput.value = '';
+
+        mobileFiltersDefaultCheck();
     });
 
     mobileFiltersSubmitBtn.addEventListener('click', function() {
@@ -203,6 +207,10 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileFiltersMenu.style.visibility = 'hidden';
             document.body.classList.remove('body-overflow');
         }, 400);    
+    });
+
+    mobileFiltersSearchInput.addEventListener('input', function() {
+        mobileFiltersDefaultCheck();
     });
 
     //Мобильное меню фильтры «Специализация»
@@ -244,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileSpecMenuReset.addEventListener('click', function() {
         mobileSpecRadio[0].checked = true;
         mobSpecValueUpdate();
+        mobileSpecMenuDefaultCheck();
     });
 
     mobileSpecMenuSubmit.addEventListener('click', function() {
@@ -252,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileSpecMenu.style.bottom = '-100%';
             mobileSpecMenuOpen = false;
         }
+        mobileFiltersDefaultCheck();
     });
 
     //Мобильное меню фильтры «Услуги»
@@ -293,6 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileServMenuReset.addEventListener('click', function() {
         mobileServRadio[0].checked = true;
         mobServValueUpdate();
+        mobileServMenuDefaultCheck();
     });
 
     mobileServMenuSubmit.addEventListener('click', function() {
@@ -301,7 +312,49 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileServMenu.style.bottom = '-100%';
             mobileServMenuOpen = false;
         }
+        mobileFiltersDefaultCheck();
     });
+
+    //Отображение/скрытие кнопки сбросить в мобильных фильтрах
+
+    function mobileFiltersDefaultCheck() {
+        if ( filtersLinksMob[0].classList.contains('filters__link-active') 
+            && mobileSpecRadio[0].checked && mobileServRadio[0].checked && mobileFiltersSearchInput.value == '') {
+                mobileFiltersReset.style.visibility = 'hidden';
+        } else {
+            mobileFiltersReset.style.visibility = 'visible';
+        }
+        mobileServMenuDefaultCheck();
+        mobileSpecMenuDefaultCheck();
+    }
+
+    function mobileServMenuDefaultCheck() {
+        if (mobileServRadio[0].checked) {
+            mobileServMenuReset.style.visibility = 'hidden';
+        } else {
+            mobileServMenuReset.style.visibility = 'visible';
+        }
+    }
+
+    function mobileSpecMenuDefaultCheck() {
+        if (mobileSpecRadio[0].checked) {
+            mobileSpecMenuReset.style.visibility = 'hidden';
+        } else {
+            mobileSpecMenuReset.style.visibility = 'visible';
+        } 
+    }
+
+    for (let radio of mobileServRadio) {
+        radio.addEventListener('change', function() {
+            mobileServMenuDefaultCheck();
+        } );
+    }
+
+    for (let radio of mobileSpecRadio) {
+        radio.addEventListener('change', function() {
+            mobileSpecMenuDefaultCheck();
+        } );
+    }
 
 
 
