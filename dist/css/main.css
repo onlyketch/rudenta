@@ -665,29 +665,12 @@ body {
 }
 
 .header {
-  position: relative;
-  background-color: #50C8E6;
-  height: 584px;
-  padding-top: 24px;
-  padding-bottom: 46px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  overflow: hidden;
-}
-.header .container {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  min-height: 100%;
-  z-index: 10;
+  background-color: transparent;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 40;
 }
 .header__top {
   display: -webkit-box;
@@ -863,23 +846,52 @@ body {
     display: none;
   }
 }
-.header__info {
+@media (max-width: 1022px) {
+  .header {
+    top: 27px;
+  }
+}
+
+.hero {
+  position: relative;
+  background-color: #50C8E6;
+  height: 584px;
+  padding-top: 24px;
+  padding-bottom: 46px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+.hero .container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-height: 100%;
+  z-index: 10;
+}
+.hero__info {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   color: #FFFFFF;
   max-width: 676px;
 }
 @media (max-width: 1022px) {
-  .header__info {
+  .hero__info {
     max-width: 342px;
   }
 }
-.header__title {
+.hero__title {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 56px;
   line-height: 56px;
   margin-top: 106px;
 }
 @media (max-width: 1022px) {
-  .header__title {
+  .hero__title {
     margin-top: 44px;
     font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
     font-size: 32px;
@@ -887,22 +899,22 @@ body {
   }
 }
 @media (max-width: 340px) {
-  .header__title {
+  .hero__title {
     font-size: 28px;
     line-height: 32px;
   }
 }
-.header__subtitle {
+.hero__subtitle {
   margin-top: 23px;
 }
 @media (max-width: 1022px) {
-  .header__subtitle {
+  .hero__subtitle {
     margin-top: 20px;
     max-width: 271px;
   }
 }
 @media (max-width: 1022px) {
-  .header {
+  .hero {
     height: 480px;
     padding-top: 27px;
     padding-bottom: 40px;
