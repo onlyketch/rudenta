@@ -377,6 +377,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let callBackPhoneHaveError = false;
     let callBackCheckBoxHaveError = false;
     let callBackFormBodyOpen = false;
+    
+    //маска для телефона
+    let maskOptions = {
+        mask: '+{7} 000 000-00-00'
+    };
+    const mask = IMask(callBackInputPhone, maskOptions);
+    callBackInputPhone.addEventListener('focus', function() {
+        mask.value = '+7 ';
+    });
+    
+    
 
     for (let button of callBackFormBtns) {
             
@@ -444,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        if (callBackInputPhone.value == '' || isNaN(callBackInputPhone.value) || String(callBackInputPhone.value).length < 10) {
+        if (callBackInputPhone.value == '' || String(callBackInputPhone.value).length < 16) {
             callBackInputPhone.classList.add('error');
             callBackInputPhoneError.style.display = 'block';
             if (callBackPhoneHaveError == false) {
