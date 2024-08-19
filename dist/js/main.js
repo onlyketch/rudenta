@@ -473,13 +473,25 @@ document.addEventListener('DOMContentLoaded', function() {
         
         //success
         if (callBackNameHaveError == false && callBackPhoneHaveError == false && callBackCheckBoxHaveError == false) {
-            if (callBackFormBodyOpen) {
-                callBackFormBody.style.right = '-100%';
-                callBackFormBodyOpen = false;
-            }
-            callBackSuccess.style.right = '0';
-        } 
-    })
+
+            let form_data = $(this).serialize();
+            $.ajax({
+                type: "POST", 
+                url: "/send.php",
+                data: form_data,
+                success: function() {
+                    
+                    if (callBackFormBodyOpen) {
+                        callBackFormBody.style.right = '-100%';
+                        callBackFormBodyOpen = false;
+                    }
+                    callBackSuccess.style.right = '0';   
+                 
+                }
+           
+            });
+        }
+    });
 
     callBackSuccessClose.addEventListener('click', function() {
 
