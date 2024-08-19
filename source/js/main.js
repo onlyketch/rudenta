@@ -487,8 +487,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let form_data = $(this).serialize();
             $.ajax({
-                type: "POST", 
-                url: "../send.php",
+                type: "GET", 
+                url: "/",
                 data: form_data,
                 success: function() {
                     
@@ -509,13 +509,6 @@ document.addEventListener('DOMContentLoaded', function() {
         callBackSuccess.style.right = '-100%';
 
         setTimeout(function() {
-
-            // callBackInputName.classList.remove('error');
-            // callBackInputPhone.classList.remove('error');
-            // callBackInputNameError.style.display = 'none';
-            // callBackInputPhoneError.style.display = 'none';
-            // callBackInputCheckBoxError.style.display = 'none';
-
             callBackInputName.value = '';
             callBackInputPhone.value = '';
             callBackInputComment.value = '';
