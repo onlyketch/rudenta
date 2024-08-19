@@ -1,4 +1,4 @@
-<?
+<?php
         $to = "byketch@yandex.ru";
         $subject = 'Новая запись на прием';
         $message = '

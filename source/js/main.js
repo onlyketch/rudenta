@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let form_data = $(this).serialize();
             $.ajax({
                 type: "POST", 
-                url: "/send.php",
+                url: "../send.php",
                 data: form_data,
                 success: function() {
                     
