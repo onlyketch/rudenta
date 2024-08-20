@@ -10,6 +10,15 @@ body {
     overflow: hidden;
 }
 
+.main {
+    position: relative;
+    background-color: #50C8E6;
+    padding-top: 24px;
+    padding-bottom: 28px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
 #blurBG {
     position: absolute;
     z-index: 1;

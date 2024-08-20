@@ -1,0 +1,137 @@
+.contacts {
+    position: relative;
+    color: #FFFFFF;
+    margin-top: 230px;
+    z-index: 10;
+
+    &__wrapper {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+
+        @media (max-width: 1022px) {
+            flex-direction: column;
+        }
+    }
+
+    &__info {
+        max-width: 600px;
+        margin-right: 70px;
+
+        @media (max-width: 1022px) {
+            max-width: 342px;
+            margin-right: 0; 
+        }
+    }
+
+    &__page-name {
+        @media (max-width: 1022px) {
+            font-size: 16px;
+            line-height: 22px; 
+        }
+    }
+
+    &__title {
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 56px;
+        line-height: 56px;
+        margin-top: 106px;
+
+        @media (max-width: 1022px) {
+            margin-top: 44px;
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        @media (max-width: 340px) {
+            font-size: 28px;
+            line-height: 32px;
+        }
+    }
+
+    &__subtitle {
+        margin-top: 23px;
+
+        @media (max-width: 1022px) {
+            margin-top: 16px;
+            max-width: 271px;
+        }
+    }
+
+    &__contacts {
+        margin-right: 104px;
+        align-self: flex-end;
+
+        @media (max-width: 1180px) {
+            margin-right: 0;
+        }
+
+        @media (max-width: 1022px) {
+            flex-direction: column;
+            align-self: flex-start;
+            margin-top: 92px;
+        }
+    }
+
+    &__mail {
+    }
+
+    &__mail-link {
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        line-height: 28px;
+        color: #FFFFFF;
+        text-decoration: none;
+
+        @media (max-width: 1022px) {
+            font-size: 16px;
+            line-height: 20px; 
+        }
+    }
+
+    &__mail-sign {
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 4px;
+
+        @media (max-width: 1022px) {
+            margin-top: 8px;
+        }
+    }
+
+    &__phone {
+        margin-top: 45px;
+
+        @media (max-width: 1022px) {
+            margin-top: 24px;
+        }
+    }
+
+    &__phone-link {
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 40px;
+        line-height: 38px;
+        color: #FFFFFF;
+        text-decoration: none;
+
+        @media (max-width: 1180px) {
+            font-size: 32px;
+        }
+    }
+
+    &__phone-sign {
+        font-size: 12px;
+        line-height: 16px;
+        margin-top: 8px;
+
+        @media (max-width: 1022px) {
+            margin-top: 4px; 
+        }
+    }
+
+    @media (max-width: 1022px) {
+        margin-top: 107px;
+    }
+}
+
