@@ -1,0 +1,277 @@
+.clinics {
+    position: relative;
+    z-index: 10;
+    margin-top: 45px;
+
+    &__wrapper {
+        display: flex;
+        margin: 0 -10px;
+
+        @media (max-width: 1022px) {
+            flex-direction: column;
+        }
+    }
+
+    &__card { 
+        max-width: 445px;
+        padding: 24px 0;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background-color: #FFFFFF;
+        margin: 0 10px;
+        transition: all .5s ease-in-out;
+
+        &-header {
+            position: relative;
+            padding: 0 24px 20px 24px;
+        }
+
+        &-name {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000;
+            max-width: 222px;
+
+            @media (max-width: 1270px) {
+                font-size: 16px;
+                line-height: 20px; 
+            }
+        }
+
+        &-address {
+            margin-top: 8px;
+            margin-bottom: 24px;
+            color: #1E1E1E;
+
+            @media (max-width: 1270px) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        &-route-link {
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #42C8F8;
+            text-decoration: none;
+
+            @media (max-width: 1022px) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        &-logo {
+            position: absolute;
+            top: 0;
+            right: 24px;
+            width: 96px;
+            height: 96px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+
+            @media (max-width: 1270px) {
+                width: 76px;
+                height: 76px;
+            }
+
+            @media (max-width: 340px) {
+                width: 62px;
+                height: 62px;
+            }
+        }
+
+        &-slide-btn {
+            border: none;
+            outline: none;
+            appearance: none;
+            width: 12px;
+            height: 12px;
+            background-color: transparent;
+            background-image: url('../images/arrow-down-black.svg');
+            background-repeat: no-repeat;
+            background-size: 11px 6px;
+            background-position: center;
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            transition: all .3s ease-in-out;
+            visibility: hidden;
+
+            @media (max-width: 1022px) {
+                visibility: visible;
+            }
+        }
+
+
+        &-footer {
+            padding: 18px 24px 11px 24px;
+            border-top: 1px solid #E6E6E6;
+            height: auto;
+            transition: all .5s ease-in-out;
+
+            &-desc {
+                color: #1E1E1E;
+
+                @media (max-width: 1022px) {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+
+            @media (max-width: 1022px) {
+                //padding: 18px 24px 0 24px;
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 0;
+                padding-bottom: 0;
+                visibility: hidden;
+                opacity: 0;
+                overflow: hidden;
+                height: 0;
+            }
+        }
+
+        &-desc {
+        }
+
+        &-body {
+            border-top: 1px solid #E6E6E6;
+            padding: 24px 24px 40px 24px;
+            height: auto;
+            transition: all .5s ease-in-out;
+
+            @media (max-width: 1022px) {
+                padding-left: 24px;
+                padding-right: 24px;
+                padding-top: 0;
+                padding-bottom: 0;
+                visibility: hidden;
+                opacity: 0;
+                overflow: hidden;
+                height: 0;
+            }
+        }
+
+        &-metro {
+            min-height: 198px;
+        }
+
+        @media (max-width: 1022px) {
+            max-width: 100%;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+
+            &:last-child {
+                margin-bottom: 0; 
+            }
+        }
+    }
+
+    &__card-open {
+        padding-bottom: 24px;
+
+        .clinics__card-body {
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+
+        .clinics__card-footer {
+            padding-top: 18px;
+        }
+
+        .clinics__card-body, 
+        .clinics__card-footer {
+            visibility: visible;
+            opacity: 1;
+            overflow: visible;
+            height: auto;
+        }
+
+        .clinics__card-slide-btn {
+            transform: scaleY(-1);
+        }
+    }
+
+
+    &__card-station {
+        margin-bottom: 32px;
+
+        &:last-child {
+            margin-bottom: 0; 
+        }
+
+        &-name {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 20px;
+            color: #000;
+            display: flex;
+            align-items: center;
+
+            .bull {
+                margin-left: 8px;
+            }
+        }
+
+        &-desc {
+            font-size: 12px;
+            line-height: 16px;
+            color: #798088;
+            margin-top: 2px;
+            margin-bottom: 8px;
+        }
+
+        &-link {
+            font-size: 12px;
+            line-height: 16px;
+            color: #42C8F8;
+            text-decoration: none;
+        }
+    }
+
+    &__card-video {
+        display: flex;
+        align-items: center;
+        margin-top: 32px;
+        width: 100%;
+        max-width: 200px;
+        cursor: pointer;
+
+        picture {
+            height: 32px;
+        }
+
+        &-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        &-text {
+            margin-left: 8px;
+        }
+
+        &-title {
+            font-size: 12px;
+            line-height: 16px;
+            color: #42C8F8;
+        }
+
+        &-desc {
+            font-size: 12px;
+            line-height: 16px;
+            color: #1E1E1E;
+        }
+    }
+
+    @media (max-width: 1022px) {
+        margin-top: 34px;
+    }
+
+ 
+}

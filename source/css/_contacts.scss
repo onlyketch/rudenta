@@ -45,8 +45,8 @@
         }
 
         @media (max-width: 340px) {
-            font-size: 28px;
-            line-height: 32px;
+            font-size: 26px;
+            line-height: 30px;
         }
     }
 
@@ -64,7 +64,7 @@
         align-self: flex-end;
 
         @media (max-width: 1180px) {
-            margin-right: 0;
+            margin-right: 20px;
         }
 
         @media (max-width: 1022px) {
@@ -118,6 +118,10 @@
         @media (max-width: 1180px) {
             font-size: 32px;
         }
+
+        @media (max-width: 340px) {
+            font-size: 28px;
+        }
     }
 
     &__phone-sign {
@@ -134,4 +138,108 @@
         margin-top: 107px;
     }
 }
+
+.popup-video {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+
+    &__overlay {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    &__body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        max-width: 860px;
+        background-color: #FFFFFF;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        border-radius: 8px;
+        background: transparent;
+
+        .thumb-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: transparent;
+            
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border-width: 0;
+                outline-width: 0;
+            }
+        }
+    }
+
+    &__close {
+        position: absolute;
+        top: 32px;
+        right: 32px;
+        border: none;
+        outline: none;
+        appearance: none;
+        width: 44px;
+        height: 44px;
+        background-color: #F6F6F6;
+        border-radius: 8px;
+        background-image: url('../images/close.svg');
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: center;
+        cursor: pointer;
+    }
+}
+
+.map {
+    margin-top: 18px;
+
+    &__wrapper {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        min-height: 694px;
+        border-radius: 8px;
+        overflow: hidden;
+
+        [class*="copyrights-pane"] {
+            display: none !important;
+        }
+
+        .ymaps-2-1-79-image {
+            @media (max-width: 1022px) {
+                width: 76px !important;
+                height: 76px !important;
+                background-size: 76px 76px !important;
+            }
+        }
+
+        @media (max-width: 1022px) {
+            min-height: 584px;
+        }
+    }
+
+    @media (max-width: 1022px) {
+        margin-top: 27px;
+    }
+}
+.container {
+}
+
+
+
 
