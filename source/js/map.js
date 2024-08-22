@@ -21,7 +21,7 @@ function init() {
 
     let placemark3 = new ymaps.Placemark([55.78781656896963,37.519467499999976], {}, {
         iconLayout: 'default#image',
-        iconImageHref: '../images/logo-square-children.png',
+        iconImageHref: './images/logo-square-children.png',
         iconImageSize: [96, 96],
         iconImageOffset: [-40, -40]
     });
