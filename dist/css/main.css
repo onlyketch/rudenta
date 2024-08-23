@@ -613,7 +613,7 @@ body {
   }
 }
 .filters__link-active {
-  color: #202B39;
+  color: #202B39 !important;
 }
 .filters__link-active .bull-hod, .filters__link-active .bull-bel {
   opacity: 1;
