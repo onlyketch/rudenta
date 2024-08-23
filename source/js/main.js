@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if( window.innerWidth >= 1023 ) {
 
                 if (!callBackFormBodyOpen) {
+                    callBackFormBody.style.visibility = 'visible';
                     callBackFormBody.style.right = '0';
                     callBackFormBodyOpen = true;
                 }
@@ -69,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
 
                 if (!callBackFormBodyOpen) {
+                    callBackFormBody.style.visibility = 'visible';
                     callBackFormBody.style.bottom = '0';
                     callBackFormBodyOpen = true;
                 }
@@ -85,6 +87,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (callBackFormBodyOpen) {
                 callBackFormBody.style.right = '-100%';
                 callBackFormBodyOpen = false;
+                setTimeout(function() {
+                    callBackFormBody.style.visibility = 'hidden';
+                }, 500);
             }
 
         } else {
@@ -92,6 +97,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (callBackFormBodyOpen) {
                 callBackFormBody.style.bottom = '-100%';
                 callBackFormBodyOpen = false;
+                setTimeout(function() {
+                    callBackFormBody.style.visibility = 'hidden';
+                }, 500);
             }
         }
         
@@ -177,7 +185,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (callBackFormBodyOpen) {
                             callBackFormBody.style.right = '-100%';
                             callBackFormBodyOpen = false;
+                            setTimeout(function() {
+                                callBackFormBody.style.visibility = 'hidden';
+                            }, 500);
                         }
+                        callBackSuccess.style.visibility = 'visible';
                         callBackSuccess.style.right = '0'; 
 
                     } else {
@@ -185,7 +197,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (callBackFormBodyOpen) {
                             callBackFormBody.style.bottom = '-100%';
                             callBackFormBodyOpen = false;
+                            setTimeout(function() {
+                                callBackFormBody.style.visibility = 'hidden';
+                            }, 500);
                         }
+                        callBackSuccess.style.visibility = 'visible';
                         callBackSuccess.style.bottom = '0';
 
                     }
@@ -202,8 +218,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if( window.innerWidth >= 1023 ) {
             callBackSuccess.style.right = '-100%';
+            setTimeout(function() {
+                callBackSuccess.style.visibility = 'hidden';
+            }, 500);
         } else {
             callBackSuccess.style.bottom = '-100%';
+            setTimeout(function() {
+                callBackSuccess.style.visibility = 'hidden';
+            }, 500);
         }
 
 

@@ -217,6 +217,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     mobileFilterSpec.addEventListener('click', function() {
         if (!mobileSpecMenuOpen) {
+            mobileSpecMenu.style.visibility = 'visible';
             mobileSpecMenu.style.bottom = '0';
             mobileSpecMenuOpen = true;
         }
@@ -226,6 +227,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileSpecMenuOpen) {
             mobileSpecMenu.style.bottom = '-100%';
             mobileSpecMenuOpen = false;
+            setTimeout(function() {
+                mobileSpecMenu.style.visibility = 'hidden';
+            }, 500);
         }
     });
 
@@ -240,6 +244,9 @@ document.addEventListener('DOMContentLoaded', function() {
             mobSpecValueUpdate();
             mobileSpecMenu.style.bottom = '-100%';
             mobileSpecMenuOpen = false;
+            setTimeout(function() {
+                mobileSpecMenu.style.visibility = 'hidden';
+            }, 500);
         }
         mobileFiltersDefaultCheck();
     });
@@ -268,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     mobileFilterServ.addEventListener('click', function() {
         if (!mobileServMenuOpen) {
+            mobileServMenu.style.visibility = 'visible';
             mobileServMenu.style.bottom = '0';
             mobileServMenuOpen = true;
         }
@@ -277,6 +285,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileServMenuOpen) {
             mobileServMenu.style.bottom = '-100%';
             mobileServMenuOpen = false;
+            setTimeout(function() {
+                mobileServMenu.style.visibility = 'hidden';
+            }, 500);
         }
     });
 
@@ -291,6 +302,9 @@ document.addEventListener('DOMContentLoaded', function() {
             mobServValueUpdate();
             mobileServMenu.style.bottom = '-100%';
             mobileServMenuOpen = false;
+            setTimeout(function() {
+                mobileServMenu.style.visibility = 'hidden';
+            }, 500);
         }
         mobileFiltersDefaultCheck();
     });

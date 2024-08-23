@@ -42,6 +42,7 @@
 
     &__body { 
         right: -100%;
+        visibility: hidden;
 
         @media (max-width: 1022px) {
             right: 0;
@@ -51,6 +52,7 @@
 
     &__success {
         right: -100%;
+        visibility: hidden;
         
         &-title {
             font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
