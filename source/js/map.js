@@ -3,7 +3,7 @@ function init() {
     let map = new ymaps.Map('map', {
         center: [55.713295434756574,37.51002380151365],
         zoom: 11,
-        behaviors: ['multiTouch']
+        behaviors: ['multiTouch', 'drag', 'scrollZoom']
     });
 
     let placemark = new ymaps.Placemark([55.63650812635154, 37.54214756229784], {}, {
@@ -34,14 +34,14 @@ function init() {
     map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
     map.controls.remove('zoomControl'); // удаляем контрол зуммирования
     map.controls.remove('rulerControl'); // удаляем контрол правил
-    map.behaviors.disable(['scrollZoom']); // отключаем скролл карты (опционально)
 
     map.geoObjects.add(placemark);
     map.geoObjects.add(placemark2);
     map.geoObjects.add(placemark3);
 
-    if (window.innerWidth < 1023) {
-        map.behaviors.disable('drag').enable('multiTouch');
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        map.behaviors.disable('drag');
+        map.behaviors.enable('multiTouch');
     }
 }
 
