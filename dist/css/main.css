@@ -2740,14 +2740,19 @@ body {
 }
 .clinics__card {
   max-width: 445px;
-  padding: 24px 0;
+  padding: 24px 0 34px 0;
   border-radius: 8px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: #FFFFFF;
   margin: 0 10px;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .clinics__card-header {
   position: relative;
@@ -2783,6 +2788,11 @@ body {
   line-height: 20px;
   color: #42C8F8;
   text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.clinics__card-route-link:hover {
+  color: #0096CB;
 }
 @media (max-width: 1022px) {
   .clinics__card-route-link {
@@ -2839,11 +2849,10 @@ body {
   }
 }
 .clinics__card-footer {
-  padding: 18px 24px 11px 24px;
+  padding: 24px 24px 0 24px;
   border-top: 1px solid #E6E6E6;
   height: auto;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  margin-top: auto;
 }
 .clinics__card-footer-desc {
   color: #1E1E1E;
@@ -2868,10 +2877,8 @@ body {
 }
 .clinics__card-body {
   border-top: 1px solid #E6E6E6;
-  padding: 24px 24px 40px 24px;
+  padding: 24px;
   height: auto;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
 }
 @media (max-width: 1022px) {
   .clinics__card-body {
@@ -2884,9 +2891,6 @@ body {
     overflow: hidden;
     height: 0;
   }
-}
-.clinics__card-metro {
-  min-height: 198px;
 }
 @media (max-width: 1022px) {
   .clinics__card {
@@ -2906,7 +2910,7 @@ body {
   padding-bottom: 24px;
 }
 .clinics__card-open .clinics__card-footer {
-  padding-top: 18px;
+  padding-top: 24px;
 }
 .clinics__card-open .clinics__card-body,
 .clinics__card-open .clinics__card-footer {
@@ -2921,7 +2925,7 @@ body {
           transform: scaleY(-1);
 }
 .clinics__card-station {
-  margin-bottom: 32px;
+  margin-bottom: 26px;
 }
 .clinics__card-station:last-child {
   margin-bottom: 0;
@@ -2946,13 +2950,18 @@ body {
   line-height: 16px;
   color: #798088;
   margin-top: 2px;
-  margin-bottom: 8px;
+  margin-bottom: 1px;
 }
 .clinics__card-station-link {
   font-size: 12px;
   line-height: 16px;
   color: #42C8F8;
   text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.clinics__card-station-link:hover {
+  color: #0096CB;
 }
 .clinics__card-video {
   display: -webkit-box;
@@ -2961,17 +2970,15 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 32px;
+  margin-top: 156px;
   width: 100%;
   max-width: 200px;
   cursor: pointer;
 }
-.clinics__card-video picture {
-  height: 32px;
-}
-.clinics__card-video-icon {
-  width: 32px;
-  height: 32px;
+.clinics__card-video svg {
+  fill: #42C8F8;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 .clinics__card-video-text {
   margin-left: 8px;
@@ -2980,11 +2987,24 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: #42C8F8;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 .clinics__card-video-desc {
   font-size: 12px;
   line-height: 16px;
   color: #1E1E1E;
+}
+.clinics__card-video:hover svg {
+  fill: #0096CB;
+}
+.clinics__card-video:hover .clinics__card-video-title {
+  color: #0096CB;
+}
+@media (max-width: 1022px) {
+  .clinics__card-video {
+    margin-top: 32px;
+  }
 }
 @media (max-width: 1022px) {
   .clinics {

@@ -14,12 +14,14 @@
 
     &__card { 
         max-width: 445px;
-        padding: 24px 0;
+        padding: 24px 0 34px 0;
         border-radius: 8px;
         box-sizing: border-box;
         background-color: #FFFFFF;
         margin: 0 10px;
-        transition: all .5s ease-in-out;
+        //transition: all .5s ease-in-out;
+        display: flex;
+        flex-direction: column;
 
         &-header {
             position: relative;
@@ -56,6 +58,11 @@
             line-height: 20px;
             color: #42C8F8;
             text-decoration: none;
+            transition: color .3s ease-out;
+
+            &:hover {
+                color: #0096CB; 
+            }
 
             @media (max-width: 1022px) {
                 font-size: 12px;
@@ -110,10 +117,11 @@
 
 
         &-footer {
-            padding: 18px 24px 11px 24px;
+            padding: 24px 24px 0 24px;
             border-top: 1px solid #E6E6E6;
             height: auto;
-            transition: all .5s ease-in-out;
+            //transition: all .5s ease-in-out;
+            margin-top: auto;
 
             &-desc {
                 color: #1E1E1E;
@@ -142,9 +150,9 @@
 
         &-body {
             border-top: 1px solid #E6E6E6;
-            padding: 24px 24px 40px 24px;
+            padding: 24px;
             height: auto;
-            transition: all .5s ease-in-out;
+            //transition: all .5s ease-in-out;
 
             @media (max-width: 1022px) {
                 padding-left: 24px;
@@ -159,7 +167,7 @@
         }
 
         &-metro {
-            min-height: 198px;
+            
         }
 
         @media (max-width: 1022px) {
@@ -182,7 +190,7 @@
         }
 
         .clinics__card-footer {
-            padding-top: 18px;
+            padding-top: 24px;
         }
 
         .clinics__card-body, 
@@ -200,7 +208,7 @@
 
 
     &__card-station {
-        margin-bottom: 32px;
+        margin-bottom: 26px;
 
         &:last-child {
             margin-bottom: 0; 
@@ -224,7 +232,7 @@
             line-height: 16px;
             color: #798088;
             margin-top: 2px;
-            margin-bottom: 8px;
+            margin-bottom: 1px;
         }
 
         &-link {
@@ -232,24 +240,25 @@
             line-height: 16px;
             color: #42C8F8;
             text-decoration: none;
+            transition: color .3s ease-out;
+
+            &:hover {
+                color: #0096CB; 
+            }
         }
     }
 
     &__card-video {
         display: flex;
         align-items: center;
-        margin-top: 32px;
+        margin-top: 156px;
         width: 100%;
         max-width: 200px;
         cursor: pointer;
 
-        picture {
-            height: 32px;
-        }
-
-        &-icon {
-            width: 32px;
-            height: 32px;
+        svg {
+            fill:#42C8F8;
+            transition: all .3s ease-out;
         }
 
         &-text {
@@ -260,12 +269,25 @@
             font-size: 12px;
             line-height: 16px;
             color: #42C8F8;
+            transition: all .3s ease-out;
         }
 
         &-desc {
             font-size: 12px;
             line-height: 16px;
             color: #1E1E1E;
+        }
+
+        &:hover svg {
+            fill:#0096CB;
+        }
+
+        &:hover .clinics__card-video-title {
+            color: #0096CB;
+        }
+
+        @media (max-width: 1022px) {
+            margin-top: 32px;
         }
     }
 
