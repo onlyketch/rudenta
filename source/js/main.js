@@ -56,15 +56,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
         button.addEventListener('click', function() {
 
-            if( window.innerWidth > 1023 ) {
-
             callBackBox.style.visibility = 'visible';
             document.body.classList.add('body-overflow');
 
-            if (!callBackFormBodyOpen) {
-                callBackFormBody.style.right = '0';
-                callBackFormBodyOpen = true;
-            }
+            if( window.innerWidth >= 1023 ) {
+
+                if (!callBackFormBodyOpen) {
+                    callBackFormBody.style.right = '0';
+                    callBackFormBodyOpen = true;
+                }
+
+            } else {
+
+                if (!callBackFormBodyOpen) {
+                    callBackFormBody.style.bottom = '0';
+                    callBackFormBodyOpen = true;
+                }
 
             }
         });
@@ -72,12 +79,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     callBackFormClose.addEventListener('click', function() {
-        if (callBackFormBodyOpen) {
-            callBackFormBody.style.right = '-100%';
-            callBackFormBodyOpen = false;
+
+        if( window.innerWidth >= 1023 ) {
+
+            if (callBackFormBodyOpen) {
+                callBackFormBody.style.right = '-100%';
+                callBackFormBodyOpen = false;
+            }
+
+        } else {
+
+            if (callBackFormBodyOpen) {
+                callBackFormBody.style.bottom = '-100%';
+                callBackFormBodyOpen = false;
+            }
         }
-
-
+        
         setTimeout(function() {
 
             if (callBackNameHaveError || callBackPhoneHaveError || callBackCheckBoxHaveError) {
@@ -154,12 +171,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 url: "/",
                 data: form_data,
                 success: function() {
-                    
-                    if (callBackFormBodyOpen) {
-                        callBackFormBody.style.right = '-100%';
-                        callBackFormBodyOpen = false;
+
+                    if( window.innerWidth >= 1023 ) {
+
+                        if (callBackFormBodyOpen) {
+                            callBackFormBody.style.right = '-100%';
+                            callBackFormBodyOpen = false;
+                        }
+                        callBackSuccess.style.right = '0'; 
+
+                    } else {
+
+                        if (callBackFormBodyOpen) {
+                            callBackFormBody.style.bottom = '-100%';
+                            callBackFormBodyOpen = false;
+                        }
+                        callBackSuccess.style.bottom = '0';
+
                     }
-                    callBackSuccess.style.right = '0';   
+                    
+                      
                  
                 }
            
@@ -169,7 +200,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     callBackSuccessClose.addEventListener('click', function() {
 
-        callBackSuccess.style.right = '-100%';
+        if( window.innerWidth >= 1023 ) {
+            callBackSuccess.style.right = '-100%';
+        } else {
+            callBackSuccess.style.bottom = '-100%';
+        }
+
 
         setTimeout(function() {
             callBackInputName.value = '';

@@ -2128,6 +2128,11 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
 }
+@media (max-width: 1022px) {
+  .callback-form__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
 .callback-form__body, .callback-form__success {
   position: absolute;
   top: 0;
@@ -2135,16 +2140,33 @@ body {
   background-color: #FFFFFF;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: bottom 0.3s ease-out;
-  transition: bottom 0.3s ease-out;
   width: 49.305%;
   padding-top: 108px;
   padding-left: 114px;
   -webkit-transition: right 0.5s ease-out;
   transition: right 0.5s ease-out;
 }
+@media (max-width: 1022px) {
+  .callback-form__body, .callback-form__success {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 39px 24px 56px 24px;
+    border-radius: 20px 20px 0 0;
+    -webkit-transition: bottom 0.3s ease-out;
+    transition: bottom 0.3s ease-out;
+  }
+}
 .callback-form__body {
   right: -100%;
+}
+@media (max-width: 1022px) {
+  .callback-form__body {
+    right: 0;
+    bottom: -100%;
+  }
 }
 .callback-form__success {
   right: -100%;
@@ -2156,13 +2178,28 @@ body {
   color: #42C8F8;
   max-width: 439px;
 }
+@media (max-width: 1022px) {
+  .callback-form__success-title {
+    line-height: 50px;
+  }
+}
 .callback-form__success-subtitle {
   font-size: 16px;
   line-height: 22px;
   margin-top: 16px;
 }
+@media (max-width: 1022px) {
+  .callback-form__success-subtitle {
+    max-width: 180px;
+  }
+}
 .callback-form__success-group {
   margin-top: 84px;
+}
+@media (max-width: 1022px) {
+  .callback-form__success-group {
+    margin-top: 230px;
+  }
 }
 .callback-form__success-text {
   color: #798088;
@@ -2200,15 +2237,38 @@ body {
 .callback-form__success-social-item svg {
   fill: #FFFFFF;
 }
+@media (max-width: 1022px) {
+  .callback-form__success {
+    right: 0;
+    bottom: -100%;
+    padding-top: 100px;
+    padding-bottom: 62px;
+  }
+}
 .callback-form__title {
   font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
   font-size: 24px;
   line-height: 28px;
 }
+@media (max-width: 1022px) {
+  .callback-form__title {
+    font-family: "SF Pro Display Medium", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000;
+  }
+}
 .callback-form__form {
   max-width: 446px;
   border: 1px solid #FFFFFF;
   margin-top: 29px;
+}
+@media (max-width: 1022px) {
+  .callback-form__form {
+    margin-top: 23px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 .callback-form__form-group {
   display: -webkit-box;
@@ -2273,6 +2333,11 @@ body {
 .callback-form__form-group .error {
   border: 1px solid #E81D25;
 }
+@media (max-width: 1022px) {
+  .callback-form__form-group {
+    margin-top: 24px;
+  }
+}
 .callback-form__form-agreement {
   display: block;
   margin-top: 24px;
@@ -2306,6 +2371,11 @@ body {
           box-sizing: border-box;
   margin-right: 12px;
 }
+@media (max-width: 1022px) {
+  .callback-form__form-label > span {
+    max-width: 220px;
+  }
+}
 .callback-form__form-checkbox:checked + .callback-form__form-label::before {
   background-color: #42C8F8;
   background-image: url("../images/check.svg");
@@ -2326,6 +2396,11 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: #E81D25;
+}
+@media (max-width: 1022px) {
+  .callback-form__form-error {
+    margin-top: 4px;
+  }
 }
 .callback-form__form-submit {
   border: 1px solid #D2D7DF;
@@ -2357,6 +2432,14 @@ body {
   background-color: #42C8F8;
   background-image: url("../images/arrow-right-light.svg");
 }
+@media (max-width: 1022px) {
+  .callback-form__form-submit {
+    margin-top: 56px;
+    width: 100%;
+    max-width: 100%;
+    background-position: 65% center;
+  }
+}
 .callback-form__close, .callback-form__success-close {
   position: absolute;
   top: 32px;
@@ -2375,6 +2458,12 @@ body {
   background-size: 10px 10px;
   background-position: center;
   cursor: pointer;
+}
+@media (max-width: 1022px) {
+  .callback-form__close, .callback-form__success-close {
+    top: 24px;
+    right: 24px;
+  }
 }
 
 .contacts {
