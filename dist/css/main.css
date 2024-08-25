@@ -2641,7 +2641,7 @@ body {
   top: 50%;
   left: 50%;
   width: 100%;
-  max-width: 860px;
+  max-width: 920px;
   background-color: #FFFFFF;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -2666,11 +2666,12 @@ body {
   height: 100%;
   border-width: 0;
   outline-width: 0;
+  z-index: 600;
 }
 .popup-video__close {
   position: absolute;
-  top: 32px;
-  right: 32px;
+  top: 10px;
+  right: 10px;
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -2678,13 +2679,25 @@ body {
           appearance: none;
   width: 44px;
   height: 44px;
-  background-color: #F6F6F6;
+  background-color: #42C8F8;
   border-radius: 8px;
   background-image: url("../images/close.svg");
   background-repeat: no-repeat;
   background-size: 10px 10px;
   background-position: center;
   cursor: pointer;
+  z-index: 600;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+.popup-video__close:hover {
+  background-color: #0096CB;
+}
+@media (max-width: 1022px) {
+  .popup-video__close {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .map {

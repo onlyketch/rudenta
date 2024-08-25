@@ -19,7 +19,6 @@
         box-sizing: border-box;
         background-color: #FFFFFF;
         margin: 0 10px;
-        //transition: all .5s ease-in-out;
         display: flex;
         flex-direction: column;
 
@@ -120,7 +119,6 @@
             padding: 24px 24px 0 24px;
             border-top: 1px solid #E6E6E6;
             height: auto;
-            //transition: all .5s ease-in-out;
             margin-top: auto;
 
             &-desc {
@@ -133,7 +131,6 @@
             }
 
             @media (max-width: 1022px) {
-                //padding: 18px 24px 0 24px;
                 padding-left: 24px;
                 padding-right: 24px;
                 padding-top: 0;
@@ -152,7 +149,6 @@
             border-top: 1px solid #E6E6E6;
             padding: 24px;
             height: auto;
-            //transition: all .5s ease-in-out;
 
             @media (max-width: 1022px) {
                 padding-left: 24px;
