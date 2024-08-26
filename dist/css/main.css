@@ -2715,15 +2715,193 @@ body {
   display: none !important;
 }
 @media (max-width: 1022px) {
-  .map__wrapper .ymaps-2-1-79-image {
-    width: 76px !important;
-    height: 76px !important;
-    background-size: 76px 76px !important;
-  }
-}
-@media (max-width: 1022px) {
   .map__wrapper {
     min-height: 584px;
+  }
+}
+.map__close {
+  position: absolute;
+  top: 0px;
+  right: 24px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 44px;
+  height: 44px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  background-image: url("../images/close.svg");
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: center;
+  cursor: pointer;
+}
+.map__card {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  max-width: 445px;
+  padding: 24px 0 34px 0;
+  border-radius: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: rgba(239, 239, 239, 0.65);
+  -webkit-backdrop-filter: blur(41px);
+          backdrop-filter: blur(41px);
+  margin: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 100;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+.map__card-visible {
+  visibility: visible;
+  opacity: 1;
+}
+.map__card-header {
+  position: relative;
+  padding: 0 24px 20px 24px;
+}
+.map__card-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000;
+  max-width: 222px;
+}
+@media (max-width: 1270px) {
+  .map__card-name {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.map__card-address {
+  margin-top: 8px;
+  margin-bottom: 24px;
+  color: #1E1E1E;
+}
+@media (max-width: 1270px) {
+  .map__card-address {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.map__card-route-link {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #42C8F8;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.map__card-route-link:hover {
+  color: #0096CB;
+}
+.map__card-footer {
+  padding: 24px 24px 0 24px;
+  border-top: 1px solid #E6E6E6;
+  height: auto;
+  margin-top: auto;
+}
+.map__card-footer-desc {
+  color: #1E1E1E;
+}
+.map__card-body {
+  border-top: 1px solid #E6E6E6;
+  padding: 24px;
+  height: auto;
+}
+.map__card-station {
+  margin-bottom: 26px;
+}
+.map__card-station:last-child {
+  margin-bottom: 0;
+}
+.map__card-station-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.map__card-station-name .bull {
+  margin-left: 8px;
+}
+.map__card-station-desc {
+  font-size: 12px;
+  line-height: 16px;
+  color: #798088;
+  margin-top: 2px;
+  margin-bottom: 1px;
+}
+.map__card-station-link {
+  font-size: 12px;
+  line-height: 16px;
+  color: #42C8F8;
+  text-decoration: none;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.map__card-station-link:hover {
+  color: #0096CB;
+}
+.map__card-video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 156px;
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+}
+.map__card-video svg {
+  fill: #42C8F8;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.map__card-video-text {
+  margin-left: 8px;
+}
+.map__card-video-title {
+  font-size: 12px;
+  line-height: 16px;
+  color: #42C8F8;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.map__card-video-desc {
+  font-size: 12px;
+  line-height: 16px;
+  color: #1E1E1E;
+}
+.map__card-video:hover svg {
+  fill: #0096CB;
+}
+.map__card-video:hover .map__card-video-title {
+  color: #0096CB;
+}
+@media (max-width: 1022px) {
+  .map__card {
+    display: none;
   }
 }
 @media (max-width: 1022px) {

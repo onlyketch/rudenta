@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
        //Поп-ап видео
    
        let clinicVideoArea = document.querySelector('.clinics__card-video');
+       let mapVideoArea = document.querySelector('.map__card-video');
        let popUpVideo = document.querySelector('.popup-video');
        let popUpVideoOverlay = document.querySelector('.popup-video__overlay');
        let popUpVideoClose = document.querySelector('.popup-video__close');
@@ -25,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function() {
            document.body.classList.add('body-overflow');
            popUpVideoIframe.setAttribute('src', video_url);
        });
+
+       mapVideoArea.addEventListener('click', function() {
+            popUpVideo.style.visibility = 'visible';
+            document.body.classList.add('body-overflow');
+            popUpVideoIframe.setAttribute('src', video_url);
+        });
    
        popUpVideoClose.addEventListener('click', function() {
            popUpVideo.style.visibility = 'hidden';

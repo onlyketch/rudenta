@@ -232,17 +232,196 @@
             display: none !important;
         }
 
-        .ymaps-2-1-79-image {
-            @media (max-width: 1022px) {
-                width: 76px !important;
-                height: 76px !important;
-                background-size: 76px 76px !important;
-            }
-        }
-
         @media (max-width: 1022px) {
             min-height: 584px;
         }
+    }
+
+    &__close {
+        position: absolute;
+        top: 0px;
+        right: 24px;
+        border: none;
+        outline: none;
+        appearance: none;
+        width: 44px;
+        height: 44px;
+        background-color: #FFFFFF;
+        border-radius: 8px;
+        background-image: url('../images/close.svg');
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: center;
+        cursor: pointer;
+    }
+
+    &__card {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 24px;
+        left: 24px; 
+        max-width: 445px;
+        padding: 24px 0 34px 0;
+        border-radius: 8px;
+        box-sizing: border-box;
+        background: rgba(239, 239, 239, 0.65);
+        backdrop-filter: blur(41px);
+        margin: 0 10px;
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        transition: all .4s ease-out;
+
+        &-visible {
+            visibility: visible;
+            opacity: 1; 
+        }
+
+        &-header {
+            position: relative;
+            padding: 0 24px 20px 24px;
+        }
+
+        &-name {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000;
+            max-width: 222px;
+
+            @media (max-width: 1270px) {
+                font-size: 16px;
+                line-height: 20px; 
+            }
+        }
+
+        &-address {
+            margin-top: 8px;
+            margin-bottom: 24px;
+            color: #1E1E1E;
+
+            @media (max-width: 1270px) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+
+        &-route-link {
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #42C8F8;
+            text-decoration: none;
+            transition: color .3s ease-out;
+
+            &:hover {
+                color: #0096CB; 
+            }
+        }
+
+        &-footer {
+            padding: 24px 24px 0 24px;
+            border-top: 1px solid #E6E6E6;
+            height: auto;
+            margin-top: auto;
+
+            &-desc {
+                color: #1E1E1E;
+            }
+        }
+
+        &-body {
+            border-top: 1px solid #E6E6E6;
+            padding: 24px;
+            height: auto;
+        }
+
+        &-station {
+            margin-bottom: 26px;
+    
+            &:last-child {
+                margin-bottom: 0; 
+            }
+    
+            &-name {
+                font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+                font-size: 16px;
+                line-height: 20px;
+                color: #000;
+                display: flex;
+                align-items: center;
+    
+                .bull {
+                    margin-left: 8px;
+                }
+            }
+    
+            &-desc {
+                font-size: 12px;
+                line-height: 16px;
+                color: #798088;
+                margin-top: 2px;
+                margin-bottom: 1px;
+            }
+    
+            &-link {
+                font-size: 12px;
+                line-height: 16px;
+                color: #42C8F8;
+                text-decoration: none;
+                transition: color .3s ease-out;
+    
+                &:hover {
+                    color: #0096CB; 
+                }
+            }
+        }
+    
+        &-video {
+            display: flex;
+            align-items: center;
+            margin-top: 156px;
+            width: 100%;
+            max-width: 200px;
+            cursor: pointer;
+    
+            svg {
+                fill:#42C8F8;
+                transition: all .3s ease-out;
+            }
+    
+            &-text {
+                margin-left: 8px;
+            }
+    
+            &-title {
+                font-size: 12px;
+                line-height: 16px;
+                color: #42C8F8;
+                transition: all .3s ease-out;
+            }
+    
+            &-desc {
+                font-size: 12px;
+                line-height: 16px;
+                color: #1E1E1E;
+            }
+    
+            &:hover svg {
+                fill:#0096CB;
+            }
+    
+            &:hover .map__card-video-title {
+                color: #0096CB;
+            }
+    
+        }
+
+        @media (max-width: 1022px) {
+            display: none;
+        }
+
     }
 
     @media (max-width: 1022px) {
