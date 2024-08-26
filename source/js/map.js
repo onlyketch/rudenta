@@ -9,21 +9,21 @@ function init() {
 
     let placemark = new ymaps.Placemark([55.63650812635154, 37.54214756229784], {}, {
         iconLayout: 'default#image',
-        iconImageHref: './images/logo-square.png',
+        iconImageHref: './images/pls-logo-square.png',
         iconImageSize: [57, 57],
         iconImageOffset: [-40, -40]
     });
 
     let placemark2 = new ymaps.Placemark([55.78728506893848,37.519808499999975], {}, {
         iconLayout: 'default#image',
-        iconImageHref: './images/logo-square.png',
+        iconImageHref: './images/pls-logo-square.png',
         iconImageSize: [57, 57],
         iconImageOffset: [-40, -40]
     });
 
     let placemark3 = new ymaps.Placemark([55.78781656896963,37.519467499999976], {}, {
         iconLayout: 'default#image',
-        iconImageHref: './images/logo-square-children.png',
+        iconImageHref: './images/pls-logo-square-children.png',
         iconImageSize: [57, 57],
         iconImageOffset: [-40, -40]
     });
