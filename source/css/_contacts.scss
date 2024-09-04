@@ -424,10 +424,70 @@
 
     }
 
+    &__baloon {
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        width: 280px;
+        box-sizing: border-box;
+        padding: 12px;
+        background: rgba(253, 253, 253, 0.45);
+        backdrop-filter: blur(16px);
+        border-radius: 16px;
+        z-index: 100;
+
+        &-wrapper {
+            display: flex;
+
+        }
+
+        &-logo {
+            width: 57px;
+            height: 57px;
+            flex-shrink: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &-info {
+            margin-left: 12px;
+        }
+
+        &-title {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 15px;
+            color: #000;
+        }
+
+        &-address, &-metro {
+            font-size: 12px;
+            line-height: 16px;
+            color: #1E1E1E;
+        }
+
+        &-address {
+            margin-top: 4px;
+        }
+
+        &-metro {
+            display: flex;
+            align-items: center;
+
+            .bull-hod {
+                margin-left: 4px;
+            }
+        }
+    }
+
     @media (max-width: 1022px) {
         margin-top: 27px;
     }
 }
+
 
 
 
