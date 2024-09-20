@@ -1515,7 +1515,6 @@ body {
   font-size: 16px;
   line-height: 20px;
   color: #232323;
-  max-width: 190px;
 }
 @media (max-width: 1022px) {
   .doctors__info-name {
@@ -1534,6 +1533,7 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: #798088;
+  max-width: 240px;
 }
 @media (max-width: 1380px) {
   .doctors__info-spec {
