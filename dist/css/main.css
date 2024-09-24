@@ -466,9 +466,8 @@ body {
 .hero {
   position: relative;
   background-color: #50C8E6;
-  height: 584px;
   padding-top: 24px;
-  padding-bottom: 46px;
+  padding-bottom: 36px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   overflow: hidden;
@@ -485,25 +484,46 @@ body {
   z-index: 10;
 }
 .hero__info {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   color: #FFFFFF;
   max-width: 676px;
+  margin-top: 184px;
 }
 @media (max-width: 1022px) {
   .hero__info {
+    margin-top: 100px;
     max-width: 342px;
   }
+}
+.hero__page-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.hero__page-name .bull-white {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-right: 12px;
 }
 .hero__title {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 56px;
   line-height: 56px;
-  margin-top: 106px;
+  margin-top: 160px;
 }
 @media (max-width: 1022px) {
   .hero__title {
-    margin-top: 44px;
+    margin-top: 80px;
     font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
     font-size: 32px;
     line-height: 36px;
@@ -516,19 +536,18 @@ body {
   }
 }
 .hero__subtitle {
-  margin-top: 23px;
+  margin-top: 24px;
 }
 @media (max-width: 1022px) {
   .hero__subtitle {
-    margin-top: 20px;
+    margin-top: 16px;
     max-width: 271px;
   }
 }
 @media (max-width: 1022px) {
   .hero {
-    height: 480px;
     padding-top: 27px;
-    padding-bottom: 40px;
+    padding-bottom: 36px;
   }
 }
 
@@ -2527,7 +2546,7 @@ body {
 .contacts {
   position: relative;
   color: #FFFFFF;
-  margin-top: 230px;
+  margin-top: 184px;
   z-index: 10;
 }
 .contacts__wrapper {
@@ -2557,21 +2576,36 @@ body {
     margin-right: 0;
   }
 }
-@media (max-width: 1022px) {
-  .contacts__page-name {
-    font-size: 16px;
-    line-height: 22px;
-  }
+.contacts__page-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.contacts__page-name .bull-white {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  margin-right: 12px;
 }
 .contacts__title {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 56px;
   line-height: 56px;
-  margin-top: 106px;
+  margin-top: 160px;
 }
 @media (max-width: 1022px) {
   .contacts__title {
-    margin-top: 44px;
+    margin-top: 80px;
     font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
     font-size: 32px;
     line-height: 36px;
@@ -2610,7 +2644,8 @@ body {
             flex-direction: column;
     -ms-flex-item-align: start;
         align-self: flex-start;
-    margin-top: 92px;
+    margin-top: 36px;
+    margin-right: 0;
   }
 }
 .contacts__mail-link {
@@ -2630,10 +2665,11 @@ body {
   font-size: 12px;
   line-height: 16px;
   margin-top: 4px;
+  color: #CFEBF5;
 }
 @media (max-width: 1022px) {
   .contacts__mail-sign {
-    margin-top: 8px;
+    margin-top: 0;
   }
 }
 .contacts__phone {
@@ -2641,7 +2677,7 @@ body {
 }
 @media (max-width: 1022px) {
   .contacts__phone {
-    margin-top: 24px;
+    margin-top: 12px;
   }
 }
 .contacts__phone-link {
@@ -2656,19 +2692,21 @@ body {
     font-size: 32px;
   }
 }
-@media (max-width: 340px) {
+@media (max-width: 1022px) {
   .contacts__phone-link {
-    font-size: 28px;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 .contacts__phone-sign {
   font-size: 12px;
   line-height: 16px;
   margin-top: 8px;
+  color: #CFEBF5;
 }
 @media (max-width: 1022px) {
   .contacts__phone-sign {
-    margin-top: 4px;
+    margin-top: 0;
   }
 }
 @media (max-width: 1022px) {
@@ -3017,6 +3055,11 @@ body {
   margin-left: 4px;
 }
 @media (max-width: 1022px) {
+  .map__baloon {
+    display: none;
+  }
+}
+@media (max-width: 1022px) {
   .map {
     margin-top: 27px;
   }
@@ -3025,7 +3068,7 @@ body {
 .clinics {
   position: relative;
   z-index: 10;
-  margin-top: 45px;
+  margin-top: 36px;
 }
 .clinics__wrapper {
   display: -webkit-box;
@@ -3311,6 +3354,6 @@ body {
 }
 @media (max-width: 1022px) {
   .clinics {
-    margin-top: 34px;
+    margin-top: 16px;
   }
 }

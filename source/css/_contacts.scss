@@ -1,7 +1,7 @@
 .contacts {
     position: relative;
     color: #FFFFFF;
-    margin-top: 230px;
+    margin-top: 184px;
     z-index: 10;
 
     &__wrapper {
@@ -25,9 +25,21 @@
     }
 
     &__page-name {
-        @media (max-width: 1022px) {
-            font-size: 16px;
-            line-height: 22px; 
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        line-height: 22px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+
+        .bull-white {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            margin-right: 12px;
         }
     }
 
@@ -35,10 +47,10 @@
         font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 56px;
         line-height: 56px;
-        margin-top: 106px;
+        margin-top: 160px;
 
         @media (max-width: 1022px) {
-            margin-top: 44px;
+            margin-top: 80px;
             font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
             font-size: 32px;
             line-height: 36px;
@@ -70,7 +82,8 @@
         @media (max-width: 1022px) {
             flex-direction: column;
             align-self: flex-start;
-            margin-top: 92px;
+            margin-top: 36px;
+            margin-right: 0;
         }
     }
 
@@ -94,9 +107,10 @@
         font-size: 12px;
         line-height: 16px;
         margin-top: 4px;
+        color: #CFEBF5;
 
         @media (max-width: 1022px) {
-            margin-top: 8px;
+            margin-top: 0;
         }
     }
 
@@ -104,7 +118,7 @@
         margin-top: 45px;
 
         @media (max-width: 1022px) {
-            margin-top: 24px;
+            margin-top: 12px;
         }
     }
 
@@ -119,8 +133,9 @@
             font-size: 32px;
         }
 
-        @media (max-width: 340px) {
-            font-size: 28px;
+        @media (max-width: 1022px) {
+            font-size: 16px;
+            line-height: 20px;
         }
     }
 
@@ -128,9 +143,10 @@
         font-size: 12px;
         line-height: 16px;
         margin-top: 8px;
+        color: #CFEBF5;
 
         @media (max-width: 1022px) {
-            margin-top: 4px; 
+            margin-top: 0; 
         }
     }
 
@@ -480,6 +496,10 @@
             .bull-hod {
                 margin-left: 4px;
             }
+        }
+
+        @media (max-width: 1022px) {
+            display: none;
         }
     }
 

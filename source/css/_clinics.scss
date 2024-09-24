@@ -1,7 +1,7 @@
 .clinics {
     position: relative;
     z-index: 10;
-    margin-top: 45px;
+    margin-top: 36px;
 
     &__wrapper {
         display: flex;
@@ -288,7 +288,7 @@
     }
 
     @media (max-width: 1022px) {
-        margin-top: 34px;
+        margin-top: 16px;
     }
 
  
