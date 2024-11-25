@@ -3959,10 +3959,5 @@ body {
 
 .prices-container {
   position: relative;
-  z-index: 20;
-}
-@media (max-width: 1023px) {
-  .prices-container {
-    position: relative;
-  }
+  z-index: 10;
 }
