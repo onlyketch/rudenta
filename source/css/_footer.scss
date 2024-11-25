@@ -1,7 +1,9 @@
 .footer {
+    position: relative;
     background-color: #080F1A;
     padding-top: 44px;
     padding-bottom: 65px;
+    z-index: 20;
 
     &__container {
         max-width: 1186px;
