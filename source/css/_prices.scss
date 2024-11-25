@@ -6,7 +6,7 @@
     position: relative;
     color: #FFFFFF;
     margin-top: 184px;
-    z-index: 10;
+    z-index: 20;
 
     &__wrapper {
         display: flex;
@@ -45,6 +45,12 @@
     &__benefits {
         width: 100%;
         max-width: 445px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         @media (max-width: 1023px) {
             overflow-x: auto;
@@ -205,12 +211,22 @@
 
         &:hover {
             color: #42C8F8;
+
+            @media (max-width: 1023px) {
+                color: #202B39;
+            }
         }
 
         &:hover::after {
             background-image: url('../images/arrow-right-light.svg');
             background-color: #42C8F8;
             border: 1px solid #42C8F8;
+
+            @media (max-width: 1023px) {
+                background-image: url('../images/arrow-right-dark.svg');
+                background-color: transparent;
+                border: 1px solid #D9DAE4;
+            }
         }
 
         @media (max-width: 1259px) {
@@ -326,7 +342,7 @@
             padding-bottom: 40px;
 
             &.border-none {
-                border-bottom: 1px solid transparent; 
+                border-bottom: 1px solid transparent !important; 
             }
         }
 
@@ -411,7 +427,16 @@
                 background-image: url('../images/arrow-right-blue.svg');
                 background-repeat: no-repeat;
                 background-size: 8px 6px;
-                background-position: center;       
+                background-position: center;
+                
+                @media (max-width: 1023px) {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 1023px) {
+                visibility: visible;
+                right: 0;
             }
         }
 
@@ -472,10 +497,18 @@
 
         &:hover {
             background-color: #F7F8FA;
+
+            @media (max-width: 1023px) {
+                background-color: transparent;
+            }
         }
 
         &:hover &-wrap {
             border-bottom: 1px solid #F7F8FA;
+
+            @media (max-width: 1023px) {
+                border-bottom: 1px solid #D9DAE4;
+            }
         }
 
         &:hover &-more {
@@ -502,6 +535,8 @@
 }
 
 .prices-container {
+    position: relative;
+    z-index: 20;
     @media (max-width: 1023px) {
         position: relative;
     } 

@@ -3367,7 +3367,7 @@ body {
   position: relative;
   color: #FFFFFF;
   margin-top: 184px;
-  z-index: 10;
+  z-index: 20;
 }
 .prices__wrapper {
   display: -webkit-box;
@@ -3418,6 +3418,11 @@ body {
 .prices__benefits {
   width: 100%;
   max-width: 445px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.prices__benefits::-webkit-scrollbar {
+  display: none;
 }
 @media (max-width: 1023px) {
   .prices__benefits {
@@ -3604,10 +3609,22 @@ body {
 .prices__services-title:hover {
   color: #42C8F8;
 }
+@media (max-width: 1023px) {
+  .prices__services-title:hover {
+    color: #202B39;
+  }
+}
 .prices__services-title:hover::after {
   background-image: url("../images/arrow-right-light.svg");
   background-color: #42C8F8;
   border: 1px solid #42C8F8;
+}
+@media (max-width: 1023px) {
+  .prices__services-title:hover::after {
+    background-image: url("../images/arrow-right-dark.svg");
+    background-color: transparent;
+    border: 1px solid #D9DAE4;
+  }
 }
 @media (max-width: 1259px) {
   .prices__services-title {
@@ -3732,7 +3749,7 @@ body {
   padding-bottom: 40px;
 }
 .prices__services-item-wrap.border-none {
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid transparent !important;
 }
 .prices__services-item-head {
   display: -webkit-box;
@@ -3837,6 +3854,17 @@ body {
   background-size: 8px 6px;
   background-position: center;
 }
+@media (max-width: 1023px) {
+  .prices__services-item-more::after {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .prices__services-item-more {
+    visibility: visible;
+    right: 0;
+  }
+}
 .prices__services-item-promo-text {
   display: none;
   -webkit-box-align: center;
@@ -3892,8 +3920,18 @@ body {
 .prices__services-item:hover {
   background-color: #F7F8FA;
 }
+@media (max-width: 1023px) {
+  .prices__services-item:hover {
+    background-color: transparent;
+  }
+}
 .prices__services-item:hover .prices__services-item-wrap {
   border-bottom: 1px solid #F7F8FA;
+}
+@media (max-width: 1023px) {
+  .prices__services-item:hover .prices__services-item-wrap {
+    border-bottom: 1px solid #D9DAE4;
+  }
 }
 .prices__services-item:hover .prices__services-item-more {
   visibility: visible;
@@ -3919,6 +3957,10 @@ body {
   }
 }
 
+.prices-container {
+  position: relative;
+  z-index: 20;
+}
 @media (max-width: 1023px) {
   .prices-container {
     position: relative;
