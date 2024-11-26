@@ -6,7 +6,11 @@
     position: relative;
     color: #FFFFFF;
     margin-top: 184px;
-    z-index: 20;
+    z-index: 10;
+
+    &__box {
+        overflow: hidden;
+    }
 
     &__wrapper {
         display: flex;
@@ -523,7 +527,7 @@
 
     @media (max-width: 1023px) {
         margin-top: 104px;
-        overflow-x: hidden;
+        //overflow-x: hidden;
     }
 }
 
@@ -532,11 +536,6 @@
     @media (max-width: 1023px) {
         padding: 0;
     }
-}
-
-.prices-container {
-    position: relative;
-    z-index: 10;
 }
 
 

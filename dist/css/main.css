@@ -3367,7 +3367,10 @@ body {
   position: relative;
   color: #FFFFFF;
   margin-top: 184px;
-  z-index: 20;
+  z-index: 10;
+}
+.prices__box {
+  overflow: hidden;
 }
 .prices__wrapper {
   display: -webkit-box;
@@ -3944,7 +3947,6 @@ body {
 @media (max-width: 1023px) {
   .prices {
     margin-top: 104px;
-    overflow-x: hidden;
   }
 }
 
@@ -3955,9 +3957,4 @@ body {
   .area-container {
     padding: 0;
   }
-}
-
-.prices-container {
-  position: relative;
-  z-index: 10;
 }
