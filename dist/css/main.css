@@ -4075,6 +4075,24 @@ body {
 .reviews__opinion-btn:hover {
   background-color: #0096CB;
 }
+.reviews__filter-btn-mob {
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 8px;
+  background-color: #F7F8FA;
+  padding: 23px;
+  font-family: "Onest Medium", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 14px;
+  color: #202B39;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  display: none;
+}
 .reviews__content {
   margin-top: 93px;
   display: -webkit-box;
@@ -4093,6 +4111,7 @@ body {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   min-width: 329px;
+  margin-right: 80px;
   z-index: 50;
 }
 .reviews__filters .reviews__opinion-btn {
@@ -4843,6 +4862,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .reviews__resources-item {
   position: relative;
@@ -4862,10 +4884,6 @@ body {
   transition: all 0.3s ease-out;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  margin-right: 20px;
-}
-.reviews__resources-item:last-child {
-  margin-right: 0;
 }
 .reviews__resources-item:hover {
   background-color: #EDEFF2;
@@ -4965,6 +4983,35 @@ body {
 }
 .resources-panel__items {
   margin-top: 46px;
+}
+.resources-panel__item {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #F7F8FA;
+  min-width: 271px;
+  height: 198px;
+  padding: 24px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 20px;
+}
+.resources-panel__item:last-child {
+  margin-right: 0;
+}
+.resources-panel__item:hover {
+  background-color: #EDEFF2;
+}
+.resources-panel__item:hover .resources-panel__item-arrow {
+  opacity: 1;
 }
 .resources-panel__row {
   display: -webkit-box;
