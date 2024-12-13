@@ -256,14 +256,14 @@
     }
 
     &__filters-reset,
-    &__resources-btn-all {
+    &__resources-btn-all,
+    &__resources-btn-all-mob {
         border: none;
         outline: none;
         background: transparent;
         appearance: none;
         cursor: pointer;
         font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
-        color: #FFFFFF;
         font-size: 14px;
         line-height: 20px;
         color: #42C8F8;
@@ -272,6 +272,25 @@
 
         &:hover {
             color: #0096CB;
+        }
+    }
+
+    &__resources-btn-all {
+        @media (max-width: 739px) {
+            display: none;
+        }
+    }
+
+    &__resources-btn-all-mob {
+        display: none;
+        margin-top: 28px;
+
+        &:hover {
+            color: #42C8F8;
+        }
+
+        @media (max-width: 739px) {
+            display: block;
         }
     }
 
@@ -1051,14 +1070,28 @@
         color: #202B39;
         margin-right: 8px;
 
-        &:last-child {
-            margin-right: 0; 
-        }
-
         &.active {
             border: 1px solid #42C8F8;
             background-color: #42C8F8;
             color: #FFFFFF;
+        }
+
+        &:nth-child(5),
+        &:nth-child(6),
+        &:nth-child(7) {
+            @media (max-width: 739px) {
+                display: none;
+            }
+        }
+
+        &:nth-child(4) {
+            @media (max-width: 739px) {
+                margin-right: 0;
+            }
+        }
+
+        &:last-child {
+            margin-right: 0; 
         }
     }
 
@@ -1143,6 +1176,11 @@
                 margin-bottom: 0;
             }
         }
+
+        @media (max-width: 739px) {
+            flex-direction: column;
+            align-items: stretch;
+        }
     }
 
     &__resources-item {
@@ -1162,6 +1200,10 @@
 
         &:last-child {
             margin-right: 0;
+
+            @media (max-width: 739px) {
+                margin-bottom: 0;
+            }
         }
 
         &:hover {
@@ -1174,6 +1216,12 @@
 
         @media (max-width: 1439px) {
             flex: 1 1 50%;
+        }
+
+        @media (max-width: 739px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+            flex: 1 0 auto;
         }
     }
 
@@ -1221,6 +1269,10 @@
         justify-content: center;
         opacity: 0;
         transition: all .3s ease-out;
+
+        @media (max-width: 739px) {
+            opacity: 1; 
+        }
     }
     
     @media (max-width: 739px) {
