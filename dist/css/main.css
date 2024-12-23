@@ -1548,7 +1548,8 @@ body {
   line-height: 14px;
   color: #767D86;
 }
-.reviews-mob-filters-menu__submit {
+.reviews-mob-filters-menu__submit,
+.reviews-mob-filters-menu .reviews-mob-services-menu__submit {
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -1725,9 +1726,20 @@ body {
 }
 .reviews-mob-filters-menu .reviews-mob-services-menu__group:last-child {
   margin-bottom: 0;
+  border-bottom: none;
 }
 .reviews-mob-filters-menu .reviews-mob-services-menu__group-checkboxes {
   margin-left: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 .reviews-mob-filters-menu .reviews-mob-services-menu__group-checkbox input {
   position: absolute;

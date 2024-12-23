@@ -847,7 +847,8 @@
         }
     }
 
-    &__submit {
+    &__submit,
+    .reviews-mob-services-menu__submit {
         border: none;
         outline: none;
         appearance: none;
@@ -992,11 +993,15 @@
             margin-bottom: 8px;
 
             &:last-child {
-                margin-bottom: 0; 
+                margin-bottom: 0;
+                border-bottom: none; 
             }
 
             &-checkboxes {
                 margin-left: 28px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             &-checkbox {
@@ -1052,6 +1057,10 @@
             &-input {}
 
 		}
+
+        &__submit {
+
+        }
 
     }
 
