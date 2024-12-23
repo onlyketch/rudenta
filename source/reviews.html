@@ -115,7 +115,7 @@
                             <div class="reviews__filters-item service">
                                 <div class="reviews__filters-item-name">Услуга</div>
                                 <div class="reviews__filters-item-val">
-                                    <input name="service-name" id="service-val" value="" readonly placeholder="Выберите" class="reviews__filters-item-value">
+                                    <input name="service-name" id="service-val" value="" placeholder="Выберите" class="reviews__filters-item-value" readonly>
                                 </div>
 
                                 <div class="reviews__filters-item-dropdown serv">
@@ -1040,16 +1040,7 @@
         
     </div>    
     
-    
-
-
-
-
-
-
-
-
-
+ 
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__row">
@@ -1222,8 +1213,195 @@
 
     <div class="btn-up btn-up_hide"></div>
 
+    <div class="reviews-mob-filters-menu">
+        <div class="reviews-mob-filters-menu__overlay"></div>
+        <div class="reviews-mob-filters-menu__body">
+            <div class="reviews-mob-filters-menu__header">
+                <div class="reviews-mob-filters-menu__title">Фильтры</div>
+                <div class="reviews-mob-filters-menu__reset">Сбросить</div>
+                <div class="reviews-mob-filters-menu__close"></div>
+            </div>
+            <div class="reviews-mob-filters-menu__items">
+                <div class="reviews-mob-filters-menu__item">
+                    <div class="reviews-mob-filters-menu__item-name">Клиника</div>
+                    <div class="reviews-mob-filters-menu__item-values">
+                        <div class="reviews-mob-filters-menu__item-value active">
+                            Все
+                            <div class="bull-area"> 
+                                <div class="bull-hod bull"></div>
+                                <div class="bull-bel bull"></div>
+                            </div>
+                        </div>
+                        <div class="reviews-mob-filters-menu__item-value">
+                            На ходынке
+                            <div class="bull-area"> 
+                                <div class="bull-hod bull"></div>
+                            </div>
+                        </div>
+                        <div class="reviews-mob-filters-menu__item-value">
+                            Беляево
+                            <div class="bull-area"> 
+                                <div class="bull-bel bull"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-mob-filters-menu__item">
+                    <div class="reviews-mob-filters-menu__item-name">Услуга</div>
+                    <div class="reviews-mob-filters-menu__item-val">
+                        <input name="service-value" id="mob-service-val" value="" placeholder="Выберите" class="reviews-mob-filters-menu__item-input" readonly>
+                    </div>
+                </div>
+                <div class="reviews-mob-filters-menu__item">
+                    <div class="reviews-mob-filters-menu__item-name">Врач</div>
+                    <div class="reviews-mob-filters-menu__item-val">
+                        <input name="doctor-value" id="mob-doctor-val" value="" placeholder="Введите или выберите" class="reviews-mob-filters-menu__item-input" readonly>
+                    </div>
+                </div>
+            </div>
+            <button class="reviews-mob-filters-menu__submit">Применить</button>
+        </div>
+        
+        <div class="reviews-mob-doctors-menu">
+            <div class="reviews-mob-doctors-menu__header">
+                <div class="reviews-mob-doctors-menu__title">Выберите врача</div>
+                <div class="reviews-mob-doctors-menu__close"></div>
+            </div>
+            <input type="text" name="mob-doctors-menu-name" id="mob-doctors-menu-name" value="" placeholder="Введите имя врача" class="reviews-mob-doctors-menu__input">
+            <div class="reviews-mob-doctors-menu__items">
+                <div class="reviews-mob-doctors-menu__item choosed">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян длинное имя еще в две строки</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог а что если больше в две строки, длинный текст</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="reviews-mob-doctors-menu__item">
+                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="reviews-mob-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews-mob-services-menu">
+            <div class="reviews-mob-services-menu__header">
+                <div class="reviews-mob-services-menu__title">Выберите услугу</div>
+                <div class="reviews-mob-services-menu__close"></div>
+            </div>
+            <div class="reviews-mob-services-menu__groups">
+                <div class="reviews-mob-services-menu__group">
+                    <label class="reviews-mob-services-menu__group-checkbox">
+                        <input type="checkbox" value="Лечение зубов" class="reviews-mob-services-menu__group-input-main" name="therapy">
+                        <span>Лечение зубов</span>
+                    </label>
+                    <div class="reviews-mob-services-menu__group-checkboxes">
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение кариеса" name="therapy" class="reviews-mob-services-menu__group-input">
+                            <span>Лечение кариеса</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение пульпита" name="therapy" class="reviews-mob-services-menu__group-input">
+                            <span>Лечение пульпита</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение периодонтита" name="therapy" class="reviews-mob-services-menu__group-input">
+                            <span>Лечение периодонтита</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Icon лечение кариеса" name="therapy" class="reviews-mob-services-menu__group-input">
+                            <span>Icon лечение кариеса</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="reviews-mob-services-menu__group">
+                    <label class="reviews-mob-services-menu__group-checkbox">
+                        <input type="checkbox" value="Лечение зубов" class="reviews-mob-services-menu__group-input-main" name="diagnostics">
+                        <span>Диагностика</span>
+                    </label>
+                    <div class="reviews-mob-services-menu__group-checkboxes">
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение кариеса" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Консультация стоматолога</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение пульпита" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Рентген-диагностика</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Лечение периодонтита" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Рентген-диагностика</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Icon лечение кариеса" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Рентген-диагностика</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/canvas.js"></script>
     <script src="js/imask.js"></script>

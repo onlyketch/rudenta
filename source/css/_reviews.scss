@@ -1088,6 +1088,26 @@
             @media (max-width: 739px) {
                 margin-right: 0;
             }
+
+            @media (max-width: 388px) {
+                display: none;
+            }
+        }
+
+        &:nth-child(3) {
+            @media (max-width: 388px) {
+                margin-right: 0;
+            }
+            
+            @media (max-width: 336px) {
+                display: none;
+            } 
+        }
+
+        &:nth-child(2) {
+            @media (max-width: 336px) {
+                margin-right: 0;
+            }
         }
 
         &:last-child {
