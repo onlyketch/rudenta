@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 reviewsFiltersDropDownItems[i].classList.add('choosed');
-                reviewsFiltersValueDoc.value = this.querySelector('.reviews__filters-item-dropdown-docname').textContent;
+                reviewsFiltersValueDoc.defaultValue = this.querySelector('.reviews__filters-item-dropdown-docname').textContent;
             });
         };
 
@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         });
                     }
                     let selectedCheckboxesValues = selectedCheckboxesArray.join(', ');
-                    reviewsFiltersValueServ.value = selectedCheckboxesValues; 
+                    reviewsFiltersValueServ.defaultValue = selectedCheckboxesValues; 
                 });
             }
         };
@@ -380,6 +380,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let filterAboveReviewsDropDown = document.querySelector('.reviews__reviews-filter-dropdown');
     let filterAboveReviewsValue = document.querySelector('.reviews__reviews-filter-btn-val');
     let filterAboveReviewsItems = document.querySelectorAll('.reviews__reviews-filter-dropdown-item');
+    let filterAboveReviewsSlideMob = document.querySelector('.reviews-mob-sorting-menu');
+    let filterAboveReviewsSlideBodyMob = document.querySelector('.reviews-mob-sorting-menu__body');
+    let filterAboveReviewsSlideCloseMob = document.querySelector('.reviews-mob-sorting-menu__close');
+    let filterAboveReviewsSlideItemsMob = document.querySelectorAll('.reviews-mob-sorting-menu__item');
     
     if (filterAboveReviewsBtn !== null) {
 
@@ -391,8 +395,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         filterAboveReviewsBtn.addEventListener('click', function() {
-            filterAboveReviewsDropDown.classList.toggle('show');
+            if(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)){
+                filterAboveReviewsSlideMob.classList.add('show');
+                filterAboveReviewsSlideBodyMob.classList.add('open');
+                document.body.classList.add('body-overflow');
+            } else {
+                filterAboveReviewsDropDown.classList.toggle('show');
+            }
         });
+
+        filterAboveReviewsSlideCloseMob.addEventListener('click', function() {
+            filterAboveReviewsSlideBodyMob.classList.remove('open');
+            setTimeout(function() {
+                filterAboveReviewsSlideMob.classList.remove('show');
+                document.body.classList.remove('body-overflow');
+            }, 500);
+        });
+
+        for (let i = 0; i < filterAboveReviewsSlideItemsMob.length; i++) {
+            filterAboveReviewsSlideItemsMob[i].addEventListener('click', function() {
+                for (let item of filterAboveReviewsSlideItemsMob) {
+                    if (item.classList.contains('choosed')) item.classList.remove('choosed');
+                }
+                this.classList.add('choosed');
+                filterAboveReviewsValue.textContent = this.textContent;
+                filterAboveReviewsSlideBodyMob.classList.remove('open');
+                setTimeout(function() {
+                    filterAboveReviewsSlideMob.classList.remove('show');
+                    document.body.classList.remove('body-overflow');
+                }, 500);
+            });
+        }
 
         document.addEventListener('click', function(e) {
             const withinBoundaries = e.composedPath().includes(filterAboveReviewsDropDown);
@@ -633,14 +666,34 @@ document.addEventListener('DOMContentLoaded', function() {
             reviewsMobileFiltersCheck();
         });
 
-
-
-
-
      }
 
-
      /************ Mobile Filters of Reviews End  *************/
+
+     /************ Mobile Resources Panel Start  *************/
+
+     let reviewsResourcesBtnAllMob = document.querySelector('.reviews__resources-btn-all-mob');
+     let reviewsResourcesPanelMob = document.querySelector('.reviews-mob-resources-panel');
+     let reviewsResourcesPanelBodyMob = document.querySelector('.reviews-mob-resources-panel__body');
+     let reviewsResourcesPanelCloseBtnMob = document.querySelector('.reviews-mob-resources-panel__close');
+
+     reviewsResourcesBtnAllMob.addEventListener('click', function() {
+        reviewsResourcesPanelMob.classList.add('show');
+        reviewsResourcesPanelBodyMob.classList.add('open');
+        document.body.classList.add('body-overflow');
+     });
+
+     reviewsResourcesPanelCloseBtnMob.addEventListener('click', function() {
+        reviewsResourcesPanelBodyMob.classList.remove('open');
+        setTimeout(function() {
+            reviewsResourcesPanelMob.classList.remove('show');
+            document.body.classList.remove('body-overflow');
+        }, 500);
+     });
+
+
+
+     /************ Mobile Resources Panel End  *************/
 
     
 
