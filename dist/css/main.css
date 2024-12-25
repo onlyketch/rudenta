@@ -1347,12 +1347,16 @@ body {
 }
 
 .reviews-mob-filters-menu {
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 500;
+}
+.reviews-mob-filters-menu.show {
+  visibility: visible;
 }
 .reviews-mob-filters-menu__overlay {
   width: 100%;
@@ -1384,6 +1388,7 @@ body {
   text-align: center;
 }
 .reviews-mob-filters-menu__reset {
+  visibility: hidden;
   position: absolute;
   top: 50%;
   left: 0;
@@ -1401,6 +1406,9 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #42C8F8;
+}
+.reviews-mob-filters-menu__reset.visible {
+  visibility: visible;
 }
 .reviews-mob-filters-menu__close {
   position: absolute;
@@ -1517,6 +1525,7 @@ body {
   line-height: 14px;
   color: #202B39;
   cursor: pointer;
+  padding-right: 27px;
 }
 .reviews-mob-filters-menu__item-input::-webkit-input-placeholder {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
@@ -1548,8 +1557,7 @@ body {
   line-height: 14px;
   color: #767D86;
 }
-.reviews-mob-filters-menu__submit,
-.reviews-mob-filters-menu .reviews-mob-services-menu__submit {
+.reviews-mob-filters-menu__submit {
   border: none;
   outline: none;
   -webkit-appearance: none;
@@ -1571,6 +1579,7 @@ body {
   bottom: -100%;
   left: 0;
   right: 0;
+  min-height: 460px;
   max-height: 611px;
   background-color: #FFFFFF;
   border-radius: 20px 20px 0 0;
@@ -1713,11 +1722,9 @@ body {
 .reviews-mob-filters-menu .reviews-mob-services-menu__clinics .bull-area .bull:last-child {
   margin-right: 0;
 }
-.reviews-mob-filters-menu .reviews-mob-services-menu {
-  bottom: 0;
-}
 .reviews-mob-filters-menu .reviews-mob-services-menu__groups {
   margin-top: 32px;
+  padding-bottom: 20px;
 }
 .reviews-mob-filters-menu .reviews-mob-services-menu__group {
   border-bottom: 1px solid #E6E6E6;
@@ -1727,6 +1734,7 @@ body {
 .reviews-mob-filters-menu .reviews-mob-services-menu__group:last-child {
   margin-bottom: 0;
   border-bottom: none;
+  padding-bottom: 0;
 }
 .reviews-mob-filters-menu .reviews-mob-services-menu__group-checkboxes {
   margin-left: 28px;
@@ -1791,6 +1799,30 @@ body {
   background-color: #42C8F8;
   background-image: url("../images/check.svg");
 }
+.reviews-mob-filters-menu .reviews-mob-services-menu__submit {
+  position: sticky;
+  width: 100%;
+  left: 24px;
+  right: 24px;
+  bottom: 0;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #FFFFFF;
+  background-color: #42C8F8;
+  padding: 20px 0;
+  border-radius: 8px;
+}
+
+.open {
+  bottom: 0 !important;
+}
+
 .doctors {
   margin-top: 28px;
   margin-bottom: 100px;

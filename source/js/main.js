@@ -477,6 +477,171 @@ document.addEventListener('DOMContentLoaded', function() {
     }
      /************ Reviews Resource Overlay End *************/
 
+     /************ Mobile Filters of Reviews Start  *************/
+
+     let reviewsFilterBtnMob = document.querySelector('.reviews__filter-btn-mob');
+     let reviewsFiltersMenuMob = document.querySelector('.reviews-mob-filters-menu');
+     let reviewsFiltersMenuBodyMob = document.querySelector('.reviews-mob-filters-menu__body');
+     let reviewsFilterCloseBtnMob = document.querySelector('.reviews-mob-filters-menu__close');
+     let reviewsFilterResetBtnMob = document.querySelector('.reviews-mob-filters-menu__reset');
+     let reviewsFilterSubmitBtnMob = document.querySelector('.reviews-mob-filters-menu__submit');
+
+     if (reviewsFiltersMenuMob !== null) {
+
+        reviewsFilterBtnMob.addEventListener('click', function() {
+            reviewsFiltersMenuMob.classList.add('show');
+            reviewsFiltersMenuBodyMob.classList.add('open');
+            document.body.classList.add('body-overflow');
+            reviewsMobileFiltersCheck();
+        });
+
+        reviewsFilterCloseBtnMob.addEventListener('click', function() {
+            reviewsFiltersMenuBodyMob.classList.remove('open');
+            setTimeout(function() {
+                reviewsFiltersMenuMob.classList.remove('show');
+                document.body.classList.remove('body-overflow');  
+            }, 500);
+        });
+
+        reviewsFilterSubmitBtnMob.addEventListener('click', function() {
+            reviewsFiltersMenuBodyMob.classList.remove('open');
+            setTimeout(function() {
+                reviewsFiltersMenuMob.classList.remove('show');
+                document.body.classList.remove('body-overflow');  
+            }, 500);
+        });
+
+        /* Clinics Switching */
+
+        let reviewFiltersClinicsValuesMob = document.querySelectorAll('.reviews-mob-filters-menu__item-value');
+
+        for (let i = 0; i < reviewFiltersClinicsValuesMob.length; i++) {
+            reviewFiltersClinicsValuesMob[i].addEventListener('click', function() {
+                if (!this.classList.contains('active')) {
+                    for (let item of reviewFiltersClinicsValuesMob) {
+                        item.classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    reviewsMobileFiltersCheck();
+                }
+            });
+        };
+
+        /* Menu of Service */
+
+        let reviewsFiltersServicesItemMob = document.getElementById('mob-services-menu');
+        let reviewsFiltersServicesMenuMob = document.querySelector('.reviews-mob-services-menu');
+        let reviewsFiltersServicesMenuCloseMob = document.querySelector('.reviews-mob-services-menu__close');
+        let reviewsFiltersServicesMenuGroupsMob = document.querySelectorAll('.reviews-mob-services-menu__group');
+        let reviewsFiltersServicesMenuSubmitMob = document.querySelector('.reviews-mob-services-menu__submit');
+        let reviewsFiltersServicesInputValueMob = document.getElementById('mob-service-val');
+        let reviewsSelectedChekboxesArrayMob = [];
+
+        reviewsFiltersServicesItemMob.addEventListener('click', function() {
+            reviewsFiltersServicesMenuMob.classList.add('open');
+        });
+
+        reviewsFiltersServicesMenuCloseMob.addEventListener('click', function() {
+            reviewsFiltersServicesMenuMob.classList.remove('open');
+        });
+
+        for (let i = 0; i < reviewsFiltersServicesMenuGroupsMob.length; i++) {
+            let checkboxMain = reviewsFiltersServicesMenuGroupsMob[i].querySelector('.reviews-mob-services-menu__group-input-main');
+            let groupCheckboxes = reviewsFiltersServicesMenuGroupsMob[i].querySelectorAll('.reviews-mob-services-menu__group-input');
+            checkboxMain.addEventListener('click', function() {
+                for (let i = 0; i < groupCheckboxes.length; i++) {
+                    groupCheckboxes[i].checked = this.checked;
+                    groupCheckboxes[i].dispatchEvent(new Event('change'));
+                }
+            });
+        }
+
+        reviewsFiltersServicesMenuSubmitMob.addEventListener('click', function() {
+            if (reviewsSelectedChekboxesArrayMob.length > 0) reviewsSelectedChekboxesArrayMob = [];
+            let groupCheckboxes = document.querySelectorAll('.reviews-mob-services-menu__groups .reviews-mob-services-menu__group-input');
+            for (let item of groupCheckboxes) {
+                if (item.checked == true) reviewsSelectedChekboxesArrayMob.push(item.value);
+            }
+            let selectedCheckboxesValues = reviewsSelectedChekboxesArrayMob.join(', ');
+            reviewsFiltersServicesInputValueMob.defaultValue = selectedCheckboxesValues;
+            reviewsFiltersServicesMenuMob.classList.remove('open');
+            reviewsMobileFiltersCheck();
+        });
+
+        /* Menu of Doctors */
+
+        let reviewsFiltersDoctorsItemMob = document.getElementById('mob-doctors-menu');
+        let reviewsFiltersDoctorsMenuMob = document.querySelector('.reviews-mob-doctors-menu');
+        let reviewsFiltersDoctorsMenuCloseMob = document.querySelector('.reviews-mob-doctors-menu__close');
+        let reviewsDoctorsMenuItemsMob = document.querySelectorAll('.reviews-mob-doctors-menu__item');
+        let reviewsFiltersDoctorsInputValueMob = document.getElementById('mob-doctor-val');
+
+        reviewsFiltersDoctorsItemMob.addEventListener('click', function() {
+            reviewsFiltersDoctorsMenuMob.classList.add('open');
+        });
+
+        reviewsFiltersDoctorsMenuCloseMob.addEventListener('click', function() {
+            reviewsFiltersDoctorsMenuMob.classList.remove('open');
+        });
+
+        for (let i = 0; i < reviewsDoctorsMenuItemsMob.length; i++) {
+            reviewsDoctorsMenuItemsMob[i].addEventListener('click', function() {
+                if (!this.classList.contains('choosed')) {
+                    for (let item of reviewsDoctorsMenuItemsMob) {
+                        if (item.classList.contains('choosed')) 
+                            item.classList.remove('choosed');
+                    }
+                    this.classList.add('choosed');
+                    reviewsFiltersDoctorsInputValueMob.defaultValue = this.querySelector('.reviews-mob-doctors-menu__docname').textContent;
+                    reviewsFiltersDoctorsMenuMob.classList.remove('open');
+                    reviewsMobileFiltersCheck();
+                }
+            });
+        }
+
+        /* Visibility and work of Reset Button */
+
+        function reviewsMobileFiltersCheck() {
+            if (reviewFiltersClinicsValuesMob[0].classList.contains('active') 
+                && reviewsFiltersServicesInputValueMob.defaultValue == '' 
+                && reviewsFiltersDoctorsInputValueMob.defaultValue == '') {
+                    reviewsFilterResetBtnMob.classList.remove('visible');
+                } else {
+                    reviewsFilterResetBtnMob.classList.add('visible');
+                }
+        }
+
+        reviewsFilterResetBtnMob.addEventListener('click', function() {
+            for (let item of reviewFiltersClinicsValuesMob) {
+                item.classList.remove('active');
+            }
+
+            reviewFiltersClinicsValuesMob[0].classList.add('active');
+            reviewsFiltersServicesInputValueMob.defaultValue = '';
+            reviewsFiltersDoctorsInputValueMob.defaultValue = '';
+
+            let groupCheckboxes = document.querySelectorAll('.reviews-mob-services-menu__groups .reviews-mob-services-menu__group-input');
+
+            for (let item of groupCheckboxes) {
+                if (item.checked == true) item.checked = false;
+            }
+
+            for (let item of reviewsDoctorsMenuItemsMob) {
+                if (item.classList.contains('choosed')) item.classList.remove('choosed');
+            }
+
+            reviewsMobileFiltersCheck();
+        });
+
+
+
+
+
+     }
+
+
+     /************ Mobile Filters of Reviews End  *************/
+
     
 
  

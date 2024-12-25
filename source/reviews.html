@@ -1218,7 +1218,7 @@
         <div class="reviews-mob-filters-menu__body">
             <div class="reviews-mob-filters-menu__header">
                 <div class="reviews-mob-filters-menu__title">Фильтры</div>
-                <div class="reviews-mob-filters-menu__reset">Сбросить</div>
+                <div class="reviews-mob-filters-menu__reset visible">Сбросить</div>
                 <div class="reviews-mob-filters-menu__close"></div>
             </div>
             <div class="reviews-mob-filters-menu__items">
@@ -1246,13 +1246,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="reviews-mob-filters-menu__item">
+                <div class="reviews-mob-filters-menu__item" id="mob-services-menu">
                     <div class="reviews-mob-filters-menu__item-name">Услуга</div>
                     <div class="reviews-mob-filters-menu__item-val">
                         <input name="service-value" id="mob-service-val" value="" placeholder="Выберите" class="reviews-mob-filters-menu__item-input" readonly>
                     </div>
                 </div>
-                <div class="reviews-mob-filters-menu__item">
+                <div class="reviews-mob-filters-menu__item" id="mob-doctors-menu">
                     <div class="reviews-mob-filters-menu__item-name">Врач</div>
                     <div class="reviews-mob-filters-menu__item-val">
                         <input name="doctor-value" id="mob-doctor-val" value="" placeholder="Введите или выберите" class="reviews-mob-filters-menu__item-input" readonly>
@@ -1269,7 +1269,7 @@
             </div>
             <input type="text" name="mob-doctors-menu-name" id="mob-doctors-menu-name" value="" placeholder="Введите имя врача" class="reviews-mob-doctors-menu__input">
             <div class="reviews-mob-doctors-menu__items">
-                <div class="reviews-mob-doctors-menu__item choosed">
+                <div class="reviews-mob-doctors-menu__item">
                     <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян длинное имя еще в две строки</div>
                     <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог а что если больше в две строки, длинный текст</div>
                     <div class="reviews-mob-doctors-menu__clinics">
@@ -1300,7 +1300,7 @@
                     </div>                    
                 </div>
                 <div class="reviews-mob-doctors-menu__item">
-                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docname">Арам Георгиевич Айвазов</div>
                     <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
                     <div class="reviews-mob-doctors-menu__clinics">
                         <div class="bull-area">
@@ -1320,7 +1320,7 @@
                     </div>                    
                 </div>
                 <div class="reviews-mob-doctors-menu__item">
-                    <div class="reviews-mob-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="reviews-mob-doctors-menu__docname">Александр Алексеевич Олихейко</div>
                     <div class="reviews-mob-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
                     <div class="reviews-mob-doctors-menu__clinics">
                         <div class="bull-area">
@@ -1374,30 +1374,40 @@
                 </div>
                 <div class="reviews-mob-services-menu__group">
                     <label class="reviews-mob-services-menu__group-checkbox">
-                        <input type="checkbox" value="Лечение зубов" class="reviews-mob-services-menu__group-input-main" name="diagnostics">
+                        <input type="checkbox" value="Диагностика" class="reviews-mob-services-menu__group-input-main" name="diagnostics">
                         <span>Диагностика</span>
                     </label>
                     <div class="reviews-mob-services-menu__group-checkboxes">
                         <label class="reviews-mob-services-menu__group-checkbox">
-                            <input type="checkbox" value="Лечение кариеса" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <input type="checkbox" value="Консультация стоматолога" name="diagnostics" class="reviews-mob-services-menu__group-input">
                             <span>Консультация стоматолога</span>
                         </label>
                         <label class="reviews-mob-services-menu__group-checkbox">
-                            <input type="checkbox" value="Лечение пульпита" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <input type="checkbox" value="Рентген-диагностика" name="diagnostics" class="reviews-mob-services-menu__group-input">
                             <span>Рентген-диагностика</span>
                         </label>
                         <label class="reviews-mob-services-menu__group-checkbox">
-                            <input type="checkbox" value="Лечение периодонтита" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <input type="checkbox" value="Рентген-диагностика" name="diagnostics" class="reviews-mob-services-menu__group-input">
                             <span>Рентген-диагностика</span>
                         </label>
                         <label class="reviews-mob-services-menu__group-checkbox">
-                            <input type="checkbox" value="Icon лечение кариеса" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <input type="checkbox" value="Рентген-диагностика" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Рентген-диагностика</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Рентген-диагностика" name="diagnostics" class="reviews-mob-services-menu__group-input">
+                            <span>Рентген-диагностика</span>
+                        </label>
+                        <label class="reviews-mob-services-menu__group-checkbox">
+                            <input type="checkbox" value="Рентген-диагностика" name="diagnostics" class="reviews-mob-services-menu__group-input">
                             <span>Рентген-диагностика</span>
                         </label>
                     </div>
                 </div>
             </div>
-            <button class="reviews-mob-services-menu__submit">Применить</button>
+            
+            <button class="reviews-mob-services-menu__submit"><span>Применить</span></button>
+            
         </div>
     </div>
 
