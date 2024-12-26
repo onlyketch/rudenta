@@ -10,7 +10,7 @@
 	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
     <link rel="stylesheet" href="css/main.css?vers=1.2">
 </head>
-<body>
+<body class="body-overflow">
 
     <header class="header">
         <div class="container">
@@ -1038,7 +1038,103 @@
             <button class="resources-panel__close"></button>
         </div>
         
-    </div>    
+    </div>
+    
+    <div class="feedback-form">
+        <div class="feedback-form__overlay"></div>
+        <div class="feedback-form__body">
+            <div class="feedback-form__title">Оставить отзыв</div>
+            <div class="feedback-form__subtitle">
+                Если все прошло не так как вы ожидали, можете <a href="mailto:from@example.com" class="feedback-form__subtitle-link">написать руководителю клиники</a>
+            </div>
+            <form class="feedback-form__form">
+                <div class="feedback-form__form-groups">
+                    <div class="feedback-form__form-group">
+                        <div class="feedback-form__form-group-title">Оцените ваш опыт</div>
+                        <div class="feedback-form__form-row">
+                            <div class="feedback-form__form-grades">
+                                <div class="feedback-form__form-grade">1</div>
+                                <div class="feedback-form__form-grade">2</div>
+                                <div class="feedback-form__form-grade">3</div>
+                                <div class="feedback-form__form-grade">4</div>
+                                <div class="feedback-form__form-grade">5</div>
+                            </div>
+                            <div class="feedback-form__form-grades-text">Отлично</div>
+                            <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                        </div>
+                        <div class="feedback-form__form-field">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Отзыв*</div>
+                                <textarea class="feedback-form__form-field-textarea" name="feedback-form-review" id="feedback-form-review" placeholder="Подсказка"></textarea>
+                                <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-form__form-group">
+                        <div class="feedback-form__form-group-title">Клиника и специалист</div>
+                        <div class="feedback-form__form-field" id="feedback-field-clinic">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Клиника*</div>
+                                <input name="feedback-form-clinic" id="feedback-form-clinic" value="" placeholder="Подсказка" class="feedback-form__form-field-input-readonly" readonly>
+                                <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                            </div>
+                        </div>
+                        <div class="feedback-form__form-field" id="feedback-field-doctor">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Врач</div>
+                                <input name="feedback-form-doctor" id="feedback-form-doctor" value="" placeholder="Введите или выберите до 5 врачей" class="feedback-form__form-field-input-readonly" readonly>
+                            </div>
+                        </div>
+                        <div class="feedback-form__form-field" id="feedback-field-service">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Услуга</div>
+                                <input name="feedback-form-service" id="feedback-form-service" value="" placeholder="Подсказка" class="feedback-form__form-field-input-readonly" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feedback-form__form-group">
+                        <div class="feedback-form__form-group-title">Ваши данные</div>
+                        <div class="feedback-form__form-field" id="feedback-field-name">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Имя*</div>
+                                <input type="text" name="feedback-form-name" id="feedback-form-name" value="" placeholder="Подсказка" class="feedback-form__form-field-input">
+                                <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                            </div>
+                        </div>
+                        <div class="feedback-form__form-field" id="feedback-field-phone">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Номер телефона в программе лояльности</div>
+                                <input type="text" name="feedback-form-phone" id="feedback-form-phone" value="" placeholder="+7" class="feedback-form__form-field-input">
+                                <div class="feedback-form__form-bonuses-text">Текст про начислим бонусы</div>
+                            </div>
+                        </div>
+                        <div class="feedback-form__form-field" id="feedback-field-city">
+                            <div class="feedback-form__form-field-wrap">
+                                <div class="feedback-form__form-field-name">Город</div>
+                                <input name="feedback-form-city" id="feedback-form-city" value="" placeholder="Введите или выберите" class="feedback-form__form-field-input-readonly" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback-form__form-conditions">
+                    <label class="feedback-form__form-checkbox">
+                        <input type="checkbox" name="feedback-form-conditions">
+                        <span>Ознакомлен с <a href="#" target="_blank" class="feedback-form__form-conditions-link"> Условиями обработки персональных данных</a></span>
+                    </label>
+                    <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                </div>
+                <button class="feedback-form__form-submit">
+                    <span>
+                        Отправить
+                        <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.333 0.285156L6.333 1.28516L9.38 4.33216H0V5.66616H9.38L6.333 8.71216L7.333 9.71216L12.047 4.99916L7.333 0.285156Z" fill="white"/>
+                        </svg>
+                    </span>
+                </button>
+            </form>
+            <div class="feedback-form__close"></div>
+        </div>
+    </div>
     
     <footer class="footer">
         <div class="footer__container">
