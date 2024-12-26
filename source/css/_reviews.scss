@@ -1571,7 +1571,7 @@
 }
 
 .feedback-form {
-    //visibility: hidden;
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -1588,7 +1588,7 @@
     &__body {
         position: absolute;
         top: 0;
-        right: 0;
+        right: -100%;
         background-color: #FFFFFF;
         box-sizing: border-box;
         padding: 80px 68px 87px;

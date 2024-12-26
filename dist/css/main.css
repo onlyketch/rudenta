@@ -6188,6 +6188,7 @@ body {
 }
 
 .feedback-form {
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -6203,7 +6204,7 @@ body {
 .feedback-form__body {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -100%;
   background-color: #FFFFFF;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
