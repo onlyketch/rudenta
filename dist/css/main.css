@@ -6110,6 +6110,11 @@ body {
   line-height: 20px;
   color: #202B39;
 }
+@media (max-width: 599px) {
+  .reviews-mob-resources-panel__title {
+    max-width: 300px;
+  }
+}
 @media (max-width: 339px) {
   .reviews-mob-resources-panel__title {
     max-width: 220px;
@@ -6188,7 +6193,6 @@ body {
 }
 
 .feedback-form {
-  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
@@ -6204,7 +6208,7 @@ body {
 .feedback-form__body {
   position: absolute;
   top: 0;
-  right: -100%;
+  right: 0;
   background-color: #FFFFFF;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -6265,6 +6269,51 @@ body {
 .feedback-form__form-row {
   position: relative;
   margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.feedback-form__form-grades {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.feedback-form__form-grades-text {
+  margin-left: 12px;
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  color: #798088;
+}
+.feedback-form__form-grade {
+  width: 31px;
+  height: 32px;
+  padding-right: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+.feedback-form__form-grade svg {
+  fill: #D9DAE4;
+}
+.feedback-form__form-grade:last-child {
+  padding-right: 0;
+}
+.feedback-form__form-grade-hover svg {
+  fill: #42C8F8;
 }
 .feedback-form__form-error-text, .feedback-form__form-bonuses-text {
   position: absolute;
@@ -6274,6 +6323,12 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: #E81D25;
+}
+.feedback-form__form-error-text {
+  visibility: hidden;
+}
+.feedback-form__form-error-text.show {
+  visibility: visible;
 }
 .feedback-form__form-field {
   margin-bottom: 40px;
@@ -6286,6 +6341,9 @@ body {
   background-color: #F7F8FA;
   border-radius: 8px;
   padding: 16px;
+}
+.feedback-form__form-field-wrap.clickable {
+  cursor: pointer;
 }
 .feedback-form__form-field-name {
   font-family: "Onest Regular", Arial, Helvetica, sans-serif;
@@ -6401,7 +6459,7 @@ body {
   border: 1px solid #42C8F8;
 }
 .feedback-form__form-submit {
-  margin-top: 44px;
+  margin-top: 24px;
   border: none;
   outline: none;
   -webkit-appearance: none;

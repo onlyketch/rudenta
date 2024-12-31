@@ -695,6 +695,84 @@ document.addEventListener('DOMContentLoaded', function() {
 
      /************ Mobile Resources Panel End  *************/
 
+    /************  Feedback Form Start  *************/
+
+    $('.feedback-form__form-grade').hover(function() {
+        if (!$('.feedback-form__form-grades').hasClass('checked')) {
+
+            var $this = $(this);
+            var $prevAll = $(this).prevAll();
+
+            var className = $this.attr("class") + "-hover";
+
+            $this.addClass(className);
+            $prevAll.addClass(className);
+        }
+        
+    }, function() {
+        if (!$('.feedback-form__form-grades').hasClass('checked')) {
+
+            var $this = $(this);
+            var $prevAll = $(this).prevAll();
+   
+            $this.removeClass('feedback-form__form-grade-hover');
+            $prevAll.removeClass('feedback-form__form-grade-hover');
+        } 
+    });
+
+    $('.feedback-form__form-grade').click(function() {
+        var elemNum = $(this).index();
+
+        if ($('.feedback-form__form-grades').hasClass('checked')) {
+
+            var $this = $(this);
+            var $prevAll = $(this).prevAll();
+            
+
+            $('.feedback-form__form-grade').each(function(index, item) {
+                $(item).removeClass('feedback-form__form-grade-hover');
+            });
+
+            var className = $this.attr("class") + "-hover";
+
+            $this.addClass(className);
+            $prevAll.addClass(className);
+
+        } else {
+            $('.feedback-form__form-grades').addClass('checked');
+        }
+
+        
+        switch (elemNum) {
+            case 0:
+                $('.feedback-form__form-grades-text').text('Очень плохо');
+                break;
+            case 1:
+                $('.feedback-form__form-grades-text').text('Плохо');
+                break;
+            case 2:
+                $('.feedback-form__form-grades-text').text('Нормально');
+                break;
+            case 3:
+                $('.feedback-form__form-grades-text').text('Хорошо');
+                break;
+            case 4:
+                $('.feedback-form__form-grades-text').text('Отлично');
+                break;        
+            default:
+                $('.feedback-form__form-grades-text').text('Отлично');
+        }
+    });
+
+
+
+
+
+     /************  Feedback Form End *************/
+
+
+
+
     
 
  

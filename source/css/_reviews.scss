@@ -1492,6 +1492,10 @@
         line-height: 20px;
         color: #202B39;
 
+        @media (max-width: 599px) {
+            max-width: 300px;
+        }
+
         @media (max-width: 339px) {
             max-width: 220px;
         }
@@ -1571,7 +1575,7 @@
 }
 
 .feedback-form {
-    visibility: hidden;
+    //visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -1588,7 +1592,7 @@
     &__body {
         position: absolute;
         top: 0;
-        right: -100%;
+        right: 0;
         background-color: #FFFFFF;
         box-sizing: border-box;
         padding: 80px 68px 87px;
@@ -1657,11 +1661,45 @@
         &-row {
             position: relative;
             margin-bottom: 40px;
+            display: flex;
+            align-items: center;
         }
 
-        &-grades {}
+        &-grades {
+            display: flex;
+            align-items: center;
 
-        &-grade {}
+            &-text {
+                margin-left: 12px;
+                font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+                font-size: 12px;
+                line-height: 12px;
+                color: #798088;
+            }
+        }
+
+        &-grade {
+            width: 31px;
+            height: 32px;
+            padding-right: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            svg {
+                fill: #D9DAE4;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &-hover {
+                svg {
+                    fill: #42C8F8;
+                }
+            }
+        }
 
         &-error-text,
         &-bonuses-text {
@@ -1672,6 +1710,14 @@
             font-size: 12px;
             line-height: 16px;
             color: #E81D25;
+        }
+
+        &-error-text {
+            visibility: hidden;
+
+            &.show {
+                visibility: visible;
+            }
         }
 
         &-field {
@@ -1686,6 +1732,10 @@
                 background-color: #F7F8FA;
                 border-radius: 8px;
                 padding: 16px;
+
+                &.clickable {
+                    cursor: pointer;
+                }
             }
 
             &-name {
@@ -1787,7 +1837,7 @@
         }
 
         &-submit {
-            margin-top: 44px;
+            margin-top: 24px;
             border: none;
             outline: none;
             appearance: none;
