@@ -1721,10 +1721,20 @@
         }
 
         &-field {
+            position: relative;
             margin-bottom: 40px;
 
             &:last-child {
                 margin-bottom: 0; 
+            }
+
+            &-review {
+                min-height: 100px;
+                
+                .feedback-form__form-field-wrap {
+                    box-sizing: border-box;
+                    min-height: 100px;
+                }
             }
 
             &-wrap {
@@ -1777,6 +1787,120 @@
             }
 
             &-input {}
+
+            &-dropdown {
+                visibility: hidden;
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                right: 0;
+                max-height: 300px;
+                background-color: #FFFFFF;
+                box-shadow: 0px 6px 45px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                transform: translateY(100%);
+                padding: 16px;
+                z-index: 20;
+                overflow-y: scroll;
+
+                &.cities {
+                    max-height: 150px;
+                }
+
+                &::-webkit-scrollbar {
+                    background-color: transparent;
+                    width: 4px;
+                }
+            
+                &::-webkit-scrollbar-thumb {
+                    background-color: #D9DAE4;
+                    border-radius: 8px;
+                    
+                }
+            
+                &::-moz-scrollbar {
+                    background-color: transparent;
+                    width: 4px;
+                }
+            
+                &::-moz-scrollbar-thumb {
+                    background-color: #D9DAE4;
+                    border-radius: 8px;
+                }
+
+                &-item {
+                    position: relative;
+                    padding: 12px;
+                    border-radius: 8px;
+                    margin-bottom: 2px;
+            
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+            
+                    &:hover {
+                        background-color: #F7F8FA;
+                    }
+            
+                    &.choosed {
+                        background-color: #EDEFF2;
+                    }
+                }
+
+                &-group {
+                    margin-bottom: 14px;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                &-name {
+                    font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: #000;
+                    max-width: 320px;
+                }
+
+                &-group-title {
+                    padding: 8px 12px;
+                    font-family: 'Onest Bold', Arial, Helvetica, sans-serif;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: #798088;
+                    text-transform: uppercase; 
+                }
+
+                &-desc {
+                    font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: #727983;
+                    margin-top: 4px;
+                    max-width: 320px;
+                }
+
+                &-clinics {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+            
+                    .bull-area {
+                        .bull {
+                            margin-right: 4px;
+            
+                            &:last-child {
+                                margin-right: 0;
+                            }
+                        }
+                    }
+                }
+
+                &.show {
+                    visibility: visible;
+                }
+            }
         }
 
         &-bonuses-text {

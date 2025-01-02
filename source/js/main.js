@@ -677,25 +677,131 @@ document.addEventListener('DOMContentLoaded', function() {
      let reviewsResourcesPanelBodyMob = document.querySelector('.reviews-mob-resources-panel__body');
      let reviewsResourcesPanelCloseBtnMob = document.querySelector('.reviews-mob-resources-panel__close');
 
-     reviewsResourcesBtnAllMob.addEventListener('click', function() {
-        reviewsResourcesPanelMob.classList.add('show');
-        reviewsResourcesPanelBodyMob.classList.add('open');
-        document.body.classList.add('body-overflow');
-     });
+     if (reviewsResourcesBtnAllMob !== null) {
 
-     reviewsResourcesPanelCloseBtnMob.addEventListener('click', function() {
-        reviewsResourcesPanelBodyMob.classList.remove('open');
-        setTimeout(function() {
-            reviewsResourcesPanelMob.classList.remove('show');
-            document.body.classList.remove('body-overflow');
-        }, 500);
-     });
+        reviewsResourcesBtnAllMob.addEventListener('click', function() {
+            reviewsResourcesPanelMob.classList.add('show');
+            reviewsResourcesPanelBodyMob.classList.add('open');
+            document.body.classList.add('body-overflow');
+         });
+    
+         reviewsResourcesPanelCloseBtnMob.addEventListener('click', function() {
+            reviewsResourcesPanelBodyMob.classList.remove('open');
+            setTimeout(function() {
+                reviewsResourcesPanelMob.classList.remove('show');
+                document.body.classList.remove('body-overflow');
+            }, 500);
+         });
 
+     }
 
 
      /************ Mobile Resources Panel End  *************/
 
     /************  Feedback Form Start  *************/
+    let feedbackForm = document.querySelector('.feedback-form');
+    let feedbackFormInputPhone = document.getElementById('feedback-form-phone');
+    let feedbackFormTextarea = document.getElementById('feedback-form-review');
+    let feedbackFormFieldClinic = document.getElementById('feedback-field-clinic');
+    let feedbackFormFieldService = document.getElementById('feedback-field-service');
+    let feedbackFormFieldCity = document.getElementById('feedback-field-city');
+    let feedbackFormFieldClinicDropItems = feedbackFormFieldClinic.querySelectorAll('.feedback-form__form-field-dropdown-item');
+    let feedbackFormFieldServiceDropItems = feedbackFormFieldService.querySelectorAll('.feedback-form__form-field-dropdown-item');
+    let feedbackFormFieldCityDropItems = feedbackFormFieldCity.querySelectorAll('.feedback-form__form-field-dropdown-item');
+    let feedbackFormFieldClinicInput = document.getElementById('feedback-form-clinic');
+    let feedbackFormFieldServiceInput = document.getElementById('feedback-form-service');
+    let feedbackFormFieldCityInput = document.getElementById('feedback-form-city');
+
+    if (feedbackForm !== null) {
+
+        function showDropDown(fieldName) {
+            let fieldInput = fieldName.querySelector('input');
+            fieldName.addEventListener('click', function() {
+                let feedbackFormFieldDropDown = this.querySelector('.feedback-form__form-field-dropdown');
+                if (fieldInput.getAttribute('type') !== null) {
+                    fieldInput.focus();
+                    feedbackFormFieldDropDown.classList.add('show');
+                } else {
+                    feedbackFormFieldDropDown.classList.toggle('show');
+                }
+            });
+        };
+
+        function hideWhenClickOutside(elem, e) {
+            let feedbackFormFieldDropDown = elem.querySelector('.feedback-form__form-field-dropdown');
+            const withinBoundaries = e.composedPath().includes(feedbackFormFieldDropDown);
+            const withinField = e.composedPath().includes(elem);
+         
+            if ( !withinBoundaries && !withinField ) {
+                if (feedbackFormFieldDropDown.classList.contains('show')) {
+                    feedbackFormFieldDropDown.classList.remove('show');
+                }
+            }
+        }
+
+        function chooseItem(items, input, parentField) {
+            let feedbackFormFieldDropDown = parentField.querySelector('.feedback-form__form-field-dropdown');
+            for (let i = 0; i < items.length; i++) {
+                items[i].addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    for (let item of items) {
+                        if (item.classList.contains('choosed')) {
+                            item.classList.remove('choosed');
+                        }
+                    }
+                    items[i].classList.add('choosed');
+                    input.value = this.querySelector('.feedback-form__form-field-dropdown-name').textContent;
+                    input.defaultValue = this.querySelector('.feedback-form__form-field-dropdown-name').textContent;
+
+                    feedbackFormFieldDropDown.classList.remove('show');
+               
+                });
+            };
+        }
+        
+        //mask for phone input
+        const mask = IMask(feedbackFormInputPhone, maskOptions);
+        callBackInputPhone.addEventListener('focus', function() {
+            mask.value = '+7 ';
+        });
+
+        //textarea autoheight
+        function autoHeight(elem) {
+            elem.style.height = '16px';
+            elem.style.height = elem.scrollHeight + 'px';
+        }
+
+        feedbackFormTextarea.addEventListener('input', function() {
+            autoHeight(this);
+        });
+
+        //choose clinic
+        showDropDown(feedbackFormFieldClinic);
+      
+        document.addEventListener('click', function(e) {
+            hideWhenClickOutside(feedbackFormFieldClinic, e);
+        });
+
+        chooseItem(feedbackFormFieldClinicDropItems, feedbackFormFieldClinicInput, feedbackFormFieldClinic);
+
+        //choose service
+        showDropDown(feedbackFormFieldService);
+
+        document.addEventListener('click', function(e) {
+            hideWhenClickOutside(feedbackFormFieldService, e);
+        });
+
+        chooseItem(feedbackFormFieldServiceDropItems, feedbackFormFieldServiceInput, feedbackFormFieldService);
+
+        //choose city
+        showDropDown(feedbackFormFieldCity);
+
+        document.addEventListener('click', function(e) {
+            hideWhenClickOutside(feedbackFormFieldCity, e);
+        });
+
+        chooseItem(feedbackFormFieldCityDropItems, feedbackFormFieldCityInput, feedbackFormFieldCity);
+    }
 
     $('.feedback-form__form-grade').hover(function() {
         if (!$('.feedback-form__form-grades').hasClass('checked')) {

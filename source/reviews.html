@@ -1082,7 +1082,7 @@
                             <div class="feedback-form__form-grades-text">Отлично</div>
                             <div class="feedback-form__form-error-text">Ошибка валидации</div>
                         </div>
-                        <div class="feedback-form__form-field">
+                        <div class="feedback-form__form-field feedback-form__form-field-review">
                             <div class="feedback-form__form-field-wrap">
                                 <div class="feedback-form__form-field-name">Отзыв*</div>
                                 <textarea class="feedback-form__form-field-textarea" name="feedback-form-review" id="feedback-form-review" placeholder="Подсказка"></textarea>
@@ -1098,6 +1098,37 @@
                                 <input name="feedback-form-clinic" id="feedback-form-clinic" value="" placeholder="Подсказка" class="feedback-form__form-field-input-readonly" readonly>
                                 <div class="feedback-form__form-error-text">Ошибка валидации</div>
                             </div>
+                            <div class="feedback-form__form-field-dropdown">
+                                <div class="feedback-form__form-field-dropdown-items">
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Клиника на Ходынке</div>
+                                        <div class="feedback-form__form-field-dropdown-desc">125252, г. Москва проезд Березовой рощи, д.6</div>
+                                        <div class="feedback-form__form-field-dropdown-clinics">
+                                            <div class="bull-area">
+                                                <div class="bull-hod bull"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Клиника в Беляево</div>
+                                        <div class="feedback-form__form-field-dropdown-desc">117342, г. Москва ул. Островитянова д. 53</div>
+                                        <div class="feedback-form__form-field-dropdown-clinics">
+                                            <div class="bull-area">
+                                                <div class="bull-bel bull"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Клиника Kids на Ходынке</div>
+                                        <div class="feedback-form__form-field-dropdown-desc">125252, г. Москва проезд Березовой рощи, д.8</div>
+                                        <div class="feedback-form__form-field-dropdown-clinics">
+                                            <div class="bull-area">
+                                                <div class="bull-hod bull"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="feedback-form__form-field" id="feedback-field-doctor">
                             <div class="feedback-form__form-field-wrap clickable">
@@ -1110,6 +1141,42 @@
                                 <div class="feedback-form__form-field-name">Услуга</div>
                                 <input name="feedback-form-service" id="feedback-form-service" value="" placeholder="Подсказка" class="feedback-form__form-field-input-readonly" readonly>
                             </div>
+                            <div class="feedback-form__form-field-dropdown">
+                                <div class="feedback-form__form-field-dropdown-group">
+                                    <div class="feedback-form__form-field-dropdown-group-title">Лечение зубов</div>
+                                    <div class="feedback-form__form-field-dropdown-items">
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Лечение кариеса</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Лечение пульпита</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Лечение периодонтита</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">icon лечение кариеса</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedback-form__form-field-dropdown-group">
+                                    <div class="feedback-form__form-field-dropdown-group-title">Диагностика</div>
+                                    <div class="feedback-form__form-field-dropdown-items">
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Консультация стоматолога</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Рентген-диагностика</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Рентген-диагностика</div>
+                                        </div>
+                                        <div class="feedback-form__form-field-dropdown-item">
+                                            <div class="feedback-form__form-field-dropdown-name">Рентген-диагностика</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="feedback-form__form-group">
@@ -1117,7 +1184,7 @@
                         <div class="feedback-form__form-field" id="feedback-field-name">
                             <div class="feedback-form__form-field-wrap">
                                 <div class="feedback-form__form-field-name">Имя*</div>
-                                <input type="text" name="feedback-form-name" id="feedback-form-name" value="" placeholder="Подсказка" class="feedback-form__form-field-input">
+                                <input type="text" name="feedback-form-name" id="feedback-form-name" value="" placeholder="Подсказка" class="feedback-form__form-field-input" maxlength="40">
                                 <div class="feedback-form__form-error-text">Ошибка валидации</div>
                             </div>
                         </div>
@@ -1131,7 +1198,44 @@
                         <div class="feedback-form__form-field" id="feedback-field-city">
                             <div class="feedback-form__form-field-wrap clickable">
                                 <div class="feedback-form__form-field-name">Город</div>
-                                <input name="feedback-form-city" id="feedback-form-city" value="" placeholder="Введите или выберите" class="feedback-form__form-field-input-readonly" readonly>
+                                <input type="text" name="feedback-form-city" id="feedback-form-city" value="" placeholder="Введите или выберите" class="feedback-form__form-field-input-readonly" maxlength="23">
+                            </div>
+                            <div class="feedback-form__form-field-dropdown cities">
+                                <div class="feedback-form__form-field-dropdown-items">
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Архангельск</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Брянск</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Волгоград</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Геленджик</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Дмитров</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Екатеринбург</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Железногорск</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Звенигород</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Иркутск</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Коломна</div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item">
+                                        <div class="feedback-form__form-field-dropdown-name">Липецк</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

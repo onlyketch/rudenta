@@ -6331,10 +6331,19 @@ body {
   visibility: visible;
 }
 .feedback-form__form-field {
+  position: relative;
   margin-bottom: 40px;
 }
 .feedback-form__form-field:last-child {
   margin-bottom: 0;
+}
+.feedback-form__form-field-review {
+  min-height: 100px;
+}
+.feedback-form__form-field-review .feedback-form__form-field-wrap {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 100px;
 }
 .feedback-form__form-field-wrap {
   position: relative;
@@ -6400,6 +6409,101 @@ body {
   background-repeat: no-repeat;
   background-size: 11px 6px;
   background-position: right center;
+}
+.feedback-form__form-field-dropdown {
+  visibility: hidden;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  max-height: 300px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 6px 45px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 6px 45px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+  padding: 16px;
+  z-index: 20;
+  overflow-y: scroll;
+}
+.feedback-form__form-field-dropdown.cities {
+  max-height: 150px;
+}
+.feedback-form__form-field-dropdown::-webkit-scrollbar {
+  background-color: transparent;
+  width: 4px;
+}
+.feedback-form__form-field-dropdown::-webkit-scrollbar-thumb {
+  background-color: #D9DAE4;
+  border-radius: 8px;
+}
+.feedback-form__form-field-dropdown::-moz-scrollbar {
+  background-color: transparent;
+  width: 4px;
+}
+.feedback-form__form-field-dropdown::-moz-scrollbar-thumb {
+  background-color: #D9DAE4;
+  border-radius: 8px;
+}
+.feedback-form__form-field-dropdown-item {
+  position: relative;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+}
+.feedback-form__form-field-dropdown-item:last-child {
+  margin-bottom: 0;
+}
+.feedback-form__form-field-dropdown-item:hover {
+  background-color: #F7F8FA;
+}
+.feedback-form__form-field-dropdown-item.choosed {
+  background-color: #EDEFF2;
+}
+.feedback-form__form-field-dropdown-group {
+  margin-bottom: 14px;
+}
+.feedback-form__form-field-dropdown-group:last-child {
+  margin-bottom: 0;
+}
+.feedback-form__form-field-dropdown-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 14px;
+  color: #000;
+  max-width: 320px;
+}
+.feedback-form__form-field-dropdown-group-title {
+  padding: 8px 12px;
+  font-family: "Onest Bold", Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  color: #798088;
+  text-transform: uppercase;
+}
+.feedback-form__form-field-dropdown-desc {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 12px;
+  color: #727983;
+  margin-top: 4px;
+  max-width: 320px;
+}
+.feedback-form__form-field-dropdown-clinics {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.feedback-form__form-field-dropdown-clinics .bull-area .bull {
+  margin-right: 4px;
+}
+.feedback-form__form-field-dropdown-clinics .bull-area .bull:last-child {
+  margin-right: 0;
+}
+.feedback-form__form-field-dropdown.show {
+  visibility: visible;
 }
 .feedback-form__form-bonuses-text {
   visibility: visible;
