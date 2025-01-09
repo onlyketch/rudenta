@@ -1635,7 +1635,8 @@
         }
 
         &.open-mob {
-            bottom: -53px;
+            transform: translateY(53px);
+            bottom: 0;
         }
 
         @media (max-width: 739px) {
@@ -1644,7 +1645,7 @@
             left: 0;
             bottom: -100%;
             width: 100%;
-            height: 100vh;
+            height: 100%;
             border-radius: 20px 20px 0 0;
             padding: 36px 24px 100px;
             transition: all .3s ease-out;
@@ -1652,7 +1653,10 @@
     }
 
     &__success {
-        height: 50vh;
+        @media (max-width: 739px) {
+            height: 50vh;
+        }
+        
     }
 
     &__title {
