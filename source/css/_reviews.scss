@@ -1575,7 +1575,7 @@
 }
 
 .feedback-form {
-    //visibility: hidden;
+    visibility: hidden;
     position: fixed;
     top: 0;
     left: 0;
@@ -1583,23 +1583,76 @@
     bottom: 0;
     z-index: 500;
 
+    &.show {
+        visibility: visible;
+    }
+
     &__overlay {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.6);
+
+        @media (max-width: 739px) {
+            background: rgba(0, 0, 0, 0.8); 
+        }
     }
 
-    &__body {
+    &__body, &__success {
         position: absolute;
         top: 0;
-        right: 0;
+        right: -100%;
         background-color: #FFFFFF;
         box-sizing: border-box;
         padding: 80px 68px 87px;
         width: 582px;
         height: 100vh;
-        transition: right .5s ease-out;
+        transition: all .5s ease-out;
         overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+            
+        }
+    
+        &::-moz-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-moz-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+        }
+
+        &.open {
+            right: 0; 
+        }
+
+        &.open-mob {
+            bottom: -53px;
+        }
+
+        @media (max-width: 739px) {
+            top: auto;
+            right: 0;
+            left: 0;
+            bottom: -100%;
+            width: 100%;
+            height: 100vh;
+            border-radius: 20px 20px 0 0;
+            padding: 36px 24px 100px;
+            transition: all .3s ease-out;
+        }
+    }
+
+    &__success {
+        height: 50vh;
     }
 
     &__title {
@@ -1607,6 +1660,11 @@
         font-size: 28px;
         line-height: 30px;
         color: #202B39;
+
+        @media (max-width: 739px) {
+            font-size: 20px;
+            line-height: 20px; 
+        }
     }
 
     &__subtitle {
@@ -1620,11 +1678,21 @@
         &-link {
             text-decoration: none;
             color: #42C8F8;
+            transition: color .3s ease-out;
+
+            &:hover {
+                color: #0096CB;
+            }
+        }
+
+        @media (max-width: 739px) {
+            margin-top: 28px;
+            max-width: 341px;
         }
 
     }
 
-    &__close {
+    &__close, &__success-close {
         position: absolute;
         top: 32px;
         right: 32px;
@@ -1640,6 +1708,11 @@
         background-size: 10px 10px;
         background-position: center;
         cursor: pointer;
+
+        @media (max-width: 739px) {
+            top: 24px;
+            right: 24px;
+        }
     }
 
     &__form {
@@ -1655,6 +1728,12 @@
                 line-height: 24px;
                 color: #202B39;
                 margin-bottom: 24px;
+
+                @media (max-width: 739px) {
+                    font-size: 16px;
+                    line-height: 20px; 
+                    margin-bottom: 20px;
+                }
             }
         }
 
@@ -1757,7 +1836,8 @@
 
             &-textarea,
             &-input-readonly,
-            &-input {
+            &-input,
+            &-tokenbox-input {
                 resize: none;
                 border: none;
                 outline: none;
@@ -1786,6 +1866,82 @@
                 background-position: right center;
             }
 
+            &-tokenbox {
+                min-height: 16px;
+                margin-top: 8px;
+                display: flex;
+                flex-wrap: wrap;
+                padding-right: 22px;
+                cursor: pointer;
+                background-image: url('../images/arrow-down-black.svg');
+                background-repeat: no-repeat;
+                background-size: 11px 6px;
+                background-position: right 7px;
+
+                &-token {
+                    background-color: #42C8F8;
+                    border-radius: 4px;
+                    margin-right: 4px;
+                    padding: 4px;
+                    box-sizing: border-box;
+                    display: flex;
+                    align-items: center;
+                    transition: background-color .3s ease-out;
+                    margin-bottom: 4px;
+
+                    &:last-child {
+                        margin-bottom: 0;  
+                    }
+
+                    &:hover {
+                        background-color: #0096CB;
+                    }
+
+                    &-text {
+                        white-space: nowrap;
+                        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+                        font-size: 12px;
+                        line-height: 12px;
+                        color: #ffffff;
+                        margin-right: 4px;
+                    }
+
+                    &-close {
+                        width: 8px;
+                        height: 8px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                            fill: #B3E9FC;
+                            transition: all .3s ease-out;
+                        }
+
+                        &:hover svg {
+                            fill: #FFFFFF;
+                        }
+                    }
+                }
+
+                &-input {
+                    max-width: 240px;
+                    margin-top: 0;
+                    cursor: pointer;
+                    //margin-left: 4px;
+
+                    &.haveTokens::placeholder {
+                        opacity: 0;
+                    }
+
+                    &.hide {
+                        display: none;
+                    }
+                }
+            }
+
             &-input {}
 
             &-dropdown {
@@ -1800,11 +1956,16 @@
                 border-radius: 8px;
                 transform: translateY(100%);
                 padding: 16px;
+                box-sizing: border-box;
                 z-index: 20;
                 overflow-y: scroll;
 
-                &.cities {
-                    max-height: 150px;
+                &-doctors {
+                    max-height: 284px;
+                }
+
+                &-cities {
+                    max-height: 190px;
                 }
 
                 &::-webkit-scrollbar {
@@ -1845,6 +2006,16 @@
                     &.choosed {
                         background-color: #EDEFF2;
                     }
+
+                    &-wrap {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    &.feedback-drop-doc {
+                        margin-bottom: 4px; 
+                    }
+
                 }
 
                 &-group {
@@ -1879,6 +2050,23 @@
                     color: #727983;
                     margin-top: 4px;
                     max-width: 320px;
+                }
+
+                &-doc-image {
+                    width: 36px;
+                    height: 36px;
+                    background: radial-gradient(97.98% 73.4% at 50% 50%, #F9F9F9 0%, #D7D7D7 100%);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    margin-right: 8px;
+
+                    img {
+                        width: 38px;
+                        height: 50px;
+                        object-fit: contain;
+                        padding-top: 3px;
+                        transform: translateX(-1px);
+                    }
                 }
 
                 &-clinics {
@@ -1916,6 +2104,11 @@
                 text-decoration: none;
                 color: #42C8F8;
                 margin-left: 5px;
+                transition: color .3s ease-out;
+
+                &:hover {
+                    color: #0096CB;
+                }
             }
 
         }
@@ -1973,6 +2166,7 @@
             background-color: #42C8F8;
             border-radius: 8px;
             width: 100%;
+            transition: all .3s ease-out;
             cursor: pointer;
 
             span {
@@ -1983,6 +2177,10 @@
                 svg {
                     margin-left: 16px;
                 }
+            }
+
+            &:hover {
+                background-color: #0096CB; 
             }
         }
 

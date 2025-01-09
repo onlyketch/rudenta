@@ -58,7 +58,7 @@
                         <div class="reviews__subtitle-mob">
                             Уважаемый пациент, для нас важно Ваше мнение, хорошие и теплые слова будут нас воодушевлять, придавать сил в ежедневной работе
                         </div>
-                        <button class="reviews__btn">Оставить отзыв <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <button class="reviews__btn callfeedback">Оставить отзыв <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7.333 0.285156L6.333 1.28516L9.38 4.33216H0V5.66616H9.38L6.333 8.71216L7.333 9.71216L12.047 4.99916L7.333 0.285156Z" fill="#212121"/>
                             </svg>
                         </button>
@@ -78,7 +78,7 @@
                         <div class="reviews__opinion-title">Поделитесь вашим мнением с нами</div>
                         <div class="reviews__opinion-subtitle">Если все прошло не так как вы ожидали, можете <a class="reviews__opinion-link" href="#">написать руководителю клиники</a></div>
                     </div>
-                    <button class="reviews__opinion-btn">Оставить отзыв</button>
+                    <button class="reviews__opinion-btn callfeedback">Оставить отзыв</button>
                </div>
                <button class="reviews__filter-btn-mob">Фильтры</button>
                <div class="reviews__content">
@@ -259,7 +259,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="reviews__opinion-btn">Оставить отзыв</button>
+                        <button class="reviews__opinion-btn callfeedback">Оставить отзыв</button>
                     </div>
                     <div class="reviews__reviews">
                         <div class="reviews__reviews-filter">
@@ -1051,7 +1051,7 @@
                 <div class="feedback-form__form-groups">
                     <div class="feedback-form__form-group">
                         <div class="feedback-form__form-group-title">Оцените ваш опыт</div>
-                        <div class="feedback-form__form-row">
+                        <div class="feedback-form__form-row" id="feedback-field-grade">
                             <div class="feedback-form__form-grades">
                                 <div class="feedback-form__form-grade">
                                     <svg width="27" height="26" viewBox="0 0 27 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1081,6 +1081,7 @@
                             </div>
                             <div class="feedback-form__form-grades-text">Отлично</div>
                             <div class="feedback-form__form-error-text">Ошибка валидации</div>
+                            <input type="hidden" name="feedback-form-grade" id="feedback-form-grade" value="">
                         </div>
                         <div class="feedback-form__form-field feedback-form__form-field-review">
                             <div class="feedback-form__form-field-wrap">
@@ -1133,7 +1134,79 @@
                         <div class="feedback-form__form-field" id="feedback-field-doctor">
                             <div class="feedback-form__form-field-wrap clickable">
                                 <div class="feedback-form__form-field-name">Врач</div>
-                                <input name="feedback-form-doctor" id="feedback-form-doctor" value="" placeholder="Введите или выберите до 5 врачей" class="feedback-form__form-field-input-readonly" readonly>
+                                <div class="feedback-form__form-field-tokenbox">
+                                    <input type="text" name="feedback-form-doctor" id="feedback-form-doctor" value="" placeholder="Введите или выберите до 5 врачей" class="feedback-form__form-field-tokenbox-input">
+                                </div>
+                            </div>
+                            <div class="feedback-form__form-field-dropdown feedback-form__form-field-dropdown-doctors">
+                                <div class="feedback-form__form-field-dropdown-items">
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Рузана Самвеловна Бабаджанян</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Рузана Самвеловна Бабаджанян</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Екатерина Александровна Гамулина</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Александр Алексеевич Олихейко</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Арам Георгиевич Айвазов</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="feedback-form__form-field-dropdown-item feedback-drop-doc">
+                                        <div class="feedback-form__form-field-dropdown-item-wrap">
+                                            <div class="feedback-form__form-field-dropdown-doc-image">
+                                                <img src="images/ruzanna.png" alt="">
+                                            </div>
+                                            <div class="feedback-form__form-field-dropdown-doc-info">
+                                                <div class="feedback-form__form-field-dropdown-name">Рузана Самвеловна Бабаджанян</div>
+                                                <div class="feedback-form__form-field-dropdown-desc">Стоматолог-хирург, имплантолог</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="feedback-form__form-field" id="feedback-field-service">
@@ -1200,7 +1273,7 @@
                                 <div class="feedback-form__form-field-name">Город</div>
                                 <input type="text" name="feedback-form-city" id="feedback-form-city" value="" placeholder="Введите или выберите" class="feedback-form__form-field-input-readonly" maxlength="23">
                             </div>
-                            <div class="feedback-form__form-field-dropdown cities">
+                            <div class="feedback-form__form-field-dropdown feedback-form__form-field-dropdown-cities">
                                 <div class="feedback-form__form-field-dropdown-items">
                                     <div class="feedback-form__form-field-dropdown-item">
                                         <div class="feedback-form__form-field-dropdown-name">Архангельск</div>
@@ -1242,8 +1315,8 @@
                 </div>
                 <div class="feedback-form__form-conditions">
                     <label class="feedback-form__form-checkbox">
-                        <input type="checkbox" name="feedback-form-conditions">
-                        <span>Ознакомлен с <a href="#" target="_blank" class="feedback-form__form-conditions-link"> Условиями обработки персональных данных</a></span>
+                        <input type="checkbox" name="feedback-form-conditions-checkbox" id="feedback-form-conditions-checkbox" checked>
+                        <span><i>Ознакомлен с <a href="#" target="_blank" class="feedback-form__form-conditions-link"> Условиями обработки персональных данных</a></i></span>
                     </label>
                     <div class="feedback-form__form-error-text">Ошибка валидации</div>
                 </div>
@@ -1257,6 +1330,13 @@
                 </button>
             </form>
             <div class="feedback-form__close"></div>
+        </div>
+        <div class="feedback-form__success">
+            <div class="feedback-form__title">Отзыв опубликован</div>
+            <div class="feedback-form__subtitle">
+                Ваш отзыв успешно размещен на странице отзывов.
+            </div>
+            <div class="feedback-form__success-close"></div>
         </div>
     </div>
     
@@ -1777,6 +1857,7 @@
     <script src="js/canvas.js"></script>
     <script src="js/imask.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/reviews.js"></script>
 
 </body>
 </html>    
