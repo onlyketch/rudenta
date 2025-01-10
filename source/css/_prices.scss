@@ -2,6 +2,10 @@
     padding-bottom: 0;
 }
 
+.main-red {
+    background-color: #DA3346;
+}
+
 .prices {
     position: relative;
     color: #FFFFFF;
@@ -43,6 +47,18 @@
         @media (max-width: 340px) {
             font-size: 26px;
             line-height: 30px;
+        }
+    }
+
+    &__subtitle {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 18px;
+        max-width: 479px;
+        margin-top: 24px;
+
+        @media (max-width: 1023px) {
+            margin-top: 16px;
         }
     }
 
@@ -123,6 +139,11 @@
         font-size: 14px;
         line-height: 16px;
         max-width: 280px;
+
+        @media (max-width: 1023px) {
+            height: 16px;
+            overflow: hidden;
+        }
     }
 
     &__benefits-item-more {
