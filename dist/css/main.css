@@ -102,10 +102,6 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #202B39;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
 }
 
 .body-overflow {
