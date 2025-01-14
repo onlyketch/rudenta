@@ -101,8 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       reviewsFiltersResetBtn.addEventListener('click', function() {
-          reviewsFiltersValueDoc.value = '';
-          reviewsFiltersValueServ.value = '';
+          reviewsFiltersValueDoc.defaultValue = '';
+          reviewsFiltersValueServ.defaultValue = '';
+          selectedCheckboxesArray = [];
           
           for (let i = 0; i < reviewsFiltersDropDownCheckboxesGroups.length; i++) {
               let checkboxMain = reviewsFiltersDropDownCheckboxesGroups[i].querySelector('.checkbox-main');

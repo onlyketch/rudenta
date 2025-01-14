@@ -1,0 +1,288 @@
+.main-cases {
+
+    .reviews {
+        @media (max-width: 739px) {
+            margin-top: 104px;
+        }
+    }
+
+    .reviews__wrapper {
+        margin-top: 221px;
+
+        @media (max-width: 739px) {
+            margin-top: 276px;
+        }
+    }
+    
+    .reviews__subtitle {
+        margin-top: 19px;
+
+        @media (max-width: 739px) {
+            display: block;
+            margin-top: 16px;
+        }
+    }
+
+    .reviews__area {
+        margin-top: 34px;
+        padding: 68px 116px 103px;
+
+        @media (max-width: 1023px) {
+            padding: 16px 25px 68px; 
+        }
+    }
+
+    .reviews__content {
+        margin-top: 0;
+    }
+
+    .reviews__filter-btn-mob {
+        @media (max-width: 1023px) {
+            margin-top: 0;; 
+        }
+    }
+
+    .reviews__reviews-filter {
+        @media (max-width: 1259px) {
+            margin-top: 32px; 
+        }
+    }
+
+    .reviews__reviews-filter-dropdown {
+        z-index: 20;
+    }
+}
+
+.cases {
+
+    &__items {
+    }
+
+    &__item {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        appearance: none;
+        background-color: #52AED1;
+        color: #FFFFFF;
+        border-radius: 8px;
+        box-sizing: border-box;
+        max-width: 678px;
+        padding: 24px;
+        margin-bottom: 24px;
+
+        &:last-child {
+            margin-bottom: 0; 
+        }
+
+        &-blue {
+            background: radial-gradient(56.19% 140.07% at 83.26% 12.87%, #94DDF5 0%, #69C6E7 100%);
+        }
+
+        &-red {
+            background: radial-gradient(56.19% 140.07% at 83.26% 12.87%, #EB5A78 0%, #D93247 100%);
+        }
+
+        &-purple {
+            background: radial-gradient(56.19% 140.07% at 83.26% 12.87%, #8868C1 0%, #5642A2 100%);
+        }
+
+        @media (max-width: 1259px) {
+            max-width: 100%;
+        }
+
+        @media (max-width: 739px) {
+            padding: 20px 20px 28px; 
+        }
+    }
+
+    &__item-wrap {
+        display: flex;
+        margin-bottom: 44px;
+        justify-content: space-between;
+
+        &:last-child {
+            margin-bottom: 0;
+            align-items: flex-end;
+
+            @media (max-width: 739px) {
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 739px) {
+            flex-direction: column;
+            margin-bottom: 24px;
+        }
+    }
+
+    &__item-tags {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 152px;
+        margin-right: 60px;
+        flex-shrink: 0;
+
+        @media (max-width: 739px) {
+            max-width: 100%;
+            margin-right: 0;
+            margin-bottom: 24px; 
+        }
+    }
+
+    &__item-tag {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 4px;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        line-height: 10px;
+        color: #FFFFFF;
+        padding: 5px 6px;
+        margin-right: 4px;
+        margin-bottom: 4px;
+
+        &:last-child {
+            margin-right: 0; 
+        }
+    }
+
+    &__item-title {
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    &__item-resume {
+        min-width: 120px;
+        margin-right: 92px;
+
+        @media (max-width: 739px) {
+            min-width: 100%;
+            margin-right: 0;
+        }
+    }
+
+    &__item-resume-num {
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    &__item-resume-text,
+    &__item-resume-date {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 2px;
+    }
+
+    &__item-resume-date {
+        margin-top: 16px;
+
+        @media (max-width: 739px) {
+            display: none;
+        }
+    }
+
+    &__item-doctors {
+        width: 100%;
+
+        @media (max-width: 739px) {
+            margin-top: 32px;
+        }
+    }
+
+    &__item-doctors-sign {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #F7F8FA;
+    }
+
+    &__item-doctors-list {
+        margin-top: 12px;
+    }
+
+    &__item-doctor {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__item-doctor-image {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background: radial-gradient(97.98% 73.4% at 50% 50%, #F9F9F9 0%, #D7D7D7 100%);
+        overflow: hidden;
+
+        img {
+            width: 54px;
+            height: 71px;
+            object-fit: contain;
+            padding-top: 5px;
+            transform: translateX(-3px);
+        }
+    }
+
+    &__item-doctor-info {
+        margin-left: 12px;
+    }
+
+    &__item-doctor-name {
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    &__item-doctor-position {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    &__item-arrow {
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        background-image: url('../images/arrow-right-light.svg');
+        background-repeat: no-repeat;
+        background-size: 8px 8px;
+        background-position: center;
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity .3s ease-out;
+
+        @media (max-width: 739px) {
+            opacity: 1;
+            bottom: 20px;
+            right: 20px;
+        }
+    }
+
+    &__item:hover &__item-arrow {
+        opacity: 1;
+    }
+
+    &__item-mob-date {
+        display: none;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 14px;
+        margin-top: 32px;
+
+        @media (max-width: 739px) {
+            display: block;
+        }
+    }
+}
+
