@@ -7324,6 +7324,11 @@ body {
   margin-right: 60px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
 }
 @media (max-width: 739px) {
   .cases__item-tags {
@@ -7355,6 +7360,7 @@ body {
 }
 .cases__item-resume {
   min-width: 120px;
+  max-width: 120px;
   margin-right: 92px;
 }
 @media (max-width: 739px) {

@@ -122,6 +122,8 @@
         max-width: 152px;
         margin-right: 60px;
         flex-shrink: 0;
+        align-items: flex-start;
+        align-content: flex-start;
 
         @media (max-width: 739px) {
             max-width: 100%;
@@ -155,6 +157,7 @@
 
     &__item-resume {
         min-width: 120px;
+        max-width: 120px;
         margin-right: 92px;
 
         @media (max-width: 739px) {
