@@ -106,6 +106,8 @@ body {
 
 .body-overflow {
   overflow: hidden;
+  touch-action: none;
+  -ms-touch-action: none;
 }
 
 .main {
