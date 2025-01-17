@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
    
        let clinicVideoArea = document.querySelector('.clinics__card-video');
        let mapVideoArea = document.querySelector('.map__card-video');
+       let modalVideo = document.querySelector('.mobile-map-cards__card-video');
        let popUpVideo = document.querySelector('.popup-video');
        let popUpVideoOverlay = document.querySelector('.popup-video__overlay');
        let popUpVideoClose = document.querySelector('.popup-video__close');
@@ -32,16 +33,26 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('body-overflow');
             popUpVideoIframe.setAttribute('src', video_url);
         });
+
+        modalVideo.addEventListener('click', function() {
+            popUpVideo.style.visibility = 'visible';
+            document.body.classList.add('body-overflow');
+            popUpVideoIframe.setAttribute('src', video_url);
+        });
    
        popUpVideoClose.addEventListener('click', function() {
            popUpVideo.style.visibility = 'hidden';
-           document.body.classList.remove('body-overflow');
+           if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            document.body.classList.remove('body-overflow');
+           }
            popUpVideoIframe.setAttribute('src', '');
        });
    
        popUpVideoOverlay.addEventListener('click', function() {
            popUpVideo.style.visibility = 'hidden';
-           document.body.classList.remove('body-overflow');
+           if (!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            document.body.classList.remove('body-overflow');
+           }
            popUpVideoIframe.setAttribute('src', '');
        });
 

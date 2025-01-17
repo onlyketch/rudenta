@@ -61,6 +61,42 @@ function init() {
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         map.behaviors.disable('drag');
         map.behaviors.enable('multiTouch');
+        let mobileMapCardsBox = document.querySelector('.mobile-map-cards');
+        let mobileMapCards = document.querySelectorAll('.mobile-map-cards__card');
+
+        for (let i = 0; i < mobileMapCards.length; i++) {
+           let mobileMapCardClose = mobileMapCards[i].querySelector('.mobile-map-cards__card-close');
+           
+           if (i == 0) {
+                placemark.events.add('click', function() {
+                    mobileMapCardsBox.classList.add('visible');
+                    mobileMapCards[i].classList.add('show');
+                    document.body.classList.add('body-overflow');
+                });
+            } else if (i == 1) {
+                placemark2.events.add('click', function() {
+                    mobileMapCardsBox.classList.add('visible');
+                    mobileMapCards[i].classList.add('show');
+                    document.body.classList.add('body-overflow');
+                });
+            } else if (i == 2) {
+                placemark3.events.add('click', function() {
+                    mobileMapCardsBox.classList.add('visible');
+                    mobileMapCards[i].classList.add('show');
+                    document.body.classList.add('body-overflow');
+                });
+            }
+
+            mobileMapCardClose.addEventListener('click', function() {
+                mobileMapCards[i].classList.remove('show');
+                setTimeout(function() {
+                    mobileMapCardsBox.classList.remove('visible');
+                    document.body.classList.remove('body-overflow');
+                }, 400);
+            });
+           
+           
+        }
     } else {
         let mapCards = document.querySelectorAll('.map__card');
 

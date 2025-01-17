@@ -508,7 +508,6 @@
     }
 }
 
-/*
 .mobile-map-cards {
     visibility: hidden;
     position: fixed;
@@ -518,6 +517,10 @@
     bottom: 0;
     z-index: 500;
 
+    &.visible {
+        visibility: visible;
+    }
+
     &__overlay {
         width: 100%;
         height: 100%;
@@ -525,60 +528,157 @@
     }
 
     &__card {
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        right: 0;
+        max-height: 85%;
+        background-color: #FFFFFF;
+        border-radius: 20px 20px 0 0;
+        box-sizing: border-box;
+        transition: bottom .3s ease-out;
+        overflow-y: hidden;
+
+        &.show {
+            bottom: 0; 
+        }
+
     }
 
     &__card-header {
+        padding: 32px 24px 24px;
+        border-bottom: 1px solid #E6E6E6;
     }
 
     &__card-name {
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+
+        @media (max-width: 359px) {
+            max-width: 220px;
+        }
     }
 
     &__card-address {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1E1E1E;
+        margin-top: 8px;
+        margin-bottom: 24px; 
     }
 
-    &__card-route-link {
+    &__card-route-link, &__card-station-link {
+        text-decoration: none;
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #42C8F8;
+           
     }
 
     &__card-close {
+        position: absolute;
+        top: 24px;
+        right: 24px;
+        border: none;
+        outline: none;
+        appearance: none;
+        width: 44px;
+        height: 44px;
+        background-color: #F6F6F6;
+        border-radius: 8px;
+        background-image: url('../images/close.svg');
+        background-repeat: no-repeat;
+        background-size: 10px 10px;
+        background-position: center;
+        cursor: pointer;
     }
 
     &__card-body {
+        padding: 24px;
+        border-bottom: 1px solid #E6E6E6;
     }
 
     &__card-metro {
     }
 
     &__card-station {
+        margin-bottom: 28px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__card-station-name {
+        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        display: flex;
+        align-items: center;
+
+        .bull {
+            margin-left: 8px;
+         }
     }
 
     &__card-station-desc {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #798088;
     }
 
     &__card-station-link {
     }
 
     &__card-video {
+        display: flex;
+        align-items: center;
+        margin-top: 136px;
+        width: 100%;
+        max-width: 200px;
+        cursor: pointer;
+
+        svg {
+            fill:#42C8F8;
+        }
     }
 
     &__card-video-text {
+        margin-left: 8px;
     }
 
     &__card-video-title {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #42C8F8;
     }
 
     &__card-video-desc {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1E1E1E;
     }
 
     &__card-footer {
+        padding: 24px 24px 45px;
     }
 
     &__card-footer-desc {
+        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: #1E1E1E;
     }
 }
-*/
+
 
 
 

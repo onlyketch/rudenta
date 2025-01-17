@@ -180,6 +180,21 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       })
 
+      document.addEventListener('click', function(e) {
+        const withinBoundaries = e.composedPath().includes(filterAboveReviewsSlideBodyMob);
+        const withinBtn = e.composedPath().includes(filterAboveReviewsBtn);
+     
+        if ( !withinBoundaries && !withinBtn ) {
+            if (filterAboveReviewsSlideBodyMob.classList.contains('open')) {
+                filterAboveReviewsSlideBodyMob.classList.remove('open');
+                setTimeout(function() {
+                    filterAboveReviewsSlideMob.classList.remove('show');
+                    document.body.classList.remove('body-overflow');
+                }, 400);
+            }
+        }
+    })
+
   }
 
   /************ Filter above the list of cases End *************/

@@ -3638,77 +3638,160 @@ body {
   }
 }
 
-/*
 .mobile-map-cards {
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 500;
-
-    &__overlay {
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-    }
-
-    &__card {
-    }
-
-    &__card-header {
-    }
-
-    &__card-name {
-    }
-
-    &__card-address {
-    }
-
-    &__card-route-link {
-    }
-
-    &__card-close {
-    }
-
-    &__card-body {
-    }
-
-    &__card-metro {
-    }
-
-    &__card-station {
-    }
-
-    &__card-station-name {
-    }
-
-    &__card-station-desc {
-    }
-
-    &__card-station-link {
-    }
-
-    &__card-video {
-    }
-
-    &__card-video-text {
-    }
-
-    &__card-video-title {
-    }
-
-    &__card-video-desc {
-    }
-
-    &__card-footer {
-    }
-
-    &__card-footer-desc {
-    }
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
 }
-*/
+.mobile-map-cards.visible {
+  visibility: visible;
+}
+.mobile-map-cards__overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+.mobile-map-cards__card {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  max-height: 85%;
+  background-color: #FFFFFF;
+  border-radius: 20px 20px 0 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: bottom 0.3s ease-out;
+  transition: bottom 0.3s ease-out;
+  overflow-y: hidden;
+}
+.mobile-map-cards__card.show {
+  bottom: 0;
+}
+.mobile-map-cards__card-header {
+  padding: 32px 24px 24px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.mobile-map-cards__card-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+}
+@media (max-width: 359px) {
+  .mobile-map-cards__card-name {
+    max-width: 220px;
+  }
+}
+.mobile-map-cards__card-address {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1E1E1E;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+.mobile-map-cards__card-route-link, .mobile-map-cards__card-station-link {
+  text-decoration: none;
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #42C8F8;
+}
+.mobile-map-cards__card-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 44px;
+  height: 44px;
+  background-color: #F6F6F6;
+  border-radius: 8px;
+  background-image: url("../images/close.svg");
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: center;
+  cursor: pointer;
+}
+.mobile-map-cards__card-body {
+  padding: 24px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.mobile-map-cards__card-station {
+  margin-bottom: 28px;
+}
+.mobile-map-cards__card-station:last-child {
+  margin-bottom: 0;
+}
+.mobile-map-cards__card-station-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.mobile-map-cards__card-station-name .bull {
+  margin-left: 8px;
+}
+.mobile-map-cards__card-station-desc {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #798088;
+}
+.mobile-map-cards__card-video {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 136px;
+  width: 100%;
+  max-width: 200px;
+  cursor: pointer;
+}
+.mobile-map-cards__card-video svg {
+  fill: #42C8F8;
+}
+.mobile-map-cards__card-video-text {
+  margin-left: 8px;
+}
+.mobile-map-cards__card-video-title {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #42C8F8;
+}
+.mobile-map-cards__card-video-desc {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1E1E1E;
+}
+.mobile-map-cards__card-footer {
+  padding: 24px 24px 45px;
+}
+.mobile-map-cards__card-footer-desc {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #1E1E1E;
+}
+
 .clinics {
   position: relative;
   z-index: 10;
