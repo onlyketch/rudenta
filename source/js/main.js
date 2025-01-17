@@ -240,6 +240,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400); 
     });
 
+    //Привязка стрелочки к последнему слову названия услуги на странице цен
+
+    let pricesServiceTitleTexts = document.querySelectorAll('.prices__services-title');
+
+    if (pricesServiceTitleTexts !== null) {
+        for (let i = 0; i < pricesServiceTitleTexts.length; i++) {
+            let lastWord = pricesServiceTitleTexts[i].textContent.split(' ').pop();
+            let newText = pricesServiceTitleTexts[i].textContent.replace(lastWord, '<span class="prices__services-title-arr">' + lastWord + '</span>');
+            pricesServiceTitleTexts[i].innerHTML = newText;
+        }
+    }
+    
+    
+
 
   
 

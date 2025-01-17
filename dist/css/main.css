@@ -4322,26 +4322,30 @@ body {
 .prices__services-left {
   -ms-flex-negative: 0;
       flex-shrink: 0;
+  width: 315px;
+}
+@media (max-width: 1023px) {
+  .prices__services-left {
+    width: 100%;
+  }
 }
 .prices__services-sticky {
   position: sticky;
   top: 15px;
 }
 .prices__services-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
   font-size: 32px;
   line-height: 38px;
   color: #202B39;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  cursor: default;
 }
-.prices__services-title::after {
+.prices__services-title-arr {
+  white-space: nowrap;
+}
+.prices__services-title-arr::after {
   content: "";
   display: inline-block;
   width: 30px;
@@ -4353,9 +4357,12 @@ body {
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin-left: 12px;
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  vertical-align: middle;
 }
 .prices__services-title:hover {
   color: #42C8F8;
@@ -4365,13 +4372,13 @@ body {
     color: #202B39;
   }
 }
-.prices__services-title:hover::after {
+.prices__services-title:hover .prices__services-title-arr::after {
   background-image: url("../images/arrow-right-light.svg");
   background-color: #42C8F8;
   border: 1px solid #42C8F8;
 }
 @media (max-width: 1023px) {
-  .prices__services-title:hover::after {
+  .prices__services-title:hover .prices__services-title-arr::after {
     background-image: url("../images/arrow-right-dark.svg");
     background-color: transparent;
     border: 1px solid #D9DAE4;
