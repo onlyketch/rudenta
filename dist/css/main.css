@@ -7378,9 +7378,9 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 44px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 .cases__item-wrap:last-child {
   margin-bottom: 0;
@@ -7410,7 +7410,6 @@ body {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  max-width: 152px;
   margin-right: 60px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -7419,6 +7418,9 @@ body {
           align-items: flex-start;
   -ms-flex-line-pack: start;
       align-content: flex-start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 152px;
+          flex: 0 0 152px;
 }
 @media (max-width: 739px) {
   .cases__item-tags {

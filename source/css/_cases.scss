@@ -99,7 +99,7 @@
     &__item-wrap {
         display: flex;
         margin-bottom: 44px;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         &:last-child {
             margin-bottom: 0;
@@ -119,11 +119,11 @@
     &__item-tags {
         display: flex;
         flex-wrap: wrap;
-        max-width: 152px;
         margin-right: 60px;
         flex-shrink: 0;
         align-items: flex-start;
         align-content: flex-start;
+        flex: 0 0 152px;
 
         @media (max-width: 739px) {
             max-width: 100%;
