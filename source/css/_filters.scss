@@ -8,29 +8,77 @@
     }
 
     &__services, &__clinic, 
-    &__specialization, &__search {
+    &__specialization, &__doctor, &__counter {
         width: 100%;
         max-width: 330px;
         margin: 0 10px;
+        background-color: #F7F8FA;
+        border-radius: 8px;
+        padding: 16px;
+        box-sizing: border-box;
+        user-select: none;
     }
 
-    &__clinic {
+    &__services, &__doctor {
+        cursor: pointer;
+    }
+
+    &__counter {
+        position: relative;
+        padding: 16px;
         margin-left: 0;
+        background-color: transparent;
+        height: 66px;
+
+        &-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: translateY(-50%);
+            
+            @media (max-width: 1290px) {
+                flex-direction: column;
+                height: 100%;
+            }
+        }
+
+        &-val {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            line-height: 28px;
+            color: #202B39;
+        }
+
+        &-reset {
+            border: none;
+            outline: none;
+            appearance: none;
+            background: transparent;
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #42C8F8;
+            cursor: pointer;
+        }
     }
 
     &__name {
         font-size: 12px;
-        line-height: 16px;
-        color: #798088;
+        line-height: 12px;
+        color: #767D86;
     }
 
     &__row {
         display: flex;
         align-items: center;
-        margin-top: 12px;
+        margin-top: 8px;
     }
 
-    &__services, &__specialization, &__search {
+    &__services, &__specialization, &__doctor {
         .filters__row {
             justify-content: space-between;
         }
@@ -45,11 +93,11 @@
     &__link {
         display: flex;
         align-items: center;
-        margin-right: 24px;
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
-        color: #798088;
+        margin-right: 16px;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 14px;
+        color: #767D86;
         text-decoration: none;
 
         .bull-area {
@@ -67,8 +115,9 @@
             margin-right: 13px;
         }
 
-        @media (max-width: 1110px) {
-            margin-right: 6px;
+        @media (max-width: 1230px) {
+            font-size: 11px;
+            margin-right: 4px;
         }
     }
 
@@ -86,7 +135,8 @@
         } 
     }
 
-    &__services {
+    &__services,
+    &__doctor {
         position: relative;
     }
 
@@ -96,9 +146,9 @@
     }
 
     &__val {
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 14px;
         color: #202B39;
 
         @media (max-width: 1380px) {
@@ -136,31 +186,51 @@
         position: relative;
     }
 
-    &__search-input {
+    &__input {
         border: none;
         outline: none;
         appearance: none;
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-        font-size: 16px;
-        line-height: 20px;
+        background: transparent;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 14px;
         color: #202B39;
         padding: 0;
+        height: 14px;
+        cursor: pointer;
+        width: 100%;
+        max-width: 250px;
         
         &::placeholder {
-            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            line-height: 20px;
+            font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 14px;
             color: #798088;
 
             @media (max-width: 1380px) {
                 font-size: 13px;
                 line-height: 17px;
             }
+
+            @media (max-width: 1230px) {
+                font-size: 11px;
+            }
         }
 
         @media (max-width: 1380px) {
             font-size: 13px;
             line-height: 17px;
+        }
+        
+        @media (max-width: 1230px) {
+            font-size: 11px;
+        }
+    }
+
+    #filter-doc:focus {
+        &::placeholder {
+            color: #202B39;
+            opacity: 0.2;
         }
     }
 
@@ -173,7 +243,7 @@
         background-position: center;
     }
 
-    &__search {
+    &__doctor {
         margin-right: 0;
     }
 
@@ -186,17 +256,45 @@
 
     /*Filter Specialization*/
 
-    &__switcher-spec, &__switcher-serv {
+    &__switcher-spec, &__switcher-serv, &__switcher-doc {
         display: none;
         position: absolute;
-        top: 120%;
-        width: 300px;
-        padding: 8px 0;
+        left: 0;
+        top: 115%; //120%
+        width: 100%; //300px
+        height: 312px;
+        padding: 16px;
         box-sizing: border-box;
         z-index: 100;
         background-color: #FFFFFF;
         border-radius: 8px;
         box-shadow: 0px 6px 45px rgba(0, 0, 0, 0.1);
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+            
+        }
+
+        &::-moz-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+
+        &::-moz-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+        }
+    }
+
+    &__switcher-doc {
+        height: 300px;
     }
 
     .switcher-active {
@@ -204,8 +302,49 @@
     }
 
     &__switcher-item {
-        padding: 12px 24px;
-        border-top: 1px solid #EDEFF2;
+        position: relative;
+        padding: 12px;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &-name, &-docname {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 14px;
+            color: #000000;
+        }
+
+        &-desc, &-docposition {
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            line-height: 12px;
+            color: #727983;
+            margin-top: 4px;
+        }
+
+        &-clinics {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+
+            .bull-area {
+                .bull {
+                    margin-right: 4px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            background-color: #F7F8FA;
+        }
+
+        &.active {
+            background-color: #EDEFF2;
+        }
     }
 
     .switcher-item-first {
@@ -852,6 +991,7 @@
         color: #202B39;
         cursor: pointer;
         padding-right: 27px;
+        text-overflow: ellipsis;
 
         &::placeholder {
             font-family: 'Onest Medium', Arial, Helvetica, sans-serif;

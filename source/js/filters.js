@@ -38,84 +38,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     
     
-        //Фильтр «Специализация»
-    
-        let filterSpecValue = document.querySelector('.filters__specialization .filters__val');
-        let filterSpecCount = document.querySelector('.filters__specialization .filters__val-count');
-        let filterSpecRadio = document.querySelectorAll('input[name="specialization"]');
-    
-        filterSpecCount.textContent = filterSpecRadio.length - 1;
-    
-        function specValueUpdate() {
-            for (let spec of filterSpecRadio) {
-                if (spec.checked) {
-                    filterSpecValue.textContent = spec.value;
-                }
-            }
-        }
-        specValueUpdate();
-        
-    
-        let filterSpec = document.querySelector('.filters__specialization > .filters__row');
-        let switcherSpec = document.querySelector('.filters__switcher-spec');
-        let switcherSpecGroup = document.querySelectorAll('.filters__switcher-spec .filters__switcher-group');
-    
-        filterSpec.addEventListener('click', function() {
-            switcherSpec.classList.toggle('switcher-active');
-        });
-    
-        for (let i = 0; i < switcherSpecGroup.length; i++) {
-            switcherSpecGroup[i].addEventListener('click', function() {
-                setTimeout( function() {
-                    specValueUpdate();
-                    switcherSpec.classList.remove('switcher-active');
-                }, 600);
-                
-            });
-        }
-    
-        function specCloseClickOutside(e) {
-            if(!e.target.matches('.filters__switcher-spec, .filters__switcher-spec *, .filters__specialization *')) {
-                switcherSpec.classList.remove('switcher-active');
-            }
-        }
-    
-        document.addEventListener('click', specCloseClickOutside);
-    
         //Фильтр «Услуги»
     
-        let filterServValue = document.querySelector('.filters__services .filters__val');
-        let filterServCount = document.querySelector('.filters__services .filters__val-count');
-        let filterServRadio = document.querySelectorAll('input[name="services"]');
-    
-        filterServCount.textContent = filterServRadio.length - 1;
-    
-        function servValueUpdate() {
-            for (let spec of filterServRadio) {
-                if (spec.checked) {
-                    filterServValue.textContent = spec.value;
-                }
-            }
-        }
-        servValueUpdate();
-    
-        let filterServ = document.querySelector('.filters__services > .filters__row');
+        let filterServValue = document.getElementById('filter-serv');
+        let filterServ = document.querySelector('.filters__services');
         let switcherServ = document.querySelector('.filters__switcher-serv');
-        let switcherServGroup = document.querySelectorAll('.filters__switcher-serv .filters__switcher-group');
+        let switcherServItems = document.querySelectorAll('.filters__switcher-serv > .filters__switcher-item');
     
-        filterServ.addEventListener('click', function() {
+        filterServ.addEventListener('click', function(e) {
+            e.stopPropagation();
             switcherServ.classList.toggle('switcher-active');
         });
-    
-        for (let i = 0; i < switcherServGroup.length; i++) {
-            switcherServGroup[i].addEventListener('click', function() {
-                setTimeout( function() {
-                    servValueUpdate();
-                    switcherServ.classList.remove('switcher-active');
-                }, 600);
-                
+
+        for (let i = 0; i < switcherServItems.length; i++) {
+            switcherServItems[i].addEventListener('click', function() {
+                if (!switcherServItems[i].classList.contains('active')) {
+                    let servName = switcherServItems[i].querySelector('.filters__switcher-item-name');
+                    filterServValue.defaultValue = servName.textContent;
+                    filterServValue.value = servName.textContent;
+
+                    for (let item of switcherServItems) {
+                        if (item.classList.contains('active')) {
+                            item.classList.remove('active'); 
+                        }
+                    }
+                    switcherServItems[i].classList.add('active');
+                } 
             });
         }
+    
     
         function servCloseClickOutside(e) {
             if(!e.target.matches('.filters__switcher-serv, .filters__switcher-serv *, .filters__services *')) {
@@ -125,7 +76,90 @@ document.addEventListener('DOMContentLoaded', function() {
     
         document.addEventListener('click', servCloseClickOutside);
 
-          //Мобильное меню фильтры
+    //Фильтр «Врач»
+    
+    let filterDocValue = document.getElementById('filter-doc');
+    let filterDoc = document.querySelector('.filters__doctor');
+    let switcherDoc = document.querySelector('.filters__switcher-doc');
+    let switcherDocItems = document.querySelectorAll('.filters__switcher-doc > .filters__switcher-item');
+
+    filterDoc.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (!switcherDoc.classList.contains('switcher-active')) {
+            filterDocValue.focus();
+        } else {
+            filterDocValue.blur();
+        }
+        switcherDoc.classList.toggle('switcher-active');
+    });
+
+    for (let i = 0; i < switcherDocItems.length; i++) {
+        switcherDocItems[i].addEventListener('click', function() {
+            if (!switcherDocItems[i].classList.contains('active')) {
+                let docName = switcherDocItems[i].querySelector('.filters__switcher-item-docname');
+                filterDocValue.defaultValue = docName.textContent;
+                filterDocValue.value = docName.textContent;
+
+                for (let item of switcherDocItems) {
+                    if (item.classList.contains('active')) {
+                        item.classList.remove('active'); 
+                    }
+                }
+                switcherDocItems[i].classList.add('active');
+            } 
+        });
+    }
+
+    function docCloseClickOutside(e) {
+        if(!e.target.matches('.filters__switcher-doc, .filters__switcher-doc *, .filters__doctor *')) {
+            switcherDoc.classList.remove('switcher-active');
+        }
+    }
+
+    document.addEventListener('click', docCloseClickOutside);
+
+    //Сброс Фильтров
+
+    let filterResetButton = document.querySelector('.filters__counter-reset');
+
+    filterResetButton.addEventListener('click', function() {
+        
+        if (!filtersLinks[0].classList.contains('filters__link-active')) {
+            
+            filtersLinks.forEach( function(item) {
+                item.classList.remove('filters__link-active');
+            });
+
+            filtersLinks[0].classList.add('filters__link-active');
+        }
+
+        if (filterServValue.defaultValue !== '') {
+            filterServValue.defaultValue = '';
+            filterServValue.value = '';
+
+            for (let item of switcherServItems) {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active'); 
+                }
+            }
+        }
+
+        if (filterDocValue.defaultValue !== '') {
+            filterDocValue.defaultValue = '';
+            filterDocValue.value = '';
+
+            for (let item of switcherDocItems) {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active'); 
+                }
+            }
+        }
+
+        
+    });
+    
+
+    //Мобильное меню фильтры
 
     let mobileFiltersBtn = document.querySelector('.filters-mobile__btn');
     let mobileFiltersCloseBtn = document.querySelector('.mobile-filters-menu__close');

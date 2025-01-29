@@ -328,6 +328,13 @@
         &.doctor {
             z-index: 30;
         }
+
+        #doc-val:focus {
+            &::placeholder {
+                color: #202B39;
+                opacity: 0.2;
+            }
+        }
     }
 
     &__filters-item-name {
@@ -424,6 +431,7 @@
         line-height: 15px;
         color: #202B39;
         cursor: pointer;
+        text-overflow: ellipsis;
 
         &::placeholder {
             font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
@@ -1856,6 +1864,13 @@
                     font-size: 14px;
                     line-height: 16px;
                     color: #767D86; 
+                }
+            }
+
+            #feedback-form-doctor:focus {
+                &::placeholder {
+                    color: #202B39;
+                    opacity: 0.2;
                 }
             }
 

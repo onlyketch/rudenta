@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       reviewsFiltersItemDoc.addEventListener('click', function() {
+          if (!reviewsFiltersDropDownDoc.classList.contains('show')) {
+              reviewsFiltersValueDoc.focus();
+          } else {
+              reviewsFiltersValueDoc.blur();
+          }
           reviewsFiltersDropDownDoc.classList.toggle('show');
       });
 
