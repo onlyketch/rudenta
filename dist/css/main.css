@@ -587,6 +587,13 @@ body {
 .filters__services, .filters__doctor {
   cursor: pointer;
 }
+.filters__services, .filters__doctor, .filters__clinic {
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+}
+.filters__services:hover, .filters__doctor:hover, .filters__clinic:hover {
+  background-color: #EDEFF2;
+}
 .filters__counter {
   position: relative;
   padding: 16px;

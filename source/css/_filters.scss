@@ -23,6 +23,14 @@
         cursor: pointer;
     }
 
+    &__services, &__doctor, &__clinic {
+        transition: background-color .3s ease-out;
+
+        &:hover {
+            background-color: #EDEFF2;
+        }
+    }
+
     &__counter {
         position: relative;
         padding: 16px;
