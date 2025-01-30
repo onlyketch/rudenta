@@ -100,7 +100,7 @@
 
     &__link {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         margin-right: 16px;
         font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 14px;
@@ -112,10 +112,23 @@
             margin-left: 6px;
             width: 20px;
             justify-content: space-between;
+            opacity: 0.4;
         }
 
-        .bull-hod, .bull-bel {
-            opacity: 0.4;
+        &:hover {
+            color: #49525E;
+        }
+
+        &:hover .bull-area {
+            opacity: 0.6;
+        }
+
+        &-active {
+            color: #202B39 !important;
+
+            .bull-area {
+                opacity: 1 !important;
+            }
         }
 
         @media (max-width: 1380px) {
@@ -129,13 +142,6 @@
         }
     }
 
-    &__link-active {
-        color: #202B39 !important;
-        
-        .bull-hod, .bull-bel {
-            opacity: 1;
-        }
-    }
 
     #clinic_hodynka, #clinic_belyaevo {
         .bull-area {
