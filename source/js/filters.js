@@ -167,7 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
     let mobileFiltersMenu = document.querySelector('.mobile-filters-menu');
     let mobileFiltersReset = document.querySelector('.mobile-filters-menu__reset');
     let mobileFiltersBody = document.querySelector('.mobile-filters-menu__body'); 
-    let mobileFiltersSearchInput = document.querySelector('.mobile-filters-menu__search-input');
     let mobileFiltersBodyOpen = false;
 
     mobileFiltersBtn.addEventListener('click', function() {
@@ -192,6 +191,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);    
     });
 
+
+    //Мобильное меню фильтры «Услуги»
+
+    let mobFiltersServicesItem = document.getElementById('mobile-filters-serv-item');
+    let mobServicesMenu = document.querySelector('.mobile-services-menu');
+    let mobServicesMenuClose = document.querySelector('.mobile-services-menu__close');
+    let mobileServiceMenuItems = document.querySelectorAll('.mobile-services-menu__item');
+    let mobFiltersServicesInput = document.getElementById('mob-filters-service-val');
+
+    mobFiltersServicesItem.addEventListener('click', function() {
+        mobServicesMenu.classList.add('show');
+    });
+
+    for (let i = 0; i < mobileServiceMenuItems.length; i++) {
+        mobileServiceMenuItems[i].addEventListener('click', function() {
+            let itemName = this.querySelector('.mobile-services-menu__name');
+            for (let item of mobileServiceMenuItems) {
+                if (item.classList.contains('choosed')) {
+                    item.classList.remove('choosed');
+                } 
+            }
+            this.classList.add('choosed');
+            mobFiltersServicesInput.defaultValue = itemName.textContent;
+            mobServicesMenu.classList.remove('show');
+            mobileFiltersDefaultCheck();
+        });
+    }
+
+    mobServicesMenuClose.addEventListener('click', function() {
+        mobServicesMenu.classList.remove('show');
+    });
+
+    //Мобильное меню фильтры «Врач»
+
+    let mobFiltersDocItem = document.getElementById('mobile-filters-doc-item');
+    let mobDocMenu = document.querySelector('.mobile-doctors-menu');
+    let mobDocMenuClose = document.querySelector('.mobile-doctors-menu__close');
+    let mobileDocMenuItems = document.querySelectorAll('.mobile-doctors-menu__item');
+    let mobFiltersDocInput = document.getElementById('mob-filters-doctor-val');
+
+    mobFiltersDocItem.addEventListener('click', function() {
+        mobDocMenu.classList.add('show');
+    });
+
+    for (let i = 0; i < mobileDocMenuItems.length; i++) {
+        mobileDocMenuItems[i].addEventListener('click', function() {
+            let itemName = this.querySelector('.mobile-doctors-menu__docname');
+            for (let item of mobileDocMenuItems) {
+                if (item.classList.contains('choosed')) {
+                    item.classList.remove('choosed');
+                } 
+            }
+            this.classList.add('choosed');
+            mobFiltersDocInput.defaultValue = itemName.textContent;
+            mobDocMenu.classList.remove('show');
+            mobileFiltersDefaultCheck();
+        });
+    }
+
+    mobDocMenuClose.addEventListener('click', function() {
+        mobDocMenu.classList.remove('show');
+    });
+
+    //reset & submit
+
     mobileFiltersReset.addEventListener('click', function() {
         
         filtersLinksMob.forEach( function(item) {
@@ -200,13 +264,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         filtersLinksMob[0].classList.add('filters__link-active');
 
-        mobileSpecRadio[0].checked = true;
-        mobSpecValueUpdate();
+        mobFiltersServicesInput.defaultValue = '';
+        mobFiltersDocInput.defaultValue = '';
 
-        mobileServRadio[0].checked = true;
-        mobServValueUpdate();
+        for (let item of mobileServiceMenuItems) {
+            if (item.classList.contains('choosed')) {
+                item.classList.remove('choosed');
+            }
+        }
 
-        mobileFiltersSearchInput.value = '';
+        for (let item of mobileDocMenuItems) {
+            if (item.classList.contains('choosed')) {
+                item.classList.remove('choosed');
+            }
+        }
 
         mobileFiltersDefaultCheck();
     });
@@ -223,165 +294,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);    
     });
 
-    mobileFiltersSearchInput.addEventListener('input', function() {
-        mobileFiltersDefaultCheck();
-    });
-
-    //Мобильное меню фильтры «Специализация»
-
-    let mobileFiltersSpecValue = document.querySelector('.mobile-filters-menu__val-spec');
-    let mobileSpecRadio = document.querySelectorAll('input[name="mob-specialization"]');
-
-    function mobSpecValueUpdate() {
-        for (let spec of mobileSpecRadio) {
-            if (spec.checked) {
-                mobileFiltersSpecValue.textContent = spec.value;
-            }
-        }
-    }
-
-    mobSpecValueUpdate();
-    
-    let mobileFilterSpec = document.getElementById('mob-filter-spec');
-    let mobileSpecMenu = document.querySelector('.mobile-spec-menu');
-    let mobileSpecMenuClose = document.querySelector('.mobile-spec-menu__close');
-    let mobileSpecMenuReset = document.querySelector('.mobile-spec-menu__reset'); 
-    let mobileSpecMenuSubmit = document.querySelector('.mobile-spec-menu__submit');
-    let mobileSpecMenuOpen = false;
-
-    mobileFilterSpec.addEventListener('click', function() {
-        if (!mobileSpecMenuOpen) {
-            mobileSpecMenu.style.visibility = 'visible';
-            mobileSpecMenu.style.bottom = '0';
-            mobileSpecMenuOpen = true;
-        }
-    });
-
-    mobileSpecMenuClose.addEventListener('click', function() {
-        if (mobileSpecMenuOpen) {
-            mobileSpecMenu.style.bottom = '-100%';
-            mobileSpecMenuOpen = false;
-            setTimeout(function() {
-                mobileSpecMenu.style.visibility = 'hidden';
-            }, 500);
-        }
-    });
-
-    mobileSpecMenuReset.addEventListener('click', function() {
-        mobileSpecRadio[0].checked = true;
-        mobSpecValueUpdate();
-        mobileSpecMenuDefaultCheck();
-    });
-
-    mobileSpecMenuSubmit.addEventListener('click', function() {
-        if (mobileSpecMenuOpen) {
-            mobSpecValueUpdate();
-            mobileSpecMenu.style.bottom = '-100%';
-            mobileSpecMenuOpen = false;
-            setTimeout(function() {
-                mobileSpecMenu.style.visibility = 'hidden';
-            }, 500);
-        }
-        mobileFiltersDefaultCheck();
-    });
-
-    //Мобильное меню фильтры «Услуги»
-
-    let mobileFiltersServValue = document.querySelector('.mobile-filters-menu__val-serv');
-    let mobileServRadio = document.querySelectorAll('input[name="mob-services"]');
-
-    function mobServValueUpdate() {
-        for (let spec of mobileServRadio) {
-            if (spec.checked) {
-                mobileFiltersServValue.textContent = spec.value;
-            }
-        }
-    }
-
-    mobServValueUpdate();
-
-    let mobileFilterServ = document.getElementById('mob-filter-serv');
-    let mobileServMenu = document.querySelector('.mobile-serv-menu');
-    let mobileServMenuClose = document.querySelector('.mobile-serv-menu__close');
-    let mobileServMenuReset = document.querySelector('.mobile-serv-menu__reset'); 
-    let mobileServMenuSubmit = document.querySelector('.mobile-serv-menu__submit');
-    let mobileServMenuOpen = false;
-
-    mobileFilterServ.addEventListener('click', function() {
-        if (!mobileServMenuOpen) {
-            mobileServMenu.style.visibility = 'visible';
-            mobileServMenu.style.bottom = '0';
-            mobileServMenuOpen = true;
-        }
-    });
-
-    mobileServMenuClose.addEventListener('click', function() {
-        if (mobileServMenuOpen) {
-            mobileServMenu.style.bottom = '-100%';
-            mobileServMenuOpen = false;
-            setTimeout(function() {
-                mobileServMenu.style.visibility = 'hidden';
-            }, 500);
-        }
-    });
-
-    mobileServMenuReset.addEventListener('click', function() {
-        mobileServRadio[0].checked = true;
-        mobServValueUpdate();
-        mobileServMenuDefaultCheck();
-    });
-
-    mobileServMenuSubmit.addEventListener('click', function() {
-        if (mobileServMenuOpen) {
-            mobServValueUpdate();
-            mobileServMenu.style.bottom = '-100%';
-            mobileServMenuOpen = false;
-            setTimeout(function() {
-                mobileServMenu.style.visibility = 'hidden';
-            }, 500);
-        }
-        mobileFiltersDefaultCheck();
-    });
-
     //Отображение/скрытие кнопки сбросить в мобильных фильтрах
 
     function mobileFiltersDefaultCheck() {
         if ( filtersLinksMob[0].classList.contains('filters__link-active') 
-            && mobileSpecRadio[0].checked && mobileServRadio[0].checked && mobileFiltersSearchInput.value == '') {
+            && mobFiltersServicesInput.defaultValue == '' && mobFiltersDocInput.defaultValue == '') {
                 mobileFiltersReset.style.visibility = 'hidden';
         } else {
             mobileFiltersReset.style.visibility = 'visible';
         }
-        mobileServMenuDefaultCheck();
-        mobileSpecMenuDefaultCheck();
-    }
-
-    function mobileServMenuDefaultCheck() {
-        if (mobileServRadio[0].checked) {
-            mobileServMenuReset.style.visibility = 'hidden';
-        } else {
-            mobileServMenuReset.style.visibility = 'visible';
-        }
-    }
-
-    function mobileSpecMenuDefaultCheck() {
-        if (mobileSpecRadio[0].checked) {
-            mobileSpecMenuReset.style.visibility = 'hidden';
-        } else {
-            mobileSpecMenuReset.style.visibility = 'visible';
-        } 
-    }
-
-    for (let radio of mobileServRadio) {
-        radio.addEventListener('change', function() {
-            mobileServMenuDefaultCheck();
-        } );
-    }
-
-    for (let radio of mobileSpecRadio) {
-        radio.addEventListener('change', function() {
-            mobileSpecMenuDefaultCheck();
-        } );
     }
 
 

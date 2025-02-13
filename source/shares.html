@@ -15,34 +15,51 @@
     <header class="header">
         <div class="container">
             <div class="header__top">
-                <div class="header__top-left">
-                    <a href="/" class="header__logo">
-                        <img src="images/logo.svg" alt="RUDENTA">
-                    </a>
-                    <ul class="header__nav">
-                        <li class="header__drop">Услуги <span class="drop-icon"></span>
-                            <div class="dropbox-wrapp">
-                                <div class="dropbox">
-                                    <ul class="dropbox-list">
-                                        <li><a href="#" target="_blank" class="dropbox-link">Удаление зуба</a></li>
-                                        <li><a href="#" target="_blank" class="dropbox-link">Коронки на зуб под ключ</a></li>
-                                        <li><a href="#" target="_blank" class="dropbox-link">Удаление зуба мудрости</a></li>
-                                        <li><a href="#" target="_blank" class="dropbox-link">Удаление стенки зуба</a></li>
-                                        <li><a href="#" target="_blank" class="dropbox-link">Отбеливание зубов</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="#">Цены</a></li>
-                        <li><a href="#">Врачи</a></li>
-                        <li><a href="#">О клинике</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
+                <div class="header__top-nav">
+                    <a href="#" class="header__top-nav-link">Детская стоматология</a>
+                    <a href="#" class="header__top-nav-link">Стоматологический портал</a>
+                    <a href="#" class="header__top-nav-link">Учебный центр</a>
                 </div>
                 <div class="header__top-right">
-                    <a href="tel:+74998775831" class="header__phone">8 499 877-58-31</a>
-                    <button class="header__menu">Меню</button>
+                    <div class="header__top-worktime">Ежедневно: 09:00–21:00</div>
+                    <a href="mailto:grandpark@rudenta.ru" class="header__top-mail">grandpark@rudenta.ru</a>
                 </div>
+            </div>
+            <div class="header__area">
+                <div class="header__area-left">
+                    <a href="/" class="header__area-logo">
+                        <img src="images/white-logo.svg" alt="RUDENTA">
+                    </a>
+                    <div class="header__area-nav">
+                        <a class="header__area-nav-link header__area-nav-link-services">Услуги</a>
+                        <a href="#" class="header__area-nav-link">Врачи</a>
+                        <a href="#" class="header__area-nav-link">Цены</a>
+                        <a href="#" class="header__area-nav-link">Отзывы</a>
+                        <a href="#" class="header__area-nav-link">Кейсы</a>
+                        <a href="#" class="header__area-nav-link">Акции</a>
+                        <a href="#" class="header__area-nav-link">Контакты</a>
+                        <a href="#" class="header__area-nav-link">О клинике</a>
+                        <a class="header__area-nav-link header__area-nav-link-more">Еще</a>
+                    </div>
+                </div>
+                <div class="header__area-right">
+                    <button class="header__area-order-btn callback">Записаться</button>
+                    <a href="tel:+74998775831" class="header__area-phone">8 499 877-58-31</a>
+                    <div class="header__area-social">
+                        <a href="#" target="_blank" class="header__area-social-link">
+                            <img src="images/icon-whatsup.svg" alt="whatsup">
+                        </a>
+                        <a href="#" target="_blank" class="header__area-social-link header__area-social-link-tg">
+                            <img src="images/icon-telegram.svg" alt="telegram">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="header__mob">
+                <a href="/" class="header__mob-logo">
+                    <img src="images/logo-mob.svg" alt="RUDENTA">
+                </a>
+                <a href="tel:+74998775831" class="header__mob-phone">8 499 877-58-31</a>
             </div>
         </div>
     </header>
@@ -225,16 +242,6 @@
         <canvas id="blurBG"></canvas>
     </main>
     
-    
-
-
-
-
-
-
-
-
-
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__row">
@@ -394,18 +401,301 @@
     </div>
 
     <div class="mobile-navigator">
-        <button class="mobile-navigator__btn mobile-navigator__btn-order callback"><span>Записаться</span></button>
-        <button class="mobile-navigator__btn mobile-navigator__btn-menu">
-            <span>Меню</span>
-            <div class="mobile-navigator__btn-burg">
-                <div class="mobile-navigator__btn-burg-item"></div>
-                <div class="mobile-navigator__btn-burg-item"></div>
-                <div class="mobile-navigator__btn-burg-item"></div>
+        <div class="mobile-navigator__wrapper">
+            <div class="mobile-navigator__menu">
+                <div class="mobile-navigator__social">
+                    <a href="#" target="_blank" class="mobile-navigator__social-link mobile-navigator__social-link-tg">
+                        <img src="images/icon-telegram.svg" alt="telegram">
+                    </a>
+                    <a href="#" target="_blank" class="mobile-navigator__social-link mobile-navigator__social-link-wts">
+                        <img src="images/icon-whatsup.svg" alt="whatsup">
+                    </a>
+                </div>
+                <div class="mobile-navigator__menu-right">
+                    <div class="mobile-navigator__menu-name">Меню</div>
+                    <button class="mobile-navigator__menu-close"></button>
+                </div>
             </div>
-        </button>  
+            <div class="mobile-navigator__default">
+                <div class="mobile-navigator__current-page">
+                    <div class="mobile-navigator__current-page-name">Скидки и акции</div>
+                </div>
+                <button class="mobile-navigator__btn-menu"></button>
+            </div> 
+        </div>
     </div>
 
     <div class="btn-up btn-up_hide"></div>
+
+    <div class="services-menu">
+        <div class="services-menu__overlay"></div>
+            <div class="services-menu__wrapper">
+                <div class="services-menu__main animate__animated animate__fadeIn animate__slow">
+                    <div class="services-menu__main-title">Услуги клиники <span class="services-menu__main-total-counter">13</span></div>
+                    <div class="services-menu__main-list">
+                        <div class="services-menu__main-service">Диагностика <span class="services-menu__main-service-counter">4</span></div>
+                        <div class="services-menu__main-service">Гигиена <span class="services-menu__main-service-counter">2</span></div>
+                        <div class="services-menu__main-service">Отбеливание зубов <span class="services-menu__main-service-counter">2</span></div>
+                        <div class="services-menu__main-service">Лечение десен <span class="services-menu__main-service-counter">3</span></div>
+                        <div class="services-menu__main-service">Эстетическая реставрация <span class="services-menu__main-service-counter">2</span></div>
+                        <div class="services-menu__main-service">Лечение зубов <span class="services-menu__main-service-counter">4</span></div>
+                        <div class="services-menu__main-service">Удаление зубов <span class="services-menu__main-service-counter">2</span></div>
+                        <div class="services-menu__main-service">Восстановление зубов <span class="services-menu__main-service-counter">3</span></div>
+                        <div class="services-menu__main-service">Имплантация <span class="services-menu__main-service-counter">3</span></div>
+                        <div class="services-menu__main-service">Анестезиология <span class="services-menu__main-service-counter">5</span></div>
+                        <div class="services-menu__main-service">Гнатология <span class="services-menu__main-service-counter">2</span></div>
+                        <div class="services-menu__main-service">Исправление прикуса <span class="services-menu__main-service-counter">3</span></div>
+                        <div class="services-menu__main-service">Логопедия <span class="services-menu__main-service-counter">2</span></div>
+                    </div>
+                </div>
+                <div class="services-menu__service animate__animated animate__slideInLeft animate__fast">
+                    <div class="services-menu__service-title">Диагностика <span class="services-menu__service-total-counter">4</span></div>
+                    <div class="services-menu__service-desc">Короткое описание блока про диагностику зубов</div>
+                    <div class="services-menu__service-list">
+                        <a href="#" class="services-menu__service-link">Все о диагностике <span class="services-menu__service-link-arrow animate__animated animate__fadeInLeft"></span></a>
+                        <a href="#" class="services-menu__service-link">Консультация стоматолога <span class="services-menu__service-link-arrow animate__animated animate__fadeInLeft"></span></a>
+                        <a href="#" class="services-menu__service-link">Рентген-диагностика <span class="services-menu__service-link-arrow animate__animated animate__fadeInLeft"></span></a>
+                        <a href="#" class="services-menu__service-link">Заочная консультация <span class="services-menu__service-link-arrow animate__animated animate__fadeInLeft"></span></a>
+                    </div>
+                </div>
+                <div class="services-menu__advert animate__animated animate__fadeIn animate__slow">
+                    <div class="services-menu__advert-top">
+                        <div class="services-menu__advert-text">P текст</div>
+                        <div class="services-menu__advert-title">Скидка 40% на лечение зубов под седацией</div>
+                    </div>
+                    <div class="services-menu__advert-bottom">
+                        <a href="#" class="services-menu__advert-more">Подробнее</a>
+                        <div class="services-menu__advert-info">
+                            <div class="services-menu__advert-info-text">Дополнительный текст</div>
+                            <div class="services-menu__advert-info-price">от 8 900 ₽</div>
+                        </div>
+                    </div>
+                    <img src="images/promo.jpg" class="services-menu__advert-cover" alt="">
+                </div>
+            </div>
+        
+    </div>
+
+    <div class="mobile-menu">
+        <div class="mobile-menu__wrapper">
+            <div class="mobile-menu__header">
+                <a href="/" class="mobile-menu__header-logo">
+                    <img src="images/logo-mob.svg" alt="RUDENTA">
+                </a>
+                <a href="tel:+74998775831" class="mobile-menu__header-phone">8 499 877-58-31</a>
+            </div>
+            <div class="mobile-menu__main animate__animated animate__fadeIn">
+                <div class="mobile-menu__items">
+                    <a class="mobile-menu__item mobile-menu__item-services"><span class="mobile-menu__item-services-counter">13</span> Услуги</a>
+                    <a href="#" class="mobile-menu__item">Врачи</a>
+                    <a href="#" class="mobile-menu__item">Цены</a>
+                    <a href="#" class="mobile-menu__item">Отзывы</a>
+                    <a href="#" class="mobile-menu__item">Наши работы</a>
+                    <a href="#" class="mobile-menu__item"><span class="mobile-menu__item-perc">%</span> Акции</a>
+                    <a href="#" class="mobile-menu__item">Контакты</a>
+                    <a href="#" class="mobile-menu__item">О клинике</a>
+                    <a class="mobile-menu__item mobile-menu__item-more"><span class="mobile-menu__item-more-counter">8</span> Еще</a>
+                </div>
+                <div class="mobile-menu__links">
+                    <a href="#" target="_blank" class="mobile-menu__link">Детская стоматология</a>
+                    <a href="#" target="_blank" class="mobile-menu__link">Стоматологический портал</a>
+                    <a href="#" target="_blank" class="mobile-menu__link">Учебный центр</a>
+                </div>
+                <div class="mobile-menu__info">
+                    <div class="mobile-menu__stations">
+                        <div class="mobile-menu__station">
+                            <div class="bull-bel"></div>
+                            <div class="mobile-menu__station-name">м. Полежаевская</div>
+                        </div>
+                        <div class="mobile-menu__station">
+                            <div class="bull-hod"></div>
+                            <div class="mobile-menu__station-name">м. Беляево</div>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__data">
+                        <div class="mobile-menu__worktime">Ежедневно: 09:00–21:00</div>
+                        <a href="mailto:grandpark@rudenta.ru" class="mobile-menu__mail">grandpark@rudenta.ru</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu__services animate__animated animate__fadeIn">
+                <button class="mobile-menu__services-back-btn">Назад</button>
+                <div class="mobile-menu__services-items">
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">3</div>
+                            <div class="mobile-menu__services-item-name">Диагностика</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Гигиена</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Отбеливание зубов</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">3</div>
+                            <div class="mobile-menu__services-item-name">Лечение десен</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Эстетическая реставрация</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">4</div>
+                            <div class="mobile-menu__services-item-name">Лечение зубов</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Удаление зубов</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">3</div>
+                            <div class="mobile-menu__services-item-name">Восстановление зубов</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">3</div>
+                            <div class="mobile-menu__services-item-name">Имплантация</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">5</div>
+                            <div class="mobile-menu__services-item-name">Анестезиология</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Гнатология</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">3</div>
+                            <div class="mobile-menu__services-item-name">Исправление прикуса</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                    <div class="mobile-menu__services-item">
+                        <div class="mobile-menu__services-item-wrapper">
+                            <div class="mobile-menu__services-item-counter">2</div>
+                            <div class="mobile-menu__services-item-name">Логопедия</div>
+                            <div class="mobile-menu__services-item-arrow"></div>
+                        </div>
+                        <div class="mobile-menu__services-item-submenu">
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Все о гигиене</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение пульпита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Лечение периодонтита</a>
+                            <a href="#" class="mobile-menu__services-item-submenu-link">Эстетическая реставрация</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 

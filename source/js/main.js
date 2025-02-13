@@ -252,10 +252,263 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
+    //Главное меню
+    let headerAreaNavLinkServices = document.querySelectorAll('.header__area-nav-link-services');
+    let headerAreaNav = document.querySelector('.header__area-nav');
+    let servicesMenu = document.querySelector('.services-menu');
+
+    for (let i = 0; i < headerAreaNavLinkServices.length; i++) {
+        headerAreaNavLinkServices[i].addEventListener('click', function() {
+            servicesMenu.classList.add('open');
+            headerAreaNav.classList.add('has-active');
+            this.classList.add('active');
+            document.body.classList.add('body-overflow');
+        });
+    }
+
+
+    //Главное меню внутри
+
+    let servicesMenuItems = document.querySelectorAll('.services-menu__main-service');
+    let servicesMenuItemsList = document.querySelector('.services-menu__main-list');
+    let servicesMenuMainBlock = document.querySelector('.services-menu__main');
+    let servicesMenuServiceBlock = document.querySelector('.services-menu__service');
+    let servicesMenuAdvertBlock = document.querySelector('.services-menu__advert');
+    let serviceMenuBlockTitle = servicesMenuServiceBlock.querySelector('.services-menu__service-title');
+
+    document.addEventListener('click', function(e) {
+        if (servicesMenu.classList.contains('open')) {
+        const withinHeaderLinkServicesFirst = e.composedPath().includes(headerAreaNavLinkServices[0]);
+        const withinHeaderLinkServicesSecond = e.composedPath().includes(headerAreaNavLinkServices[1]);
+        const withinMenuMain = e.composedPath().includes(servicesMenuMainBlock);
+        const withinMenuService = e.composedPath().includes(servicesMenuServiceBlock);
+        const withinMenuAdvert = e.composedPath().includes(servicesMenuAdvertBlock);
+     
+        if ( !withinHeaderLinkServicesFirst && !withinHeaderLinkServicesSecond && !withinMenuMain && !withinMenuService && !withinMenuAdvert) {
+            if (servicesMenu.classList.contains('open')) {
+                servicesMenu.classList.remove('open');
+            }
+
+            if (servicesMenuServiceBlock.classList.contains('open')) {
+                servicesMenuServiceBlock.classList.remove('open')
+            }
+
+            servicesMenuAdvertBlock.classList.remove('hide');
+            servicesMenuAdvertBlock.classList.remove('show');
+
+            servicesMenuItemsList.classList.remove('has-active');
+            for (let item of servicesMenuItems) {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            }
+
+            headerAreaNav.classList.remove('has-active');
+            for (let item of headerAreaNavLinkServices) {
+                item.classList.remove('active');
+            }
+            
+
+            document.body.classList.remove('body-overflow');
+        }
+        }
+        
+    });
+
+    for (let i = 0; i < servicesMenuItems.length; i++) {
+        servicesMenuItems[i].addEventListener('click', function() {
+
+            let servicesMenuItemCounter = servicesMenuItems[i].querySelector('.services-menu__main-service-counter');
+            if (!servicesMenuItemsList.classList.contains('has-active')) {
+                servicesMenuItemsList.classList.add('has-active');
+            }
+
+            for (let item of servicesMenuItems) {
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                }
+            }
+
+            servicesMenuItems[i].classList.add('active');
+            
+            if (!servicesMenuServiceBlock.classList.contains('open')) {
+                servicesMenuServiceBlock.classList.add('open');
+            }
+            if (!servicesMenuAdvertBlock.classList.contains('hide')) {
+                servicesMenuAdvertBlock.classList.add('hide');
+
+                setTimeout(function() {
+                    servicesMenuAdvertBlock.classList.add('show');
+                }, 550);
+            }
+
+            let textWithOutNum = servicesMenuItems[i].innerText.replace (/[0-9]/g, '');
+            serviceMenuBlockTitle.innerHTML = textWithOutNum + ' <span class="services-menu__service-total-counter">' + servicesMenuItemCounter.textContent + '</span>';
+        });
+    }
+
+    // переключатель меню - навигация
+    let headerAreaNavSwitcher = document.querySelector('.header__area-nav-switcher');
+    let headerAreaNavMain = document.querySelector('.header__area-nav-main');
+    let headerAreaNavPage = document.querySelector('.header__area-nav-page');
+
+    if (headerAreaNavSwitcher !== null) {
+
+        headerAreaNavSwitcher.addEventListener('click', function() {
+            if (headerAreaNavMain.classList.contains('hide')) {
+                headerAreaNavPage.classList.add('hide');
+                headerAreaNavMain.classList.remove('hide');
+            } else if (headerAreaNavPage.classList.contains('hide')) {
+                headerAreaNavPage.classList.remove('hide');
+                headerAreaNavMain.classList.add('hide');
+            }
+            
+        });
+
+    }
+
+    //Главное меню мобильное
+    let mobNavigatorMenuBtn = document.querySelector('.mobile-navigator__btn-menu');
+    let mobNavigatorWrapper = document.querySelector('.mobile-navigator__wrapper');
+    let mobNavigatorMenuClose = document.querySelector('.mobile-navigator__menu-close');
+    let mobMenu = document.querySelector('.mobile-menu');
+    let mobMenuWrapper = document.querySelector('.mobile-menu__wrapper');
+
+    mobNavigatorMenuBtn.addEventListener('click', function() {
+        document.body.classList.add('body-overflow');
+        mobNavigatorWrapper.classList.add('show-menu');
+        mobMenu.classList.add('open');
+        mobMenuWrapper.scrollTo(0, 0);
+    });
+
+    //внутри
+    let mobMenuMain = document.querySelector('.mobile-menu__main');
+    let mobMenuServices = document.querySelector('.mobile-menu__services');
+    let mobMenuServicesItem = document.querySelector('.mobile-menu__item-services');
+    let mobNavigatorMenuName = document.querySelector('.mobile-navigator__menu-name');
+
+    mobMenuServicesItem.addEventListener('click', function() {
+        mobMenuMain.classList.add('hide');
+        mobMenuServices.classList.add('open');
+        mobNavigatorMenuName.textContent = 'Услуги';
+    });
+
+
+    //меню услуг
+    let mobMenuServicesItems = document.querySelectorAll('.mobile-menu__services-item');
+    let mobMenuServicesBackBtn = document.querySelector('.mobile-menu__services-back-btn');
+
+    mobMenuServicesBackBtn.addEventListener('click', function() {
+        mobMenuServices.classList.remove('open');
+        mobMenuMain.classList.remove('hide');
+        for (let item of mobMenuServicesItems) {
+            if (item.classList.contains('open')) item.classList.remove('open');
+            if (item.classList.contains('pale')) item.classList.remove('pale');
+        }
+        mobNavigatorMenuName.textContent = 'Меню';
+    });
+
+    mobNavigatorMenuClose.addEventListener('click', function() {
+        mobMenuServices.classList.remove('open');
+        mobMenuMain.classList.remove('hide');
+        for (let item of mobMenuServicesItems) {
+            if (item.classList.contains('open')) item.classList.remove('open');
+            if (item.classList.contains('pale')) item.classList.remove('pale');
+        }
+        mobNavigatorMenuName.textContent = 'Меню';
+        mobNavigatorWrapper.classList.remove('show-menu');
+        mobMenu.classList.remove('open');
+        document.body.classList.remove('body-overflow');
+    });
+
+    for (let i = 0; i < mobMenuServicesItems.length; i++) {
+        
+        let mobMenuServicesItemWrapper = mobMenuServicesItems[i].querySelector('.mobile-menu__services-item-wrapper');
+        
+        mobMenuServicesItemWrapper.addEventListener('click', function(e) {
+            if (mobMenuServicesItems[i].classList.contains('pale')) {
+                mobMenuServicesItems[i].classList.remove('pale')
+            }
+            let itemOpenCounter = 0;
+            for (let item of mobMenuServicesItems) {
+                let itemWrapper = item.querySelector('.mobile-menu__services-item-wrapper');
+                if (item.classList.contains('open') && itemWrapper !== e.currentTarget) {
+                    item.classList.remove('open'); 
+                }
+            }
+            mobMenuServicesItems[i].classList.toggle('open');
+            for (let item of mobMenuServicesItems) {
+                if (item.classList.contains('open')) {
+                    itemOpenCounter++;
+                }
+            }
+            if (itemOpenCounter > 0) {
+                for (let item of mobMenuServicesItems) {
+                    if (!item.classList.contains('open')) {
+                        item.classList.add('pale');
+                    }
+                }
+            } else if (itemOpenCounter == 0) {
+                for (let item of mobMenuServicesItems) {
+                    if (item.classList.contains('pale')) {
+                        item.classList.remove('pale');
+                    }
+                }
+            }
+        });
+    }
+
+    //Слайдер детальная врача
+
+    $(document).ready(function(){
+        $(".doctor-detail__workflow-slider").owlCarousel({
+            margin: 0,
+            items: 1,
+            nav: true,
+            loop: true,
+            smartSpeed: 500
+        });
+      });
+
     
+    // Pop-up сертификаты, документы на детальной врача
 
+    let doctorDetailDocumentPreview = document.querySelectorAll('.doctor-detail__data-achievement-document');
+    let doctorDetailDocumentModal = document.querySelector('.doctor-detail__document');
+    let doctorDetailDocumentModalClose = document.querySelector('.doctor-detail__document-close');
+    let doctorDetailDocumentFullSize = document.querySelector('.doctor-detail__document-body-img');
 
-  
+    if (doctorDetailDocumentPreview !== null) {
 
+        for (let i = 0; i < doctorDetailDocumentPreview.length; i++) {
+            doctorDetailDocumentPreview[i].addEventListener('click', function(e) {
+                e.stopPropagation();
+                let pathToFullSizeImage = doctorDetailDocumentPreview[i].getAttribute('data-target');
+                doctorDetailDocumentFullSize.setAttribute('src', pathToFullSizeImage);
+                doctorDetailDocumentModal.classList.add('open');
+                document.body.classList.add('body-overflow');
+            });
+        }
+
+        doctorDetailDocumentModalClose.addEventListener('click', function() {
+            doctorDetailDocumentModal.classList.remove('open');
+            document.body.classList.remove('body-overflow');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (doctorDetailDocumentModal.classList.contains('open')) {
+                const withinimageFull = e.composedPath().includes(doctorDetailDocumentFullSize);
+                const withinCloseBtn = e.composedPath().includes(doctorDetailDocumentModalClose);
+
+                if ( !withinimageFull && !withinCloseBtn ) {
+                    doctorDetailDocumentModal.classList.remove('open');
+                    document.body.classList.remove('body-overflow');
+                }
+            }
+        });
+
+    }
+
+    
     
 });
