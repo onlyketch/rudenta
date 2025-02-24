@@ -12566,6 +12566,7 @@ body {
       flex-shrink: 0;
 }
 .doctor-detail__workflow {
+  width: 678px;
   margin-top: 136px;
 }
 .doctor-detail__workflow-title {
@@ -12702,6 +12703,7 @@ body {
 @media (max-width: 1023px) {
   .doctor-detail__workflow {
     margin-top: 80px;
+    width: 100%;
   }
 }
 .doctor-detail__data {

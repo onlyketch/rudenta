@@ -460,15 +460,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Слайдер детальная врача
 
-    $(document).ready(function(){
-        $(".doctor-detail__workflow-slider").owlCarousel({
-            margin: 0,
-            items: 1,
-            nav: true,
-            loop: true,
-            smartSpeed: 500
-        });
-      });
+    $(".doctor-detail__workflow-slider").owlCarousel({
+        margin: 0,
+        items: 1,
+        nav: true,
+        loop: true,
+        smartSpeed: 500
+    });
 
     
     // Pop-up сертификаты, документы на детальной врача

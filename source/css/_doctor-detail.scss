@@ -149,6 +149,8 @@
     }
 
     &__workflow {
+        //width: 100%;
+        width: 678px;
         margin-top: 136px;
 
         &-title {
@@ -273,6 +275,7 @@
 
         @media (max-width: 1023px) {
             margin-top: 80px;
+            width: 100%;
         }
 
     }
