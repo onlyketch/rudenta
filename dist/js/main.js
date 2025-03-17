@@ -460,15 +460,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //Слайдер детальная врача
 
-    $(".doctor-detail__workflow-slider").owlCarousel({
-        margin: 0,
-        items: 1,
-        nav: true,
-        loop: true,
-        smartSpeed: 500
-    });
+    if (document.querySelector('.doctor-detail__workflow-slider') !== null ) {
+        
+        $(".doctor-detail__workflow-slider").owlCarousel({
+            margin: 0,
+            items: 1,
+            nav: true,
+            loop: true,
+            smartSpeed: 500
+        });
+    }
 
-    
     // Pop-up сертификаты, документы на детальной врача
 
     let doctorDetailDocumentPreview = document.querySelectorAll('.doctor-detail__data-achievement-document');
@@ -476,7 +478,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let doctorDetailDocumentModalClose = document.querySelector('.doctor-detail__document-close');
     let doctorDetailDocumentFullSize = document.querySelector('.doctor-detail__document-body-img');
 
-    if (doctorDetailDocumentPreview !== null) {
+    if (doctorDetailDocumentPreview.length !== 0) {
 
         for (let i = 0; i < doctorDetailDocumentPreview.length; i++) {
             doctorDetailDocumentPreview[i].addEventListener('click', function(e) {
