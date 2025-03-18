@@ -322,4 +322,27 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
+    // Страница услуги мобильное меню
+
+    if (document.querySelector('.prices-menu-mobile') !== null) {
+
+        let servicePagePricesButton = document.querySelector('.service-page__prices-btn');
+        let pricesMenuMobile = document.querySelector('.prices-menu-mobile');
+        let pricesMenuMobileCloseBtn = document.querySelector('.prices-menu-mobile__body-close');
+
+        servicePagePricesButton.addEventListener('click', function() {
+            document.body.classList.add('body-overflow');
+            pricesMenuMobile.classList.add('open');
+        });
+
+        pricesMenuMobileCloseBtn.addEventListener('click', function() {
+            pricesMenuMobile.classList.remove('open');
+            setTimeout(function() {
+                document.body.classList.remove('body-overflow');
+            }, 400);
+        });
+
+    }
+
+
 });
