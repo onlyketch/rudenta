@@ -486,13 +486,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 let pathToFullSizeImage = doctorDetailDocumentPreview[i].getAttribute('data-target');
                 doctorDetailDocumentFullSize.setAttribute('src', pathToFullSizeImage);
                 doctorDetailDocumentModal.classList.add('open');
-                document.body.classList.add('body-overflow');
+                if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                    document.body.classList.add('body-overflow');
+                }
+                
             });
         }
 
         doctorDetailDocumentModalClose.addEventListener('click', function() {
             doctorDetailDocumentModal.classList.remove('open');
-            document.body.classList.remove('body-overflow');
+            if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                document.body.classList.remove('body-overflow');
+            }
         });
 
         document.addEventListener('click', function(e) {
@@ -502,11 +507,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if ( !withinimageFull && !withinCloseBtn ) {
                     doctorDetailDocumentModal.classList.remove('open');
-                    document.body.classList.remove('body-overflow');
+                    if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                        document.body.classList.remove('body-overflow');
+                    }
                 }
             }
         });
 
+    }
+
+    // Боковые панели на детальной врача
+
+    if (document.querySelector('.sidebar-details-panel')) {
+        
+        function openDetailsPanel(type) {
+            let panel = document.querySelector('.sidebar-details-panel[data-panel="' + type + '"]');
+            if (panel) {
+                let panelBody = panel.querySelector('.sidebar-details-panel__body');
+                panel.classList.add('sidebar-details-open');
+                panelBody.classList.add('sidebar-details-body-open');
+                document.body.classList.add('body-overflow');
+            }
+        }
+
+        let detailsPanelCloseButtons = document.querySelectorAll('.sidebar-details-panel__body-close-btn');
+
+        detailsPanelCloseButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                let panel = button.closest('.sidebar-details-panel');
+                if (panel) {
+                    let panelBody = panel.querySelector('.sidebar-details-panel__body');
+                    panelBody.classList.remove('sidebar-details-body-open');
+                    
+                    setTimeout(function() {
+                        panel.classList.remove('sidebar-details-open');
+                        document.body.classList.remove('body-overflow');
+                    }, 400);
+                }
+            });
+        });
+
+        document.querySelectorAll('[data-open]').forEach(function(button) {
+            button.addEventListener('click', function() {
+                let type = button.getAttribute('data-open');
+                openDetailsPanel(type);
+            });
+        });
     }
 
     

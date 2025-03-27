@@ -4475,6 +4475,182 @@ body {
   display: block;
 }
 
+.sidebar-details-panel {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+}
+.sidebar-details-panel.sidebar-details-open {
+  visibility: visible;
+}
+.sidebar-details-panel__overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__overlay {
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+.sidebar-details-panel__body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  background-color: #FFFFFF;
+  width: 814px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 68px;
+  overflow-y: scroll;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.sidebar-details-panel__body.sidebar-details-body-open {
+  right: 0;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body.sidebar-details-body-open {
+    bottom: 0;
+  }
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body {
+    width: 100%;
+    left: 0;
+    right: 0;
+    max-height: 90vh;
+    top: auto;
+    bottom: -100%;
+    padding: 24px 24px 68px;
+    border-radius: 20px 20px 0 0;
+  }
+}
+.sidebar-details-panel__body-title {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+  max-width: 520px;
+  margin-bottom: 46px;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 32px;
+    max-width: 83%;
+  }
+}
+.sidebar-details-panel__body-counter {
+  opacity: 0.4;
+}
+.sidebar-details-panel__body-items-item {
+  margin-bottom: 20px;
+}
+.sidebar-details-panel__body-items-item:last-child {
+  margin-bottom: 0;
+}
+.sidebar-details-panel__body-experience {
+  margin-bottom: 48px;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience {
+    margin-bottom: 32px;
+  }
+}
+.sidebar-details-panel__body-experience:last-child {
+  margin-bottom: 0;
+}
+.sidebar-details-panel__body-experience-name {
+  font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 24px;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience-name {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 16px;
+  }
+}
+.sidebar-details-panel__body-experience-items-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 20px;
+}
+.sidebar-details-panel__body-experience-items-row:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience-items-row {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+.sidebar-details-panel__body-experience-items-item {
+  margin-right: 20px;
+}
+.sidebar-details-panel__body-experience-items-item:last-child {
+  margin-right: 0;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience-items-item:last-child {
+    margin-bottom: 0;
+  }
+}
+.sidebar-details-panel__body-experience-items-item .doctor-detail__data-achievement:last-child {
+  display: block;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience-items-item .doctor-detail__data-achievement {
+    display: block;
+  }
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-experience-items-item {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+.sidebar-details-panel__body-close-btn {
+  position: absolute;
+  top: 68px;
+  right: 68px;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 42px;
+  height: 42px;
+  background-color: #F7F8FA;
+  border-radius: 8px;
+  background-image: url("../images/close.svg");
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: center;
+  cursor: pointer;
+}
+@media (max-width: 1023px) {
+  .sidebar-details-panel__body-close-btn {
+    top: 24px;
+    right: 24px;
+  }
+}
+
 .header {
   background-color: transparent;
   position: absolute;
@@ -13117,7 +13293,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 500;
+  z-index: 700;
 }
 .doctor-detail__document.open {
   display: block;
