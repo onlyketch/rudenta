@@ -636,6 +636,27 @@ body {
         overflow-y: scroll;
         transition: all .5s ease-out;
 
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+            
+        }
+    
+        &::-moz-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-moz-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+        }
+
         &.sidebar-details-body-open {
             right: 0;
 

@@ -1523,20 +1523,20 @@
             <div class="callback-form__title">Записаться на прием</div>
             <form class="callback-form__form">
                 <div class="callback-form__form-group">
-                    <label for="callback-name">Имя</label>
-                    <input type="text" name="callback-name" id="callback-name">
+                    <label for="callback-name">Имя*</label>
+                    <input type="text" name="callback-name" id="callback-name" placeholder="Введите ваше имя">
                     <div class="callback-form__form-error">Как к вам обращаться?</div>
                 </div>
                 <div class="callback-form__form-group">
-                    <label for="callback-phone">Номер телефона</label>
+                    <label for="callback-phone">Номер телефона*</label>
                     <input type="text" placeholder="+7" name="callback-phone" id="callback-phone">
                     <div class="callback-form__form-error">Номер телефона с кодом страны состоит из 11 цифр</div>
                 </div>
                 <div class="callback-form__form-group">
                     <label for="callback-comment">Комментарий</label>
-                    <input type="text" name="callback-comment" id="callback-comment">
+                    <textarea name="callback-comment" id="callback-comment" placeholder="Введите текст комментария"></textarea>
                 </div>
-                <label class="callback-form__form-agreement">
+                    <label class="callback-form__form-agreement">
                     <input type="checkbox" class="callback-form__form-checkbox" id="callback-checkbox">
                     <span class="callback-form__form-label">
                         <span>
@@ -1545,7 +1545,10 @@
                     </span>
                     <div class="callback-form__form-error">Отметьте что ознакомились с условиями</div>
                 </label>
-                <input type="submit" value="Записаться" class="callback-form__form-submit">
+                <button type="submit" class="callback-form__form-submit">Записаться
+                    <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.333 0.285156L6.333 1.28516L9.38 4.33216H0V5.66616H9.38L6.333 8.71216L7.333 9.71216L12.047 4.99916L7.333 0.285156Z" fill="white"/>
+                    </svg></button>
             </form>
             <button class="callback-form__close"></button>
         </div>

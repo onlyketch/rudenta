@@ -1342,9 +1342,9 @@
         background-color: #FFFFFF;
         box-sizing: border-box;
         width: 698px;
-        padding: 88px 68px;
+        padding: 68px;
         transition: right .5s ease-out;
-        overflow: scroll;
+        overflow-y: scroll;
 
         &.open {
             right: 0; 
@@ -1353,9 +1353,10 @@
 
     &__title {
         font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-        font-size: 28px;
-        line-height: 30px;
+        font-size: 24px;
+        line-height: 28px;
         color: #202B39;
+        max-width: 504px;
     }
 
     &__items {
@@ -1368,7 +1369,8 @@
         text-decoration: none;
         appearance: none;
         background-color: #F7F8FA;
-        min-width: 271px;
+        width: 100%;
+        max-width: 271px;
         height: 198px;
         padding: 24px;
         box-sizing: border-box;
@@ -1433,22 +1435,23 @@
 
     &__close {
         position: absolute;
-        top: 32px;
-        right: 32px;
+        top: 68px;
+        right: 68px;
         border: none;
         outline: none;
         appearance: none;
-        width: 44px;
-        height: 44px;
-        background-color: #F6F6F6;
+        width: 42px;
+        height: 42px;
+        background-color: #F7F8FA;
         border-radius: 8px;
         background-image: url('../images/close.svg');
         background-repeat: no-repeat;
         background-size: 10px 10px;
         background-position: center;
         cursor: pointer;
+        padding: 0;
 
-        @media (max-width: 1022px) {
+        @media (max-width: 1023px) {
             top: 24px;
             right: 24px;
         }
@@ -1483,12 +1486,13 @@
         bottom: -100%;
         left: 0;
         right: 0;
-        max-height: 637px;
+        height: 90vh;
         background-color: #FFFFFF;
         border-radius: 20px 20px 0 0;
         padding: 24px 24px 32px 24px;
         box-sizing: border-box;
         transition: bottom .3s ease-out;
+        overflow-y: scroll;
     }
 
     &__header {
@@ -1498,7 +1502,7 @@
     &__title {
         font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
         font-size: 20px;
-        line-height: 20px;
+        line-height: 24px;
         color: #202B39;
 
         @media (max-width: 599px) {
@@ -1530,8 +1534,6 @@
 
     &__items {
         margin-top: 32px;
-        height: 538px;
-        overflow: scroll;
     }
 
     &__item {
@@ -1608,7 +1610,7 @@
         right: -100%;
         background-color: #FFFFFF;
         box-sizing: border-box;
-        padding: 80px 68px 87px;
+        padding: 68px;
         width: 582px;
         height: 100vh;
         transition: all .5s ease-out;
@@ -1650,7 +1652,7 @@
             left: 0;
             bottom: -100%;
             width: 100%;
-            height: 100%;
+            height: 90vh;
             border-radius: 20px 20px 0 0;
             padding: 36px 24px 100px;
             transition: all .3s ease-out;
@@ -1666,8 +1668,8 @@
 
     &__title {
         font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
-        font-size: 28px;
-        line-height: 30px;
+        font-size: 24px;
+        line-height: 28px;
         color: #202B39;
 
         @media (max-width: 739px) {
@@ -1703,14 +1705,14 @@
 
     &__close, &__success-close {
         position: absolute;
-        top: 32px;
-        right: 32px;
+        top: 68px;
+        right: 68px;
         border: none;
         outline: none;
         appearance: none;
-        width: 44px;
-        height: 44px;
-        background-color: #F6F6F6;
+        width: 42px;
+        height: 42px;
+        background-color: #F7F8FA;
         border-radius: 8px;
         background-image: url('../images/close.svg');
         background-repeat: no-repeat;

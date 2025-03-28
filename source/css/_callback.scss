@@ -23,20 +23,41 @@
         bottom: 0;
         background-color: #FFFFFF;
         box-sizing: border-box;
-        width: 49.305%;
-        padding-top: 108px;
-        padding-left: 114px;
+        padding: 68px;
         transition: right .5s ease-out;
+
+        &::-webkit-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-webkit-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+            
+        }
+    
+        &::-moz-scrollbar {
+            background-color: transparent;
+            width: 4px;
+        }
+    
+        &::-moz-scrollbar-thumb {
+            background-color: #D9DAE4;
+            border-radius: 8px;
+        }
 
         @media (max-width: 1022px) {
             top: auto;
             left: 0;
             right: 0;
             bottom: 0;
+            height: 90vh;
             width: 100%;
-            padding: 39px 24px 56px 24px;
+            padding: 24px 24px 46px;
             border-radius: 20px 20px 0 0;
             transition: bottom .3s ease-out;
+            overflow-y: scroll;
         }
     }
 
@@ -135,58 +156,90 @@
     }
 
     &__form {
-        max-width: 446px;
+        width: 446px;
         border: 1px solid #FFFFFF;
-        margin-top: 29px;
+        margin-top: 46px;
+        border: none;
 
         @media (max-width: 1022px) {
-            margin-top: 23px;
+            margin-top: 46px;
             width: 100%;
             max-width: 100%;
         }
     }
 
     &__form-group {
+        position: relative;
         display: flex;
         flex-direction: column;
-        margin-top: 36px;
+        margin-bottom: 40px;
+        background-color: #F7F8FA;
+        border-radius: 8px;
+        box-sizing: border-box;
+        padding: 16px;
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
 
         label {
             font-size: 12px;
-            line-height: 16px;
+            line-height: 12px;
+            opacity: 0.6;
         }
 
         input {
+            border: none;
             outline: none;
             appearance: none;
-            border: 1px solid #D2D7DF;
-            border-radius: 8px;
-            padding: 20px;
+            padding: 0;
             box-sizing: border-box;
-            max-height: 56px;
-            margin-top: 12px;
-            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
-            font-size: 12px;
+            background: transparent;
+            margin-top: 8px;
+            font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+            font-size: 14px;
             line-height: 16px;
 
             &::placeholder {
-                font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
-                font-size: 12px;
+                font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+                font-size: 14px;
                 line-height: 16px;
-                color: #798088; 
+                color: #202B39;
+                opacity: 0.6; 
             }
         }
 
-        .error {
-            border: 1px solid #E81D25;
+        textarea {
+            border: none;
+            outline: none;
+            appearance: none;
+            resize: none;
+            padding: 0;
+            box-sizing: border-box;
+            background: transparent;
+            margin-top: 8px;
+            font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 16px;
+            min-height: 48px; 
+
+            &::placeholder {
+                font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+                color: #202B39;
+                opacity: 0.6; 
+            }
         }
 
         @media (max-width: 1022px) {
-            margin-top: 24px;
+            margin-bottom: 32px;
         }
     }
 
     &__form-agreement {
+        position: relative;
+        user-select: none;
         display: block;
         margin-top: 24px;
     }
@@ -242,7 +295,9 @@
 
     &__form-error {
         display: none;
-        margin-top: 12px;
+        position: absolute;
+        left: 0;
+        bottom: -20px;
         font-size: 12px;
         line-height: 16px;
         color: #E81D25;
@@ -253,35 +308,35 @@
     }
 
     &__form-submit {
-        border: 1px solid #D2D7DF;
+        border: none;
         outline: none;
         appearance: none;
-        max-width: 166px;
-        max-height: 60px;
-        background-color: #FFFFFF;
-        background-image: url('../images/arrow-right-dark.svg');
-        background-repeat: no-repeat;
-        background-size: 12px 9px;
-        background-position: 80% center;
-        padding: 19px 59px 19px 27px;
+        background-color: #42C8F8;
+        width: 100%;
+        padding: 20px;
         border-radius: 8px;
         font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
         font-size: 14px;
         line-height: 20px;
-        color: #212121;
+        color: #fff;
         cursor: pointer;
         transition: all 0.3s ease-out;
         margin-top: 40px;
 
+        svg {
+            margin-left: 16px;
+        }
+
         &:hover {
-            border: 1px solid #42C8F8;
-            color: #FFFFFF;
-            background-color: #42C8F8;
-            background-image: url('../images/arrow-right-light.svg');
+            background-color: #0096CB;
+
+            @media (max-width: 1022px) {
+                background-color: #42C8F8;
+            }
         }
 
         @media (max-width: 1022px) {
-            margin-top: 56px;
+            margin-top: 40px;
             width: 100%;
             max-width: 100%;
             background-position: 65% center;
@@ -290,14 +345,14 @@
 
     &__close, &__success-close {
         position: absolute;
-        top: 32px;
-        right: 32px;
+        top: 68px;
+        right: 68px;
         border: none;
         outline: none;
         appearance: none;
-        width: 44px;
-        height: 44px;
-        background-color: #F6F6F6;
+        width: 42px;
+        height: 42px;
+        background-color: #F7F8FA;
         border-radius: 8px;
         background-image: url('../images/close.svg');
         background-repeat: no-repeat;
@@ -310,6 +365,5 @@
             right: 24px;
         }
     }
-
 }
 

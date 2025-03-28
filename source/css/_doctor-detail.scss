@@ -280,6 +280,35 @@
 
     }
 
+    &__blockquote {
+        margin: 72px 0;
+
+        &-icon {
+            margin-bottom: 20px;
+            user-select: none;
+            pointer-events: none;
+
+            @media (max-width: 1023px) {
+                margin-bottom: 12px;
+            }
+        }
+
+        &-text {
+            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            line-height: 28px;
+            opacity: 0.8;
+
+            @media (max-width: 1023px) {
+                font-size: 20px;
+                line-height: 24px;
+            }
+        }
+
+        @media (max-width: 1023px) {
+            margin: 48px 0;
+        }
+    }
 
     &__data {
         margin-top: 72px;
