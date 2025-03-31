@@ -13347,9 +13347,9 @@ body {
 }
 .doctor-detail__photo-wrapper {
   position: absolute;
-  width: 70.5882352941%;
-  aspect-ratio: 16/31;
-  max-width: 416px;
+  width: 90%;
+  aspect-ratio: 678/925;
+  max-width: 678px;
   max-height: 100%;
   bottom: 0;
   left: 0;
@@ -13357,9 +13357,9 @@ body {
 }
 @media (max-width: 1023px) {
   .doctor-detail__photo-wrapper {
-    width: 60.5128205128%;
-    max-width: 225px;
-    aspect-ratio: 118/229;
+    width: 85%;
+    max-width: 320px;
+    aspect-ratio: 320/437;
     bottom: 72px;
     left: 50%;
     -webkit-transform: translateX(-50%);

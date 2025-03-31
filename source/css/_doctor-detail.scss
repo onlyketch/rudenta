@@ -588,22 +588,23 @@
 
         &-wrapper {
             position: absolute;
-            width: 70.58823529411765%;
-            aspect-ratio: 16 / 31;
-            max-width: 416px;
+            width: 90%;
+            aspect-ratio: 678 / 925;
+            max-width: 678px;
             max-height: 100%;
             bottom: 0;
             left: 0;
             right: 0;
 
             @media (max-width: 1023px) {
-                width: 60.51282051282051%;
-                max-width: 225px;
-                aspect-ratio: 118 / 229;
+                width: 85%;
+                max-width: 320px;
+                aspect-ratio: 320 / 437;
                 bottom: 72px;
                 left: 50%;
                 transform: translateX(-50%);
             }
+
         }
 
         img {
