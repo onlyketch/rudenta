@@ -732,50 +732,36 @@
                         <div class="mobile-filters-menu__item-value mobile-filters-menu__item-value-first" id="clinic_mob_all">
                             Все
                             <div class="bull-area"> 
-                                <div class="bull-hod"></div>
-                                <div class="bull-bel"></div>
+                                <div class="bull-hod bull"></div>
+                                <div class="bull-bel bull"></div>
                             </div>
                         </div>
                         <div class="mobile-filters-menu__item-value" id="clinic_mob_hodynka">
                             На ходынке
                             <div class="bull-area"> 
-                                <div class="bull-hod"></div>
+                                <div class="bull-hod bull"></div>
                             </div>
                         </div>
                         <div class="mobile-filters-menu__item-value" id="clinic_mob_belyaevo">
                             Беляево
                             <div class="bull-area"> 
-                                <div class="bull-bel"></div>
+                                <div class="bull-bel bull"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="mobile-filters-menu__item">
-                    <div class="mobile-filters-menu__item-name">Оказываемые услуги</div>
-                    <div class="mobile-filters-menu__row" id="mob-filter-serv">
-                        <div class="mobile-filters-menu__val-area">
-                            <div class="mobile-filters-menu__val mobile-filters-menu__val-serv">Гигиена</div>
-                        </div>
-                        <div class="mobile-filters-menu__arrow-icon"></div>
+                <div class="mobile-filters-menu__item" id="mobile-filters-serv-item">
+                    <div class="mobile-filters-menu__item-name">Услуга</div>
+                    <div class="mobile-filters-menu__item-val">
+                        <input name="service-value" id="mob-filters-service-val" value="" placeholder="Выберите" class="mobile-filters-menu__item-input" readonly>
                     </div>
                 </div>
 
-                <div class="mobile-filters-menu__item">
-                    <div class="mobile-filters-menu__item-name">Специализация</div>
-                    <div class="mobile-filters-menu__row" id="mob-filter-spec">
-                        <div class="mobile-filters-menu__val-area">
-                            <div class="mobile-filters-menu__val mobile-filters-menu__val-spec">Терапевты</div>
-                        </div>
-                        <div class="mobile-filters-menu__arrow-icon"></div>
-                    </div>
-                </div>
-
-                <div class="mobile-filters-menu__item">
-                    <div class="mobile-filters-menu__item-name">Поиск по фамилии</div>
-                    <div class="mobile-filters-menu__row">
-                        <input type="text" name="search" class="mobile-filters-menu__search-input" placeholder="Введите фамилию">
-                        <div class="mobile-filters-menu__search-icon"></div>
+                <div class="mobile-filters-menu__item" id="mobile-filters-doc-item">
+                    <div class="mobile-filters-menu__item-name">Врач</div>
+                    <div class="mobile-filters-menu__item-val">
+                        <input name="doctor-value" id="mob-filters-doctor-val" value="" placeholder="Введите или выберите" class="mobile-filters-menu__item-input" readonly>
                     </div>
                 </div>
 
@@ -785,152 +771,174 @@
 
         </div>
 
-        <div class="mobile-spec-menu">
-            <div class="mobile-spec-menu__header">
-                <div class="mobile-spec-menu__title">Специализации</div>
-                <button class="mobile-spec-menu__reset">Сбросить</button>
-                <button class="mobile-spec-menu__close"></button>
+        <div class="mobile-services-menu">
+            <div class="mobile-services-menu__header">
+                <div class="mobile-services-menu__title">Выберите услугу</div>
+                <div class="mobile-services-menu__close"></div>
             </div>
-
-            <div class="mobile-spec-menu__switcher">
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-all" name="mob-specialization" value="Все специализации" checked>
-                        <span class="mobile-spec-menu__switcher-name">Все специализации</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+            <div class="mobile-services-menu__items">
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Терапия хирургическая длинное название в две строки или больше</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог а что если больше в две строки, длинный текст</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-therapy" name="mob-specialization" value="Терапия">
-                        <span class="mobile-spec-menu__switcher-name">Терапия</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Гигиена</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-ortho" name="mob-specialization" value="Ортопедия">
-                        <span class="mobile-spec-menu__switcher-name">Ортопедия</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Ортодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-periodonto" name="mob-specialization" value="Пародонтология">
-                        <span class="mobile-spec-menu__switcher-name">Пародонтология</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Отодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other1" name="mob-specialization" value="Еще пункт">
-                        <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Гигиена</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other2" name="mob-specialization" value="Еще пункт">
-                        <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Ортодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
-                <div class="mobile-spec-menu__switcher-item">
-                    <label class="mobile-spec-menu__switcher-group">
-                        <input type="radio" class="mobile-spec-menu__radio" id="spec-mob-other3" name="mob-specialization" value="Еще пункт">
-                        <span class="mobile-spec-menu__switcher-name">Еще пункт</span>
-                        <div class="mobile-spec-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Отодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
                 </div>
-
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Гигиена</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
+                </div>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Ортодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
+                </div>
+                <div class="mobile-services-menu__item">
+                    <div class="mobile-services-menu__name">Отодонтия</div>
+                    <div class="mobile-services-menu__desc">Стоматолог-хирург, имплантолог</div>                  
+                </div>
             </div>
-
-            <button class="mobile-spec-menu__submit">Применить</button>
         </div>
-
-        <div class="mobile-serv-menu">
-            <div class="mobile-serv-menu__header">
-                <div class="mobile-serv-menu__title">Услуги</div>
-                <button class="mobile-serv-menu__reset">Сбросить</button>
-                <button class="mobile-serv-menu__close"></button>
+        
+        <div class="mobile-doctors-menu">
+            <div class="mobile-doctors-menu__header">
+                <div class="mobile-doctors-menu__title">Выберите врача</div>
+                <div class="mobile-doctors-menu__close"></div>
             </div>
-
-            <div class="mobile-serv-menu__switcher">
-                
-                <div class="mobile-serv-menu__switcher-item">
-                    <label class="mobile-serv-menu__switcher-group">
-                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-all" name="mob-services" value="Все услуги" checked>
-                        <span class="mobile-serv-menu__switcher-name">Все услуги</span>
-                        <div class="mobile-serv-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+            <input type="text" name="mob-doctors-menu-name" id="mob-doctors-menu-name" value="" placeholder="Введите имя врача" class="mobile-doctors-menu__input">
+            <div class="mobile-doctors-menu__items">
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян длинное имя еще в две строки</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог а что если больше в две строки, длинный текст</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
                 </div>
-
-                <div class="mobile-serv-menu__switcher-item">
-                    <label class="mobile-serv-menu__switcher-group">
-                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-therapy" name="mob-services" value="Лечение зубов">
-                        <span class="mobile-serv-menu__switcher-name">Лечение зубов</span>
-                        <div class="mobile-serv-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
                 </div>
-
-                <div class="mobile-serv-menu__switcher-item">
-                    <label class="mobile-serv-menu__switcher-group">
-                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-hygiene" name="mob-services" value="Гигиена">
-                        <span class="mobile-serv-menu__switcher-name">Гигиена</span>
-                        <div class="mobile-serv-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
                 </div>
-
-                <div class="mobile-serv-menu__switcher-item">
-                    <label class="mobile-serv-menu__switcher-group">
-                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-surgery" name="mob-services" value="Хирургия">
-                        <span class="mobile-serv-menu__switcher-name">Хирургия</span>
-                        <div class="mobile-serv-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
                 </div>
-
-                <div class="mobile-serv-menu__switcher-item">
-                    <label class="mobile-serv-menu__switcher-group">
-                        <input type="radio" class="mobile-serv-menu__radio" id="serv-mob-implantation" name="mob-services" value="Имплантация">
-                        <span class="mobile-serv-menu__switcher-name">Имплантация</span>
-                        <div class="mobile-serv-menu__switcher-desc">
-                            Лечение кариеса, пульпита, пародонтита. Эстетическая реставрация
-                        </div>
-                    </label>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
                 </div>
-
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
+                <div class="mobile-doctors-menu__item">
+                    <div class="mobile-doctors-menu__docname">Рузана Самвеловна Бабаджанян</div>
+                    <div class="mobile-doctors-menu__docposition">Стоматолог-хирург, имплантолог</div>
+                    <div class="mobile-doctors-menu__clinics">
+                        <div class="bull-area">
+                            <div class="bull-bel bull"></div> 
+                            <div class="bull-hod bull"></div>
+                        </div> 
+                    </div>                    
+                </div>
             </div>
-
-            <button class="mobile-serv-menu__submit">Применить</button>
-        </div>   
+        </div>
     </div>
 
     <div class="services-menu">

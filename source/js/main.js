@@ -518,6 +518,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Боковые панели на детальной врача
 
+
     if (document.querySelector('.sidebar-details-panel')) {
         
         function openDetailsPanel(type) {
@@ -548,11 +549,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         document.querySelectorAll('[data-open]').forEach(function(button) {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();
                 let type = button.getAttribute('data-open');
                 openDetailsPanel(type);
             });
         });
+
+        document.addEventListener('click', function(e) {
+            if (document.querySelector('.sidebar-details-open') !== null) {
+                let openPanel = document.querySelector('.sidebar-details-open');
+                let openPanelBody = document.querySelector('.sidebar-details-body-open');
+
+                const withinBoundaries = e.composedPath().includes(openPanelBody);
+
+                if ( !withinBoundaries ) {
+                    if (openPanelBody) {
+                        openPanelBody.classList.remove('sidebar-details-body-open');
+                    }
+                    
+                    setTimeout(function() {
+                        openPanel.classList.remove('sidebar-details-open');
+                        document.body.classList.remove('body-overflow');
+                    }, 400);
+                }
+            }
+         
+            
+        });
+
     }
 
     

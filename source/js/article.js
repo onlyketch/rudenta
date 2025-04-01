@@ -72,6 +72,78 @@ document.addEventListener('DOMContentLoaded', function () {
             $('.article__fullscreen-band-slider').slick('slickPrev');
         });
 
+        if (document.querySelector('.article__fullscreen-band-side-slider') !== null) {
+
+            let fullScreenBandSideRight = document.querySelector('#fullscreen-band-side > .slider-controls-left');
+            let fullScreenBandSideLeft = document.querySelector('#fullscreen-band-side > .slider-controls-right');
+
+            $('.article__fullscreen-band-side-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '0',
+                infinite: true,
+                arrows: false,
+                touchThreshold: 50,
+                speed: 200,
+                initialSlide: 1,
+                responsive: [
+                    {
+                      breakpoint: 1022,
+                      settings: {
+                        infinite: false,
+                        centerMode: false,
+                        initialSlide: 0,
+                        slidesToShow: 2,
+                      }
+                    },
+                    {
+                        breakpoint: 766,
+                        settings: {
+                          infinite: false,
+                          centerMode: false,
+                          slidesToShow: 1.04,
+                          slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 377,
+                        settings: {
+                          slidesToShow: 0.99,
+                          slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 361,
+                        settings: {
+                          infinite: false,
+                          centerMode: false,
+                          slidesToShow:  0.63,
+                          slidesToScroll: 0.67
+                        }
+                    },
+                    {
+                        breakpoint: 359,
+                        settings: {
+                          infinite: false,
+                          centerMode: false,
+                          slidesToShow:  1,
+                          slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+
+            fullScreenBandSideLeft.addEventListener('click', function () {
+                $('.article__fullscreen-band-side-slider').slick('slickNext');
+            });
+    
+            fullScreenBandSideRight.addEventListener('click', function () {
+                $('.article__fullscreen-band-side-slider').slick('slickPrev');
+            });
+
+        }
+
     }
 
 
@@ -153,6 +225,46 @@ document.addEventListener('DOMContentLoaded', function () {
             $('.article__cases-slider').slick('slickPrev');
         });
 
+        if (document.querySelector('.article__cases-side-slider') !== null) {
+
+            let articleCasesSideRight = document.querySelector('#cases-controls-side > .slider-controls-left');
+            let articleCasesSideLeft = document.querySelector('#cases-controls-side > .slider-controls-right');
+
+            $('.article__cases-side-slider').slick({
+                slidesToShow: 1, 
+                slidesToScroll: 1,
+                infinite: false,
+                arrows: false,
+                touchThreshold: 50,
+                speed: 200,
+                responsive: [
+                    {
+                      breakpoint: 1022,
+                      settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                      }
+                    },
+                    {
+                        breakpoint: 361,
+                        settings: {
+                          slidesToShow: 0.94,
+                          slidesToScroll: 1
+                        }
+                      }
+                ]
+            });
+
+            articleCasesSideLeft.addEventListener('click', function () {
+                $('.article__cases-side-slider').slick('slickNext');
+            });
+    
+            articleCasesSideRight.addEventListener('click', function () {
+                $('.article__cases-side-slider').slick('slickPrev');
+            });
+
+        }
+
     }
 
 
@@ -175,42 +287,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.querySelector('.article__before-after') !== null) {
 
-        $(".article__before-after").twentytwenty({
-            move_slider_on_hover: false, // Чтобы слайдер не двигался при наведении
-            default_offset_pct: 0.5 // Начальная позиция (50%)
-        });
-
-        let beforeLabel = document.querySelector('.twentytwenty-before-label');
-        let afterLabel = document.querySelector('.twentytwenty-after-label');
-
-        $(".article__before-after").on("move", function () {
-            let containerWidth = $(this).width(); // Общая ширина контейнера
-            let handlePosition = $(this).find(".twentytwenty-handle").position().left; // Позиция ползунка
-
-            let sliderPosition = handlePosition / containerWidth; // Нормализуем в диапазон 0.0 - 1.0
-
-
-            if (sliderPosition < 0.5) {
-                if (!beforeLabel.classList.contains('hide')) {
-                    beforeLabel.classList.add('hide');
-
-                    if (afterLabel.classList.contains('hide')) {
+        $(".article__before-after").each(function () {
+            const $container = $(this);
+    
+            $container.twentytwenty({
+                move_slider_on_hover: false,
+                default_offset_pct: 0.5
+            });
+    
+            const beforeLabel = $container.find('.twentytwenty-before-label')[0];
+            const afterLabel = $container.find('.twentytwenty-after-label')[0];
+    
+            $container.on("move", function () {
+                const containerWidth = $container.width();
+                const handlePosition = $container.find(".twentytwenty-handle").position().left;
+    
+                const sliderPosition = handlePosition / containerWidth;
+    
+                if (sliderPosition < 0.5) {
+                    if (!beforeLabel.classList.contains('hide')) {
+                        beforeLabel.classList.add('hide');
                         afterLabel.classList.remove('hide');
                     }
-                }
-
-            } else {
-                if (!afterLabel.classList.contains('hide')) {
-                    afterLabel.classList.add('hide');
-
-                    if (beforeLabel.classList.contains('hide')) {
+                } else {
+                    if (!afterLabel.classList.contains('hide')) {
+                        afterLabel.classList.add('hide');
                         beforeLabel.classList.remove('hide');
                     }
                 }
-
-            }
+            });
         });
-
     }
 
 
@@ -218,12 +324,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (document.querySelector('.article__unacceptable-photo') !== null) {
 
-        let unacceptablePhotoOverlay = document.querySelector('.article__unacceptable-photo-overlay');
-        let unacceptablePhotoUnlockBtn = document.querySelector('.article__unacceptable-photo-unlock-btn');
+        let unacceptablePhoto = document.querySelectorAll('.article__unacceptable-photo');
 
-        unacceptablePhotoUnlockBtn.addEventListener('click', function () {
-            unacceptablePhotoOverlay.classList.add('hide');
-        });
+        for (let i = 0; i < unacceptablePhoto.length; i++) {
+
+            let overlay = unacceptablePhoto[i].querySelector('.article__unacceptable-photo-overlay');
+            let unlockBtn = unacceptablePhoto[i].querySelector('.article__unacceptable-photo-unlock-btn');
+
+            unlockBtn.addEventListener('click', function() {
+                overlay.classList.add('hide');
+            });
+            
+        }
 
     }
 
@@ -261,6 +373,38 @@ document.addEventListener('DOMContentLoaded', function () {
             $('.article__advantages-slider').slick('slickPrev');
         });
 
+        if (document.querySelector('.article__advantages-slider-side') !== null) {
+            let articleAdvantagesSideRight = document.querySelector('#advantages-controls-side > .slider-controls-left');
+            let articleAdvantagesSideLeft = document.querySelector('#advantages-controls-side > .slider-controls-right');
+
+            $('.article__advantages-slider-side').slick({
+                slidesToShow: 1.9,
+                slidesToScroll: 1,
+                infinite: false,
+                arrows: false,
+                touchThreshold: 50,
+                speed: 200,
+                responsive: [
+                    {
+                      breakpoint: 1022,
+                      settings: {
+                        slidesToShow: 1.03,
+                        slidesToScroll: 1
+                      }
+                    }
+                ]
+            });
+
+            articleAdvantagesSideLeft.addEventListener('click', function () {
+                $('.article__advantages-slider-side').slick('slickNext');
+            });
+    
+            articleAdvantagesSideRight.addEventListener('click', function () {
+                $('.article__advantages-slider-side').slick('slickPrev');
+            });
+        }
+    
+
     }
 
 
@@ -269,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.article__reviews') !== null) {
 
         let articleReviewsControlsRight = document.querySelector('#reviews-controls > .slider-controls-left');
-        let articleReviewsControlsLeft = document.querySelector('#reviews-controls> .slider-controls-right');
+        let articleReviewsControlsLeft = document.querySelector('#reviews-controls > .slider-controls-right');
 
         $('.article__reviews-slider').slick({
             slidesToShow: 1,
@@ -318,6 +462,60 @@ document.addEventListener('DOMContentLoaded', function () {
         articleReviewsControlsRight.addEventListener('click', function () {
             $('.article__reviews-slider').slick('slickPrev');
         });
+
+        if (document.querySelector('.article__reviews-slider-side') !== null) {
+            
+            let articleReviewsSideControlsRight = document.querySelector('#reviews-controls-side > .slider-controls-left');
+            let articleReviewsSideControlsLeft = document.querySelector('#reviews-controls-side > .slider-controls-right');
+            
+            $('.article__reviews-slider-side').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '0',
+                infinite: true,
+                arrows: false,
+                touchThreshold: 50,
+                speed: 200,
+                responsive: [
+                    {
+                      breakpoint: 1022,
+                      settings: {
+                        infinite: false,
+                        centerMode: false,
+                        slidesToShow: 1.085,
+                        slidesToScroll: 1,
+                      }
+                    },
+                    {
+                        breakpoint: 377,
+                        settings: {
+                          infinite: false,
+                          centerMode: false,
+                          slidesToShow: 1.04,
+                          slidesToScroll: 1
+                        }
+                    },
+                    {
+                        breakpoint: 361,
+                        settings: {
+                            infinite: false,
+                            centerMode: false,
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                      }
+                ]
+            });
+
+            articleReviewsSideControlsLeft.addEventListener('click', function () {
+                $('.article__reviews-slider-side').slick('slickNext');
+            });
+    
+            articleReviewsSideControlsRight.addEventListener('click', function () {
+                $('.article__reviews-slider-side').slick('slickPrev');
+            });
+        }
 
     }
 

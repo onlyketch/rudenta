@@ -81,12 +81,14 @@
         font-family: "Onest SemiBold", Arial, Helvetica, sans-serif;
         font-size: 24px;
         line-height: 28px;
+        margin-top: 24px;
         margin-bottom: 24px;
 
         @media (max-width: 1023px) {
             font-size: 20px;
             line-height: 24px;
             margin-bottom: 16px;
+            margin-top: 16px;
         }
     }
     &__h4 {
@@ -169,7 +171,7 @@
                 align-items: flex-start;
             }
         }
-        &-slider {
+        &-slider, &-side-slider {
             width: 100%;
             height: 480px;
             font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
@@ -265,6 +267,29 @@
 
             @media (max-width: 1023px) {
                 margin-top: 16px;
+            }
+        }
+
+        &-side-slider {
+            .slick-slide {
+                flex-shrink: 0;
+                min-width: 677px;
+                max-width: 677px;
+                border-radius: 16px;
+                margin-right: 0;
+                margin-left: 8px;
+                will-change: transform;
+                backface-visibility: hidden;
+
+                @media (max-width: 1023px) {
+                    min-width: 318px;
+                    max-width: 318px; 
+                }
+
+                @media (max-width: 359px) {
+                    min-width: 290px;
+                    max-width: 290px; 
+                }
             }
         }
 
@@ -556,7 +581,7 @@
                 align-items: flex-start;
             }
         }
-        &-slider {
+        &-slider, &-side-slider {
             margin-top: 24px;
 
             &-item {
@@ -939,7 +964,7 @@
                 align-items: flex-start;
             }
         }
-        &-slider {
+        &-slider, &-slider-side {
             width: 100%;
             height: 200px;
             margin-top: 24px;
@@ -1067,7 +1092,7 @@
                 align-items: flex-start;
             }
         }
-        &-slider {
+        &-slider, &-slider-side {
             margin-top: 24px;
             width: 100%;
 
