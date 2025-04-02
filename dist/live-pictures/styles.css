@@ -1,0 +1,31 @@
+.doctors__image {
+    top: 0;
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 1200px) {
+    .doctors__image {
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 1022px) {
+    .doctors__image {
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 500px) {
+    .doctors__image {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.doctors__image img, .doctors__image video {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
