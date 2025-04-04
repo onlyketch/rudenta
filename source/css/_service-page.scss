@@ -18,11 +18,12 @@
 
 .service-page {
     margin-top: 34px;
+    height: 100%;
 
     &__wrapper {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: stretch;
 
         .article__area {
             margin-top: 0;
@@ -118,6 +119,11 @@
                 bottom: 28px;
                 right: 29px;
             }
+        }
+
+        &-sticky {
+            position: sticky;
+            top: 17px;
         }
 
         .shares__card {

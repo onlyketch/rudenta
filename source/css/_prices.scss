@@ -306,7 +306,7 @@
         }
 
         @media (max-width: 1023px) {
-            margin-top: 4px;
+            margin-top: 12px;
             max-width: 100%; 
         }
     }
@@ -377,9 +377,6 @@
         }
     }
 
-    &__services-items {
-    }
-
     &__services-item {
         display: block;
         text-decoration: none;
@@ -416,11 +413,9 @@
             color: #202B39;
             max-width: 400px;
 
-            @media (max-width: 1259px) {
-                max-width: 170px;
-            }
-
             @media (max-width: 1023px) {
+                display: flex;
+                flex-direction: column;
                 max-width: 252px;
             }
 
@@ -517,9 +512,11 @@
                 margin-right: 4px;
             }
 
-            @media (max-width: 376px) {
+            @media (max-width: 1023px) {
                 margin-left: 0;
+                margin-top: 4px;
             }
+
         }
 
         &-old-price {

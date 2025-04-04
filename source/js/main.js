@@ -473,43 +473,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Pop-up сертификаты, документы на детальной врача
 
-    let doctorDetailDocumentPreview = document.querySelectorAll('.doctor-detail__data-achievement-document');
+    let doctorDetailDocumentPreview = document.querySelectorAll('.doctor-detail__data-achievement');
     let doctorDetailDocumentModal = document.querySelector('.doctor-detail__document');
+    let doctorDetailDocumentSource = document.querySelector('.doctor-detail__document picture > source');
     let doctorDetailDocumentModalClose = document.querySelector('.doctor-detail__document-close');
     let doctorDetailDocumentFullSize = document.querySelector('.doctor-detail__document-body-img');
+    let openDoc = false;
 
     if (doctorDetailDocumentPreview.length !== 0) {
 
         for (let i = 0; i < doctorDetailDocumentPreview.length; i++) {
             doctorDetailDocumentPreview[i].addEventListener('click', function(e) {
-                e.stopPropagation();
-                let pathToFullSizeImage = doctorDetailDocumentPreview[i].getAttribute('data-target');
-                doctorDetailDocumentFullSize.setAttribute('src', pathToFullSizeImage);
-                doctorDetailDocumentModal.classList.add('open');
-                if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
-                    document.body.classList.add('body-overflow');
+                if (this.hasAttribute('data-target')) {
+                    e.stopPropagation();
+                    let pathToFullSizeImage = doctorDetailDocumentPreview[i].getAttribute('data-target');
+                    doctorDetailDocumentFullSize.setAttribute('src', pathToFullSizeImage);
+                    doctorDetailDocumentSource.setAttribute('srcset', pathToFullSizeImage);
+                    doctorDetailDocumentModal.classList.add('open-document');
+                    openDoc = true;
+                    if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                        document.body.classList.add('body-overflow');
+                    }
                 }
                 
             });
         }
 
         doctorDetailDocumentModalClose.addEventListener('click', function() {
-            doctorDetailDocumentModal.classList.remove('open');
-            if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
-                document.body.classList.remove('body-overflow');
-            }
+            doctorDetailDocumentModal.classList.remove('open-document');
+            setTimeout(function() {
+                openDoc = false;
+                if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                    document.body.classList.remove('body-overflow');
+                }
+            }, 400);
         });
 
         document.addEventListener('click', function(e) {
-            if (doctorDetailDocumentModal.classList.contains('open')) {
+            if (doctorDetailDocumentModal.classList.contains('open-document')) {
                 const withinimageFull = e.composedPath().includes(doctorDetailDocumentFullSize);
                 const withinCloseBtn = e.composedPath().includes(doctorDetailDocumentModalClose);
 
                 if ( !withinimageFull && !withinCloseBtn ) {
-                    doctorDetailDocumentModal.classList.remove('open');
-                    if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
-                        document.body.classList.remove('body-overflow');
-                    }
+                    doctorDetailDocumentModal.classList.remove('open-document');
+                    setTimeout(function() {
+                        openDoc = false;
+                        if (!document.querySelector('.sidebar-details-panel.sidebar-details-open')) {
+                            document.body.classList.remove('body-overflow');
+                        }
+                    }, 400);
                 }
             }
         });
@@ -557,21 +569,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         document.addEventListener('click', function(e) {
-            if (document.querySelector('.sidebar-details-open') !== null) {
+            if (document.querySelector('.sidebar-details-open') !== null && openDoc == false) {
                 let openPanel = document.querySelector('.sidebar-details-open');
                 let openPanelBody = document.querySelector('.sidebar-details-body-open');
 
                 const withinBoundaries = e.composedPath().includes(openPanelBody);
-
+                
                 if ( !withinBoundaries ) {
-                    if (openPanelBody) {
-                        openPanelBody.classList.remove('sidebar-details-body-open');
-                    }
+                        if (openPanelBody) {
+                            openPanelBody.classList.remove('sidebar-details-body-open');
+                        }
+                        
+                        setTimeout(function() {
+                            openPanel.classList.remove('sidebar-details-open');
+                            document.body.classList.remove('body-overflow');
+                        }, 400);
                     
-                    setTimeout(function() {
-                        openPanel.classList.remove('sidebar-details-open');
-                        document.body.classList.remove('body-overflow');
-                    }, 400);
                 }
             }
          

@@ -149,7 +149,6 @@
     }
 
     &__workflow {
-        //width: 100%;
         width: 678px;
         margin-top: 136px;
 
@@ -397,7 +396,7 @@
             flex-direction: column;
             width: 100%;
             max-width: 329px;
-            height: 245px;
+            height: 294px;
 
             &-tags {
                 display: flex;
@@ -438,6 +437,9 @@
                 color: #202B39;
                 opacity: 0.6;
                 margin-top: 8px;
+                max-height: 80px;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
 
             &-bottom {
@@ -464,7 +466,6 @@
                 align-items: center;
                 justify-content: center;
                 overflow: hidden;
-                cursor: pointer;
 
                 picture {
                     width: 29px;
@@ -496,11 +497,12 @@
                     }
                 }
 
-                &:hover &-hover {
-                    opacity: 1;
-                }
-
             }
+
+            &:hover &-document-hover {
+                opacity: 1;
+            }
+
 
             &:last-child {
                 @media (max-width: 1023px) {
@@ -508,6 +510,14 @@
                 }
             }
 
+            @media (max-width: 1023px) {
+                max-width: 100%;
+            }
+
+        }
+
+        &-achievement[data-target]:hover {
+            cursor: pointer;
         }
 
         @media (max-width: 1023px) {
@@ -674,7 +684,7 @@
         bottom: 0;
         z-index: 700;
 
-        &.open {
+        &.open-document {
             display: block;
         }
 
@@ -687,7 +697,6 @@
 
         &-body {
            width: 37.5%;
-           aspect-ratio: 270 / 391;
            max-width: 540px;
            max-height: 90%;
            position: absolute;
@@ -704,10 +713,9 @@
 
            @media (max-width: 1023px) {
                 width: 79.48717948717949%;
-                aspect-ratio: 310 / 449;
+                aspect-ratio: auto;
                 max-width: 310px;
-                top: 65px;
-                transform: translate(-50%, 0);
+                transform: translate(-50%, -55%);
            }
 
         }

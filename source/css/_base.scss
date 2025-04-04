@@ -12,6 +12,48 @@ body {
     -ms-touch-action: none;
 }
 
+sup {
+    vertical-align: super;
+    font-size: 75%;
+    line-height: 0;
+}
+  
+sub {
+    vertical-align: sub;
+    font-size: 75%;
+    line-height: 0;
+}
+
+small {
+    font-size: 0.8em;
+}
+
+em, i { 
+    font-style: italic;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+ol {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+ul li, ol li {
+    font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-bottom: 0.5em;
+
+    @media (max-width: 767px) {
+        font-size: 14px; 
+    }
+}
+
 .main {
     position: relative;
     background-color: #50C8E6;
@@ -711,6 +753,34 @@ body {
         }
 
       }
+
+      &-btn {
+        display: block;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        appearance: none;
+        width: 178px;
+        cursor: pointer;
+        background-color: #42C8F8;
+        box-sizing: border-box;
+        padding: 20px 60px 20px 28px;
+        border-radius: 8px;
+        font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        font-size: 14px;
+        line-height: 20px;
+        background-image: url(../images/arrow-right-light.svg);
+        background-repeat: no-repeat;
+        background-size: 12px 9px;
+        background-position: 82% center;
+        margin: 32px 0;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            background-color: #0096CB;
+        }
+    }
   
       &-experience {
         margin-bottom: 48px;
@@ -765,7 +835,7 @@ body {
 
             .doctor-detail__data-achievement {
                 &:last-child {
-                    display: block;
+                    display: flex;
                 }
                 @media (max-width: 1023px) {
                     display: block;
@@ -780,6 +850,7 @@ body {
           }
 
         }
+
       }
   
       &-close-btn {

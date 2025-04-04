@@ -281,6 +281,12 @@ document.addEventListener('DOMContentLoaded', function () {
             speed: 200
         });
 
+        $('.article__simple-slider-slider').on('afterChange', function(event, slick, currentSlide){
+            const current = slick.$slides.eq(currentSlide);
+            const caption = current.data('caption');
+            $('.article__simple-slider-caption').text(caption);
+          });
+
     }
 
     // блок До и После
@@ -322,21 +328,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Неприемлемый контент
 
-    if (document.querySelector('.article__unacceptable-photo') !== null) {
+    if (document.querySelectorAll('.article__unacceptable-overlay').length !== 0) {
+        let unacceptableOverlays = document.querySelectorAll('.article__unacceptable-overlay');
 
-        let unacceptablePhoto = document.querySelectorAll('.article__unacceptable-photo');
-
-        for (let i = 0; i < unacceptablePhoto.length; i++) {
-
-            let overlay = unacceptablePhoto[i].querySelector('.article__unacceptable-photo-overlay');
-            let unlockBtn = unacceptablePhoto[i].querySelector('.article__unacceptable-photo-unlock-btn');
+        for (let i = 0; i < unacceptableOverlays.length; i++) {
+            let unlockBtn = unacceptableOverlays[i].querySelector('.article__unacceptable-overlay-unlock-btn');
 
             unlockBtn.addEventListener('click', function() {
-                overlay.classList.add('hide');
+                unacceptableOverlays[i].classList.add('hide');
             });
-            
         }
-
     }
 
 

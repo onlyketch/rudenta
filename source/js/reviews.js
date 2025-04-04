@@ -574,6 +574,15 @@ document.addEventListener('DOMContentLoaded', function() {
                   input.value = this.querySelector('.feedback-form__form-field-dropdown-name').textContent;
                   input.defaultValue = this.querySelector('.feedback-form__form-field-dropdown-name').textContent;
 
+                  if (window.innerWidth <= 767) {
+                    const maxLength = 35;
+
+                    if (input.value.length > maxLength) {
+                        input.value = input.value.slice(0, maxLength - 3) + '...';
+                        input.defaultValue = input.value.slice(0, maxLength - 3) + '...';
+                    }
+                  }
+                  
                   if (input.classList.contains('error')) {
                     input.classList.remove('error');
                     parentField.querySelector('.feedback-form__form-error-text').classList.remove('show');
@@ -884,6 +893,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
    /************  Feedback Form Validation and Submit End *************/
+
+
+
 
 
 
