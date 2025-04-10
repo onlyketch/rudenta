@@ -424,6 +424,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0; i < mobMenuServicesItems.length; i++) {
         
         let mobMenuServicesItemWrapper = mobMenuServicesItems[i].querySelector('.mobile-menu__services-item-wrapper');
+        let mobMenuServicesItemSubmenu = mobMenuServicesItems[i].querySelector('.mobile-menu__services-item-submenu');
         
         mobMenuServicesItemWrapper.addEventListener('click', function(e) {
             if (mobMenuServicesItems[i].classList.contains('pale')) {
@@ -432,11 +433,14 @@ document.addEventListener('DOMContentLoaded', function() {
             let itemOpenCounter = 0;
             for (let item of mobMenuServicesItems) {
                 let itemWrapper = item.querySelector('.mobile-menu__services-item-wrapper');
+                let itemSubmenu = item.querySelector('.mobile-menu__services-item-submenu');
                 if (item.classList.contains('open') && itemWrapper !== e.currentTarget) {
-                    item.classList.remove('open'); 
+                    item.classList.remove('open');
+                    itemSubmenu.classList.remove('open'); 
                 }
             }
             mobMenuServicesItems[i].classList.toggle('open');
+            mobMenuServicesItemSubmenu.classList.toggle('open');
             for (let item of mobMenuServicesItems) {
                 if (item.classList.contains('open')) {
                     itemOpenCounter++;

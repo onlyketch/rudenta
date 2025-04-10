@@ -545,7 +545,6 @@ ul li, ol li {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            max-height: 24px;
             overflow: hidden;
             transition: all .5s ease-out;
 
@@ -556,29 +555,39 @@ ul li, ol li {
             &-wrapper {
                 font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
                 font-size: 20px;
-                line-height: 20px;
+                line-height: 24px;
                 color: #fff;
                 display: flex;
                 align-items: center;
 
                 @media (max-width: 369px) {
                     font-size: 18px;
-                    line-height: 18px;
+                    line-height: 22px;
                 }
 
                 @media (max-width: 339px) {
                     font-size: 16px;
-                    line-height: 16px;
+                    line-height: 18px;
                 }
             }
 
             &-counter {
                 opacity: 0.4;
                 margin-right: 6px;
+                align-self: start;
+                flex: 0 0 auto;
+                align-self: first baseline;
             }
 
             &-name {
                 margin-right: 12px;
+                margin-left: auto; 
+                text-align: right;
+                max-width: 270px;
+
+                @media (max-width: 369px) {
+                    max-width: 240px;
+                }
             }
 
             &-arrow {
@@ -591,15 +600,23 @@ ul li, ol li {
                 background-repeat: no-repeat;
                 background-size: 6px 4px;
                 background-position: center;
+                flex-shrink: 0;
+                align-self: start;
             }
 
             &-submenu {
-                display: none;
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
-                margin-top: 16px;
-                padding-bottom: 14px;
+                transition: all .3s linear;
+                max-height: 0;
+                overflow: hidden;
+
+                &.open {
+                    margin-top: 16px;
+                    padding-bottom: 14px;
+                    max-height: 300px;
+                }
 
                 &-link {
                     text-decoration: none;
@@ -608,6 +625,7 @@ ul li, ol li {
                     line-height: 16px;
                     color: #fff;
                     margin-bottom: 20px;
+                    text-align: right;
 
                     &:last-child {
                         margin-bottom: 0;

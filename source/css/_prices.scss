@@ -124,6 +124,11 @@
             margin-left: 8px;
         }
 
+        &:hover .prices__benefits-item-more-details::after {
+            opacity: 1;
+            margin-left: 8px;
+        }
+
         @media (max-width: 1023px) {
             flex-direction: column;
             justify-content: flex-start;
@@ -177,6 +182,29 @@
         }
     }
 
+    &__benefits-item-more-details {
+        font-size: 12px;
+        line-height: 16px;
+        position: absolute;
+        left: 16px;
+        bottom: 12px;
+        margin-top: 16px;
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-image: url('../images/arrow-right-dark.svg');
+            background-repeat: no-repeat;
+            background-size: 8px 6px;
+            background-position: center center;
+            margin-left: 0;
+            opacity: 0;
+            transition: all .2s ease;
+        }
+    }
+
     &__benefits-item-price {
         font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 12px;
@@ -185,6 +213,25 @@
         left: 16px;
         bottom: 12px;
         margin-top: 16px;
+    }
+
+    &__benefits-item-сost {
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
+        font-size: 12px;
+        line-height: 12px;
+        display: flex;
+        align-items: center;
+
+        &-old {
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            text-decoration: line-through;
+            margin-right: 12px;
+        }
+
+        &-new {
+            color: #DC2828;
+            transition: all .2s ease;
+        }
     }
 
 

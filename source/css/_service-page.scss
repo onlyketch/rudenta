@@ -40,8 +40,8 @@
             margin-bottom: 32px;
 
             .prices__benefits-item {
-                background: rgba(247, 248, 250, 0.8);
-                color: #202B39;
+                background: rgba(247, 248, 250, 0.2);
+                color: #FFFFFF;
                 padding: 12px 16px 40px 16px;
 
                 .prices__benefits-item-name {
@@ -57,10 +57,39 @@
                     }
                 }
 
+                .prices__benefits-item-сost {
+                    &-new {
+                        color: #fff;
+                    }
+                }
+
+                &:hover {
+                    color: #202B39;
+                    background: #F7F8FA;
+                }
+
+                &:hover .prices__benefits-item-сost-new {
+                    color: #DC2828;
+                }
+            }
+        }
+
+        .prices__benefits-price {
+            .prices__benefits-item {
+                background: rgba(247, 248, 250, 0.8);
+                color: #202B39;
+
                 &:hover {
                     background: #F7F8FA;
                 }
+
+                .prices__benefits-item-сost {
+                    &-new {
+                        color: #DC2828;
+                    }
+                }
             }
+
         }
 
         &-promo {
@@ -232,7 +261,7 @@
         }
 
         &-service {
-            margin-bottom: 32px;
+            margin-bottom: 12px;
 
             &:last-child {
                 margin-bottom: 0; 
@@ -259,7 +288,7 @@
                 border-radius: 8px;
                 padding: 12px 16px;
                 box-sizing: border-box;
-                margin-bottom: 8px;
+                margin-bottom: -12px;
 
                 &:last-child {
                     margin-bottom: 0; 
@@ -267,7 +296,7 @@
 
                 &-head {
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                     justify-content: space-between;
                     margin-bottom: 16px;
                 }
@@ -294,6 +323,24 @@
                     font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
                     font-size: 12px;
                     line-height: 12px;
+                    display: flex;
+                    align-items: center;
+                    padding-top: 2px;
+                    white-space: nowrap;
+
+                    &-old {
+                        font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+                        text-decoration: line-through;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                        margin-right: 12px;
+                    }
+
+                    &-new {
+                        color: #DC2828;
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                    }
                 }
             }
         }

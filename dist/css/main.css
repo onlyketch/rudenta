@@ -4417,7 +4417,6 @@ ul li, ol li {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  max-height: 24px;
   overflow: hidden;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
@@ -4428,7 +4427,7 @@ ul li, ol li {
 .mobile-menu__services-item-wrapper {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 24px;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4440,21 +4439,36 @@ ul li, ol li {
 @media (max-width: 369px) {
   .mobile-menu__services-item-wrapper {
     font-size: 18px;
-    line-height: 18px;
+    line-height: 22px;
   }
 }
 @media (max-width: 339px) {
   .mobile-menu__services-item-wrapper {
     font-size: 16px;
-    line-height: 16px;
+    line-height: 18px;
   }
 }
 .mobile-menu__services-item-counter {
   opacity: 0.4;
   margin-right: 6px;
+  -ms-flex-item-align: start;
+      align-self: start;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -ms-flex-item-align: first baseline;
+      align-self: first baseline;
 }
 .mobile-menu__services-item-name {
   margin-right: 12px;
+  margin-left: auto;
+  text-align: right;
+  max-width: 270px;
+}
+@media (max-width: 369px) {
+  .mobile-menu__services-item-name {
+    max-width: 240px;
+  }
 }
 .mobile-menu__services-item-arrow {
   width: 24px;
@@ -4467,9 +4481,12 @@ ul li, ol li {
   background-repeat: no-repeat;
   background-size: 6px 4px;
   background-position: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-item-align: start;
+      align-self: start;
 }
 .mobile-menu__services-item-submenu {
-  display: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4480,8 +4497,15 @@ ul li, ol li {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  max-height: 0;
+  overflow: hidden;
+}
+.mobile-menu__services-item-submenu.open {
   margin-top: 16px;
   padding-bottom: 14px;
+  max-height: 300px;
 }
 .mobile-menu__services-item-submenu-link {
   text-decoration: none;
@@ -4490,6 +4514,7 @@ ul li, ol li {
   line-height: 16px;
   color: #fff;
   margin-bottom: 20px;
+  text-align: right;
 }
 .mobile-menu__services-item-submenu-link:last-child {
   margin-bottom: 0;
@@ -9352,6 +9377,10 @@ ul li, ol li {
   width: 8px;
   margin-left: 8px;
 }
+.prices__benefits-item:hover .prices__benefits-item-more-details::after {
+  opacity: 1;
+  margin-left: 8px;
+}
 @media (max-width: 1023px) {
   .prices__benefits-item {
     -webkit-box-orient: vertical;
@@ -9413,6 +9442,28 @@ ul li, ol li {
     margin-top: 8px;
   }
 }
+.prices__benefits-item-more-details {
+  font-size: 12px;
+  line-height: 16px;
+  position: absolute;
+  left: 16px;
+  bottom: 12px;
+  margin-top: 16px;
+}
+.prices__benefits-item-more-details::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-image: url("../images/arrow-right-dark.svg");
+  background-repeat: no-repeat;
+  background-size: 8px 6px;
+  background-position: center center;
+  margin-left: 0;
+  opacity: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
 .prices__benefits-item-price {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 12px;
@@ -9421,6 +9472,27 @@ ul li, ol li {
   left: 16px;
   bottom: 12px;
   margin-top: 16px;
+}
+.prices__benefits-item-сost {
+  font-family: "Onest Medium", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.prices__benefits-item-сost-old {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  text-decoration: line-through;
+  margin-right: 12px;
+}
+.prices__benefits-item-сost-new {
+  color: #DC2828;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 .prices__area {
   position: relative;
@@ -15505,8 +15577,8 @@ ul li, ol li {
   margin-bottom: 32px;
 }
 .service-page__aside .prices__benefits .prices__benefits-item {
-  background: rgba(247, 248, 250, 0.8);
-  color: #202B39;
+  background: rgba(247, 248, 250, 0.2);
+  color: #FFFFFF;
   padding: 12px 16px 40px 16px;
 }
 .service-page__aside .prices__benefits .prices__benefits-item .prices__benefits-item-name {
@@ -15519,8 +15591,25 @@ ul li, ol li {
 .service-page__aside .prices__benefits .prices__benefits-item .prices__benefits-item-more::after {
   padding-bottom: 1px;
 }
+.service-page__aside .prices__benefits .prices__benefits-item .prices__benefits-item-сost-new {
+  color: #fff;
+}
 .service-page__aside .prices__benefits .prices__benefits-item:hover {
+  color: #202B39;
   background: #F7F8FA;
+}
+.service-page__aside .prices__benefits .prices__benefits-item:hover .prices__benefits-item-сost-new {
+  color: #DC2828;
+}
+.service-page__aside .prices__benefits-price .prices__benefits-item {
+  background: rgba(247, 248, 250, 0.8);
+  color: #202B39;
+}
+.service-page__aside .prices__benefits-price .prices__benefits-item:hover {
+  background: #F7F8FA;
+}
+.service-page__aside .prices__benefits-price .prices__benefits-item .prices__benefits-item-сost-new {
+  color: #DC2828;
 }
 .service-page__aside-promo {
   position: relative;
@@ -15683,7 +15772,7 @@ ul li, ol li {
   margin-bottom: 50px;
 }
 .prices-menu-mobile__body-service {
-  margin-bottom: 32px;
+  margin-bottom: 12px;
 }
 .prices-menu-mobile__body-service:last-child {
   margin-bottom: 0;
@@ -15711,7 +15800,7 @@ ul li, ol li {
   padding: 12px 16px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-bottom: 8px;
+  margin-bottom: -12px;
 }
 .prices-menu-mobile__body-service-item:last-child {
   margin-bottom: 0;
@@ -15720,9 +15809,9 @@ ul li, ol li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -15749,6 +15838,28 @@ ul li, ol li {
   font-family: "Onest Medium", Arial, Helvetica, sans-serif;
   font-size: 12px;
   line-height: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+.prices-menu-mobile__body-service-item-price-old {
+  font-family: "Onest Regular", Arial, Helvetica, sans-serif;
+  text-decoration: line-through;
+  white-space: nowrap;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 12px;
+}
+.prices-menu-mobile__body-service-item-price-new {
+  color: #DC2828;
+  white-space: nowrap;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .prices-menu-mobile__body-close {
   position: absolute;
