@@ -597,6 +597,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    // Автозум левой колонки на детальной врача
+
+    if (document.querySelector('.doctor-detail__info')) {
+        
+        let doctorDetailInfoPanel = document.querySelector('.doctor-detail__info');
+
+        function scalePanel() {
+            const baseWidth = 1440;
+            const currentWidth = window.innerWidth;
+            const zoom = currentWidth / baseWidth;
+
+            if (window.innerWidth > 1023 && zoom < 1) {
+                doctorDetailInfoPanel.style.zoom = zoom;
+            } else {
+                doctorDetailInfoPanel.style.zoom = 1;
+            }
+            
+        }
+
+        scalePanel();
+
+        window.addEventListener('resize', scalePanel);
+
+    }
+
     
     
 });
