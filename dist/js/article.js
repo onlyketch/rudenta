@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', function () {
         $('.article__advantages-slider').slick({
             slidesToShow: 1.9,
             slidesToScroll: 1,
-            infinite: false,
+            infinite: true,
             arrows: false,
             touchThreshold: 50,
             speed: 200,

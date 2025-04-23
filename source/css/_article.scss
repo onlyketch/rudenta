@@ -569,7 +569,7 @@
             }
 
             &.open &-hidden-text {
-                max-height: 300px;
+                max-height: 700px;
             }
 
             @media (max-width: 767px) {
@@ -1349,6 +1349,10 @@
         background-repeat: no-repeat;
         background-size: 12px 9px;
         background-position: center;
+
+        &.disabled {
+            opacity: 0.6;
+        }
     }
 
     &-right {

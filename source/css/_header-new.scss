@@ -15,6 +15,16 @@
         align-items: center;
         justify-content: space-between;
 
+        &.dark-mode &-nav &-nav-link,
+        &.dark-mode &-worktime,
+        &.dark-mode &-mail {
+            color: #202B39;
+        }
+
+        &.dark-mode &-worktime::before {
+            background-image: url('../images/icon-clock-dark.svg');
+        }
+
         &-nav {
 
            &-link {

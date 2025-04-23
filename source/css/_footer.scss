@@ -146,6 +146,9 @@
     &__top-nav {
         display: flex;
         margin-right: 167px;
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 0;
 
         li {
             margin-right: 17px;

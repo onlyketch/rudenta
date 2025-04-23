@@ -622,6 +622,282 @@ document.addEventListener('DOMContentLoaded', function() {
 
     }
 
+    // Слайдер на главной
+
+    if (document.querySelector('.main-page__hero-slider')) {
+        
+        const minSlides = 2;
+        const maxSlides = 5;
+        const mainSlider = document.querySelector('.main-page__hero-slider');
+
+        if (document.querySelector('.main-page__hero-slider-slide')) {
+            const slides = document.querySelectorAll('.main-page__hero-slider-slide');
+            //если больше удаляем
+            slides.forEach(function(slide, index) {
+                if (index >= maxSlides) {
+                    slide.remove();
+                }
+            });
+        }
+
+
+
+        $('.main-page__hero-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinity: false,
+            draggable: false,
+            arrows: false,
+            dots: true,
+            touchThreshold: 50,
+            speed: 1400,
+            responsive: [
+                {
+                    breakpoint: 767,
+                    settings: {
+                        slidesToShow: 1,
+                        variableWidth: true,
+                        centerMode: false,
+                        speed: 700,
+                        touchThreshold: 80
+                    }
+                }
+            ]
+        });
+
+        // Слайдер широкий на главной
+
+        if (document.querySelector('.main-page__benefits-slider')) {
+
+            const benefitsSliderLeft = document.querySelector('.main-page__benefits > .slider-controls .slider-controls-left');
+            const benefitsSliderRight = document.querySelector('.main-page__benefits > .slider-controls .slider-controls-right');
+
+            $('.main-page__benefits-slider').slick({
+                slidesToShow: 1, 
+                slidesToScroll: 1,
+                arrows: false,
+                dots: false,
+                touchThreshold: 50,
+                speed: 700
+            });
+
+            benefitsSliderRight.addEventListener('click', function() {
+                $('.main-page__benefits-slider').slick('slickNext');
+            });
+        
+            benefitsSliderLeft.addEventListener('click', function() {
+                $('.main-page__benefits-slider').slick('slickPrev');
+            });
+        }
+
+        // Слайдер простой на главной
+
+        if (document.querySelector('.main-page__about-slider')) {
+
+            $('.main-page__about-slider').slick({
+                slidesToShow: 1, 
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                touchThreshold: 50,
+                speed: 700
+            });
+
+        }
+
+        // «Посмотреть весь список услуг» на главной
+
+        if (document.querySelector('.main-page__services-menu')) {
+
+            const mainPageServiceMenuHead = document.querySelector('.main-page__services-menu-head');
+            const mainPageServiceMenuBody = document.querySelector('.main-page__services-menu-body');
+            const mainPageServiceMenuBtn = document.querySelector('.main-page__services-menu-head-btn');
+
+            mainPageServiceMenuHead.addEventListener('click', function() {
+                if (!mainPageServiceMenuBody.classList.contains('open-menu')) {
+                    mainPageServiceMenuBtn.textContent = "-";
+                } else {
+                    mainPageServiceMenuBtn.textContent = "+";
+                }
+                mainPageServiceMenuBody.classList.toggle('open-menu');
+            });
+        }
+
+        // Слайдер врачей на главной
+
+        if (document.querySelector('.main-page__doctors-gallery-slider')) {
+
+            const doctorsGallerySliderLeft = document.querySelector('.main-page__doctors-gallery-head-right .slider-controls > .slider-controls-left');
+            const doctorsGallerySliderRight = document.querySelector('.main-page__doctors-gallery-head-right .slider-controls > .slider-controls-right');
+
+            $('.main-page__doctors-gallery-slider').slick({
+                slidesToShow: 3, 
+                slidesToScroll: 1,
+                infinite: false,
+                arrows: false,
+                dots: false,
+                touchThreshold: 80,
+                speed: 300,
+                responsive: [
+                    {
+                      breakpoint: 767,
+                      settings: {
+                        slidesToShow: 1
+                      }
+                    }
+                  ]
+            });
+
+            doctorsGallerySliderRight.addEventListener('click', function() {
+                $('.main-page__doctors-gallery-slider').slick('slickNext');
+            });
+        
+            doctorsGallerySliderLeft.addEventListener('click', function() {
+                $('.main-page__doctors-gallery-slider').slick('slickPrev');
+            });
+        }
+
+        // Мобильный слайдер карточек на главной
+
+        if (document.querySelector('.main-page__services-cards') && window.innerWidth < 768) {
+
+            $('.main-page__services-cards').slick({
+                slidesToShow: 1.05, 
+                slidesToScroll: 1,
+                infinite: false,
+                arrows: false,
+                dots: false,
+                touchThreshold: 80,
+                speed: 300
+            });
+
+        } 
+
+        // Макска для телефона на главной
+
+        if (document.getElementById('mp-phone')) {
+            const mainPageInputPhone = document.getElementById('mp-phone');
+
+            let maskOptions = {
+                mask: '+{7} 000 000-00-00'
+            };
+            const mask = IMask(mainPageInputPhone, maskOptions);
+            mainPageInputPhone.addEventListener('focus', function() {
+             mask.value = '+7 ';
+            });
+
+        }
+
+        // Форма на главной отправка и валидация
+
+        if (document.querySelector('.main-page__callback-form')) {
+            
+            let mainPageForm = document.querySelector('.main-page__callback-form');
+            let mainPageFormFieldName = document.getElementById('mp-field-name');
+            let mainPageFormFieldPhone = document.getElementById('mp-field-phone');
+            let mainPageFormInputName = document.getElementById('mp-name');
+            let mainPageFormInputPhone = document.getElementById('mp-phone');
+            let mainPageFormTextarea = document.querySelector('.main-page__callback-form-field-textarea');
+            let mainPageCallBackRight = document.querySelector('.main-page__callback-right');
+            let mainPageFormHaveErrors = false;
+
+            function mainPageFormErrorsCheck() {
+
+                //name
+                if (mainPageFormInputName.value.length < 2) {
+                    mainPageFormFieldName.classList.add('error');
+
+                    if (!mainPageFormHaveErrors) mainPageFormHaveErrors = true;
+                }
+
+                //phone
+                if (mainPageFormInputPhone.value.length < 16) {
+                    mainPageFormFieldPhone.classList.add('error');
+
+                    if (!mainPageFormHaveErrors) mainPageFormHaveErrors = true;
+                }
+            };
+
+            function mainPageFormFixErrorsCheck() {
+                if (!mainPageFormFieldName.classList.contains('error') && !mainPageFormFieldPhone.classList.contains('error')) {
+                    if (mainPageFormHaveErrors) mainPageFormHaveErrors = false;
+                } 
+            }
+
+            mainPageFormInputName.addEventListener('input', function() {
+                this.value = this.value.replace(/\d/g, '');
+                if (mainPageFormInputName.value.length >= 2 && mainPageFormFieldName.classList.contains('error')) {
+                    mainPageFormFieldName.classList.remove('error');
+                    mainPageFormFixErrorsCheck();
+                }
+            });
+
+            mainPageFormInputPhone.addEventListener('input', function() {
+                if (mainPageFormInputPhone.value.length == 16 && mainPageFormFieldPhone.classList.contains('error')) {
+                    mainPageFormFieldPhone.classList.remove('error');
+                    mainPageFormFixErrorsCheck();
+                }
+            });
+
+            mainPageForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                mainPageFormErrorsCheck();
+
+                if (mainPageFormHaveErrors == false) {
+                    let form_data = $(this).serialize();
+                    $.ajax({
+                        type: "GET", 
+                        url: "/",
+                        data: form_data,
+                        success: function() {
+                            mainPageCallBackRight.classList.add('success');
+                            mainPageFormInputPhone.value = '';
+                            mainPageFormInputName.value = '';
+                            mainPageFormTextarea.value = '';
+                        }
+                    });
+                }
+            });
+
+        };
+
+
+
+        // Автозум главной
+
+        if (document.querySelector('.main-page')) {
+            
+            const mainPage = document.querySelector('.main-page');
+
+            function scaleMainPage() {
+                const baseWidth = 1440;
+                const currentWidth = window.innerWidth;
+                const zoom = currentWidth / baseWidth;
+    
+                if (window.innerWidth > 767 && zoom < 1) {
+                    mainPage.style.zoom = zoom;
+                } else {
+                    mainPage.style.zoom = 1;
+                }
+                
+            }
+    
+            scaleMainPage();
+    
+            window.addEventListener('resize', scaleMainPage);
+        }
+
+        
+
+        
+
+
+
+
+    }
+
+    
+
     
     
 });
