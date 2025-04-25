@@ -527,16 +527,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         let servicePagePricesButton = document.querySelector('.service-page__prices-btn');
         let pricesMenuMobile = document.querySelector('.prices-menu-mobile');
+        let pricesMenuMobileBody = document.querySelector('.prices-menu-mobile__body');
         let pricesMenuMobileCloseBtn = document.querySelector('.prices-menu-mobile__body-close');
 
         servicePagePricesButton.addEventListener('click', function() {
             document.body.classList.add('body-overflow');
             pricesMenuMobile.classList.add('open');
+            pricesMenuMobileBody.classList.add('menu-open');
         });
 
         pricesMenuMobileCloseBtn.addEventListener('click', function() {
-            pricesMenuMobile.classList.remove('open');
+            pricesMenuMobileBody.classList.remove('menu-open');
             setTimeout(function() {
+                pricesMenuMobile.classList.remove('open');
                 document.body.classList.remove('body-overflow');
             }, 400);
         });

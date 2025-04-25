@@ -39,7 +39,7 @@
             padding: 33px 24px 74px;
             background-color: #3192D4;
             border-radius: 20px 20px 0 0;
-            margin-top: 8px;
+            z-index: 20;
         }
     }
 
@@ -589,6 +589,7 @@
             position: relative;
             height: 519px;
             z-index: 10;
+            padding-bottom: 8px;
         }
 
         @media (max-width: 360px) {
@@ -610,10 +611,10 @@
             right: 0;
 
             @media (max-width: 1023px) {
-                width: 85%;
-                max-width: 320px;
+                width: 100%;
+                max-width: 390px;
                 aspect-ratio: 320 / 437;
-                bottom: 72px;
+                bottom: -65px;
                 left: 50%;
                 transform: translateX(-50%);
             }
@@ -672,6 +673,7 @@
                 left: 0;
                 right: 0;
                 max-width: 100%;
+                margin-bottom: 8px;
             }
 
         }

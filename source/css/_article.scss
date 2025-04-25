@@ -253,6 +253,17 @@
                 overflow: hidden;
                 user-select: none;
 
+                &::before {
+                    content: "";
+                    border-radius: 0 0 16px 16px;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    height: 54%;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+                }
+
                 @media (max-width: 767px) {
                     max-width: 318px; 
                 }
@@ -460,6 +471,11 @@
         padding: 20px 60px 20px 16px;
         box-sizing: border-box;
         margin: 24px auto 72px auto;
+        transition: background-color .2s ease-out;
+
+        &:hover {
+            background-color: rgb(232, 232, 237, 0.9); 
+        }
 
         &:before {
             content: '';
@@ -587,8 +603,10 @@
         margin-top: 24px;
 
         .prices__services-items {
-            .prices__services-item {
-                padding: 16px 20px 0 0px;
+            margin-left: -20px;
+
+            @media (max-width: 1023px) {
+                margin-left: 0;
             }
         }
 
@@ -884,7 +902,7 @@
             backdrop-filter: blur(30px);
             border-radius: 8px;
             padding: 16px 24px;
-            margin-top: 32px;
+            margin-top: 54px;
 
             @media (max-width: 767px) {
                 margin-top: 20px;
@@ -947,7 +965,7 @@
                 font-size: 12px;
                 line-height: 16px;
                 margin-top: 8px;
-                max-width: 240px;
+                max-width: 182px;
             }
         }
 
@@ -965,10 +983,14 @@
             backdrop-filter: blur(30px);
             border-radius: 8px;
             padding: 16px 24px;
-            margin-top: 32px;
+            margin-top: 54px;
 
             @media (max-width: 767px) {
                 margin-top: 20px;
+                font-size: 11px;
+                line-height: 11px;
+                padding: 12px 16px;
+                margin-top: 24px;
             }
         }
 
@@ -1045,6 +1067,7 @@
             font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
             font-size: 12px;
             line-height: 16px;
+            letter-spacing: normal;
             margin-top: 0;
             transition: all .5s ease-out;
         }
@@ -1203,21 +1226,18 @@
             right: 32px;
 
             @media (max-width: 767px) {
-                top: auto;
-                right: auto;
-                left: 24px;
-                bottom: 24px;
+                position: relative;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                margin-top: 16px;
             }
         }
 
         @media (max-width: 767px) {
-            height: 184px;
             padding: 24px;
             margin: 48px 0;
-        }
-
-        @media (max-width: 359px) {
-            height: 220px;
         }
     }
     &__reviews {
