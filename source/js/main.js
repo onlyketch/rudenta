@@ -256,15 +256,39 @@ document.addEventListener('DOMContentLoaded', function() {
     let headerAreaNavLinkServices = document.querySelectorAll('.header__area-nav-link-services');
     let headerAreaNav = document.querySelector('.header__area-nav');
     let servicesMenu = document.querySelector('.services-menu');
+    let headerAreaNavLinkMore = document.querySelector('.header__area-nav-link-more');
+    let moreMenu = document.querySelector('.more-menu');
 
     for (let i = 0; i < headerAreaNavLinkServices.length; i++) {
         headerAreaNavLinkServices[i].addEventListener('click', function() {
-            servicesMenu.classList.add('open');
-            headerAreaNav.classList.add('has-active');
-            this.classList.add('active');
-            document.body.classList.add('body-overflow');
+            if (servicesMenu) {
+                if (headerAreaNavLinkMore.classList.contains('active')) {
+                    headerAreaNavLinkMore.classList.remove('active')
+                }
+                if (moreMenu.classList.contains('open')) {
+                    moreMenu.classList.remove('open');
+                }
+                servicesMenu.classList.add('open');
+                headerAreaNav.classList.add('has-active');
+                this.classList.add('active');
+                document.body.classList.add('body-overflow');
+            }
         });
     }
+
+    headerAreaNavLinkMore.addEventListener('click', function() {
+        if (moreMenu) {
+            if (!this.classList.contains('active')) {
+                this.classList.add('active');
+            }
+            if (!headerAreaNav.classList.contains('has-active')) {
+                headerAreaNav.classList.add('has-active')
+            }
+            moreMenu.classList.add('open');
+            document.body.classList.add('body-overflow');
+        }
+        
+    });
 
 
     //Главное меню внутри
@@ -275,6 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let servicesMenuServiceBlock = document.querySelector('.services-menu__service');
     let servicesMenuAdvertBlock = document.querySelector('.services-menu__advert');
     let serviceMenuBlockTitle = servicesMenuServiceBlock.querySelector('.services-menu__service-title');
+    let moreMenuBody = document.querySelector('.more-menu__body');
 
     document.addEventListener('click', function(e) {
         if (servicesMenu.classList.contains('open')) {
@@ -283,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const withinMenuMain = e.composedPath().includes(servicesMenuMainBlock);
         const withinMenuService = e.composedPath().includes(servicesMenuServiceBlock);
         const withinMenuAdvert = e.composedPath().includes(servicesMenuAdvertBlock);
+        const whitinMenuMore = e.composedPath().includes(headerAreaNavLinkMore);
      
         if ( !withinHeaderLinkServicesFirst && !withinHeaderLinkServicesSecond && !withinMenuMain && !withinMenuService && !withinMenuAdvert) {
             if (servicesMenu.classList.contains('open')) {
@@ -303,7 +329,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            headerAreaNav.classList.remove('has-active');
+            if (!whitinMenuMore) {
+                headerAreaNav.classList.remove('has-active');
+            }
+            
             for (let item of headerAreaNavLinkServices) {
                 item.classList.remove('active');
             }
@@ -311,7 +340,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.body.classList.remove('body-overflow');
         }
+    } else if (moreMenu.classList.contains('open')) {
+        const whitinMenuMore = e.composedPath().includes(headerAreaNavLinkMore);
+        const whitinMenuMoreBody = e.composedPath().includes(moreMenuBody);
+        const withinHeaderLinkServicesFirst = e.composedPath().includes(headerAreaNavLinkServices[0]);
+
+        if (!whitinMenuMore && !whitinMenuMoreBody) {
+            moreMenu.classList.remove('open');
+
+            if (!withinHeaderLinkServicesFirst) {
+                headerAreaNav.classList.remove('has-active');
+            }
+
+            document.body.classList.remove('body-overflow');
         }
+    }
         
     });
 
@@ -386,6 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let mobMenuServices = document.querySelector('.mobile-menu__services');
     let mobMenuServicesItem = document.querySelector('.mobile-menu__item-services');
     let mobNavigatorMenuName = document.querySelector('.mobile-navigator__menu-name');
+    let mobMenuMore = document.querySelector('.mobile-menu__more');
+    let mobMenuMoreItem = document.querySelector('.mobile-menu__item-more');
 
     mobMenuServicesItem.addEventListener('click', function() {
         mobMenuMain.classList.add('hide');
@@ -393,20 +438,33 @@ document.addEventListener('DOMContentLoaded', function() {
         mobNavigatorMenuName.textContent = 'Услуги';
     });
 
+    mobMenuMoreItem.addEventListener('click', function() {
+        mobMenuMain.classList.add('hide');
+        mobMenuMore.classList.add('open');
+        mobNavigatorMenuName.textContent = 'Еще';
+    });
+
 
     //меню услуг
     let mobMenuServicesItems = document.querySelectorAll('.mobile-menu__services-item');
-    let mobMenuServicesBackBtn = document.querySelector('.mobile-menu__services-back-btn');
+    let mobMenuBackBtns = document.querySelectorAll('.mobile-menu__back-btn');
 
-    mobMenuServicesBackBtn.addEventListener('click', function() {
-        mobMenuServices.classList.remove('open');
-        mobMenuMain.classList.remove('hide');
-        for (let item of mobMenuServicesItems) {
-            if (item.classList.contains('open')) item.classList.remove('open');
-            if (item.classList.contains('pale')) item.classList.remove('pale');
-        }
-        mobNavigatorMenuName.textContent = 'Меню';
-    });
+    for (let btn of mobMenuBackBtns) {
+        btn.addEventListener('click', function() {
+            if (mobMenuServices.classList.contains('open')) {
+                mobMenuServices.classList.remove('open');
+            } else if (mobMenuMore.classList.contains('open')) {
+                mobMenuMore.classList.remove('open');
+            }
+        
+            mobMenuMain.classList.remove('hide');
+            for (let item of mobMenuServicesItems) {
+                if (item.classList.contains('open')) item.classList.remove('open');
+                if (item.classList.contains('pale')) item.classList.remove('pale');
+            }
+            mobNavigatorMenuName.textContent = 'Меню';
+        });
+    }
 
     mobNavigatorMenuClose.addEventListener('click', function() {
         mobMenuServices.classList.remove('open');
@@ -629,41 +687,78 @@ document.addEventListener('DOMContentLoaded', function() {
         const minSlides = 2;
         const maxSlides = 5;
         const mainSlider = document.querySelector('.main-page__hero-slider');
+        const slides = document.querySelectorAll('.main-page__hero-slider-slide');
 
         if (document.querySelector('.main-page__hero-slider-slide')) {
-            const slides = document.querySelectorAll('.main-page__hero-slider-slide');
             //если больше удаляем
             slides.forEach(function(slide, index) {
                 if (index >= maxSlides) {
                     slide.remove();
                 }
             });
+    
         }
 
-
-
         $('.main-page__hero-slider').slick({
+            autoplay: true,
+            autoplaySpeed: 5000,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+            pauseOnDotsHover: false,
             slidesToShow: 1,
             slidesToScroll: 1,
-            infinity: false,
+            infinite: true,
             draggable: false,
             arrows: false,
             dots: true,
             touchThreshold: 50,
-            speed: 1400,
-            responsive: [
-                {
-                    breakpoint: 767,
-                    settings: {
-                        slidesToShow: 1,
-                        variableWidth: true,
-                        centerMode: false,
-                        speed: 700,
-                        touchThreshold: 80
-                    }
+            speed: 500,
+            fade: true,
+            cssEase:'linear',
+            draggable: false,
+            swipe: false,
+            touchMove: false,
+            responsive: [{
+                breakpoint: 768,
+                settings: {
+                    swipe: true
                 }
-            ]
+              }]
         });
+
+        const sliderSwitcher = document.querySelector('.main-page__hero-slider .slick-dots');
+        //фикс ширина переключателя для избежания дергания
+        switch (slides.length) {
+            case 5:
+                sliderSwitcher.style.setProperty('--switcher-width', '176px');
+                break;
+            case 4:
+                sliderSwitcher.style.setProperty('--switcher-width', '156px');
+                break;
+            case 3:
+                sliderSwitcher.style.setProperty('--switcher-width', '136px');
+                break;
+            case 2:
+                sliderSwitcher.style.setProperty('--switcher-width', '116px');
+                break;
+            default:
+                sliderSwitcher.style.setProperty('--switcher-width', 'auto'); 
+        }
+
+        const sliderSwitcherDots = document.querySelectorAll('.main-page__hero-slider .slick-dots > li > button');
+        for (let button of sliderSwitcherDots) {
+            button.addEventListener('click', function() {
+                if (!button.classList.contains('auto-play-disabled')) {
+                    for (let btn of sliderSwitcherDots) {
+                        btn.classList.add('auto-play-disabled');
+                    }
+                    $('.main-page__hero-slider').slick('slickPause');
+                }
+            });
+        }
+
+    }
+
 
         // Слайдер широкий на главной
 
@@ -678,7 +773,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 arrows: false,
                 dots: false,
                 touchThreshold: 50,
-                speed: 700
+                speed: 500,
+                fade: true,
+                cssEase:'linear',
+                draggable: false,
+                swipe: false,
+                touchMove: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        swipe: true
+                    }
+                  }]
             });
 
             benefitsSliderRight.addEventListener('click', function() {
@@ -731,7 +837,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const doctorsGallerySliderRight = document.querySelector('.main-page__doctors-gallery-head-right .slider-controls > .slider-controls-right');
 
             $('.main-page__doctors-gallery-slider').slick({
-                slidesToShow: 3, 
+                slidesToShow: 0.94, 
                 slidesToScroll: 1,
                 infinite: false,
                 arrows: false,
@@ -742,7 +848,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     {
                       breakpoint: 767,
                       settings: {
-                        slidesToShow: 1
+                        slidesToShow: 1.05,
+                        slidesToScroll: 1
                       }
                     }
                   ]
@@ -887,17 +994,57 @@ document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('resize', scaleMainPage);
         }
 
+        // Уменьшение масштаба hero секции на главной при скролле
+
+        if (document.querySelector('.main-page__hero')) {
         
+                const mainPageHero = document.querySelector('.main-page__hero');
 
-        
+                function handleScroll() {
+                    
+                    if (window.innerWidth <= 1440 && window.innerWidth > 1023) {
+                    const scrollY = window.scrollY;
+                    const scale = Math.max(0.956, 1 - (scrollY - 320) / 1000);
+                    const scrollEnough = scrollY >= 320;
 
+                        if (scrollEnough) {
+                            mainPageHero.style.transform = `scale(${scale})`;
+                        } else {
+                        mainPageHero.style.transform = 'scale(1)'; 
+                        }
+                    
+                    } else if (window.innerWidth <= 1023 && window.innerWidth >= 768) {
+                        const scrollY = window.scrollY;
+                        const scale = Math.max(0.959, 1 - (scrollY - 240) / 1000);
+                        const scrollEnough = scrollY >= 240;
 
+                        if (scrollEnough) {
+                            mainPageHero.style.transform = `scale(${scale})`;
+                        } else {
+                        mainPageHero.style.transform = 'scale(1)'; 
+                        }
 
+                    } else if (window.innerWidth <= 1920 && window.innerWidth > 1023) {
+                        const scrollY = window.scrollY;
+                        const scale = Math.max(0.7245, 1 - (scrollY - 320) / 1000);
+                        const scrollEnough = scrollY >= 320;
 
-    }
+                        if (scrollEnough) {
+                            mainPageHero.style.transform = `scale(${scale})`;
+                        } else {
+                        mainPageHero.style.transform = 'scale(1)'; 
+                        }
+                    } else {
+                        mainPageHero.style.transform = 'scale(1)';
+                    }
+                
+                }
+                
+                window.addEventListener('scroll', handleScroll);
+            }
 
-    
+                
 
-    
+            
     
 });

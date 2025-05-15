@@ -58,50 +58,48 @@
 
         }
 
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            width: 100%;
-            border: 1px solid #dcdcdc;
-            border-radius: 8px;
-            overflow: hidden;
-            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
-            font-size: 14px;
-            margin-bottom: 24px;
-
-            &:not(:first-child) {
-                margin-top: 24px;
-
-                @media (max-width: 767px) {
-                    margin-top: 16px;
-                }
-            }
+        figure.table {
+            margin: 24px 0;
+            overflow-x: auto;
 
             @media (max-width: 767px) {
-                margin-bottom: 16px;
+                margin: 16px 0;
             }
 
-            th, td {
-                padding: 10px 12px;
-                text-align: left;
-                border: 1px solid #e0e0e0;
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+                width: 100%;
+                border: 1px solid #dcdcdc;
+                border-radius: 8px;
+                overflow: hidden;
+                font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+                font-size: 14px;
+    
+                th, td {
+                    padding: 10px 12px;
+                    text-align: left;
+                    border: 1px solid #e0e0e0;
+                }
+    
+                thead {
+                    background-color: #f9f9f9;
+                    font-weight: bold;
+                    color: #202B39;
+                  }
+    
+                tr:last-child td {
+                    border-bottom: none;
+                }
+    
+                th {
+                    background-color: #f0f0f0;
+                }
+    
             }
+        }
 
-            thead {
-                background-color: #f9f9f9;
-                font-weight: bold;
-                color: #202B39;
-              }
-
-            tr:last-child td {
-                border-bottom: none;
-            }
-
-            th {
-                background-color: #f0f0f0;
-            }
-
-          }
+        
 
         @media (max-width: 767px) {
             border-radius: 0;
