@@ -16130,6 +16130,7 @@ em, i {
 }
 
 .main-page {
+  position: relative;
   background-color: #50C8E6;
   zoom: 1;
   /* миссия */
@@ -16163,20 +16164,24 @@ em, i {
   background: #F3F4F6;
   -webkit-backdrop-filter: blur(15px);
           backdrop-filter: blur(15px);
-  height: 2600px;
+  height: 1225px;
   padding-top: 40px;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: -webkit-transform 0.2s ease-out;
-  transition: -webkit-transform 0.2s ease-out;
-  transition: transform 0.2s ease-out;
-  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
-  will-change: transform;
+  max-width: 1380px;
+  margin: 0 auto;
 }
 @media (max-width: 767px) {
   .main-page__hero .main-container {
     overflow-y: visible;
+  }
+}
+@media (max-width: 1445px) {
+  .main-page__hero {
+    max-width: 1375.5px;
+  }
+}
+@media (max-width: 1023px) {
+  .main-page__hero {
+    max-width: 1380px;
   }
 }
 @media (max-width: 767px) {
@@ -16459,7 +16464,7 @@ em, i {
           animation: dotProgress 5.5s linear;
 }
 .main-page__content {
-  margin-top: -1540px;
+  margin-top: -212px;
 }
 @media (max-width: 767px) {
   .main-page__content {
@@ -18098,6 +18103,41 @@ em, i {
 }
 .main-page__btn:hover {
   background-color: #0096CB;
+}
+.main-page__zoom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4000px;
+  background: #F3F4F6;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  z-index: 25;
+  -webkit-transform-origin: top;
+      -ms-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
+  will-change: transform;
+}
+@media (max-width: 1440px) {
+  .main-page__zoom {
+    -webkit-transition: -webkit-transform 0.4s ease-out;
+    transition: -webkit-transform 0.4s ease-out;
+    transition: transform 0.4s ease-out;
+    transition: transform 0.4s ease-out, -webkit-transform 0.4s ease-out;
+  }
+}
+@media (max-width: 767px) {
+  .main-page__zoom {
+    display: none;
+  }
 }
 
 @-webkit-keyframes marquee-left {

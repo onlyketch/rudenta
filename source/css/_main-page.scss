@@ -1,4 +1,5 @@
 .main-page {
+    position: relative;
     background-color: #50C8E6;
     zoom: 1;
     
@@ -25,16 +26,23 @@
         z-index: 30;
         background: #F3F4F6;
         backdrop-filter: blur(15px);
-        height: 2600px;
+        height: 1225px;
         padding-top: 40px;
-        transform: scale(1);
-        transition: transform .2s ease-out;
-        will-change: transform;
+        max-width: 1380px;
+        margin: 0 auto;
 
         .main-container {
             @media (max-width: 767px) {
                overflow-y: visible;
             } 
+        }
+
+        @media (max-width: 1445px) {
+            max-width: 1375.5px;
+        }
+
+        @media (max-width: 1023px) {
+            max-width: 1380px;
         }
 
         @media (max-width: 767px) {
@@ -288,7 +296,7 @@
     }
 
     &__content {
-        margin-top: -1540px;
+        margin-top: -212px;
 
         @media (max-width: 767px) {
             margin-top: 0;
@@ -1717,6 +1725,29 @@
 
         &:hover {
             background-color: #0096CB;
+        }
+    }
+
+    &__zoom {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4000px;
+        background: #F3F4F6;
+        backdrop-filter: blur(15px);
+        z-index: 25;
+        transform-origin: top;
+        transform: scale(1);
+        transition: transform .5s ease-out;
+        will-change: transform;
+
+        @media (max-width: 1440px) {
+            transition: transform .4s ease-out;
+        }
+
+        @media (max-width: 767px) {
+            display: none;
         }
     }
     

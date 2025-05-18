@@ -994,54 +994,58 @@ document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('resize', scaleMainPage);
         }
 
-        // Уменьшение масштаба hero секции на главной при скролле
+        //Уменьшение масштаба zoom блока на главной при скролле
 
-        if (document.querySelector('.main-page__hero')) {
+        if (document.querySelector('.main-page__zoom')) {
         
-                const mainPageHero = document.querySelector('.main-page__hero');
+                const mainPageZoom = document.querySelector('.main-page__zoom');
 
                 function handleScroll() {
-                    
-                    if (window.innerWidth <= 1440 && window.innerWidth > 1023) {
-                    const scrollY = window.scrollY;
-                    const scale = Math.max(0.956, 1 - (scrollY - 320) / 1000);
-                    const scrollEnough = scrollY >= 320;
+
+                    if (window.innerWidth <= 2560 && window.innerWidth > 1920) {
+                        const scrollY = window.scrollY;
+                        const scale = Math.max(0.53, 1 - (scrollY - 320) / 1000);
+                        const scrollEnough = scrollY >= 120;
 
                         if (scrollEnough) {
-                            mainPageHero.style.transform = `scale(${scale})`;
+                            mainPageZoom.style.transform = `scale(${scale})`;
                         } else {
-                        mainPageHero.style.transform = 'scale(1)'; 
+                            mainPageZoom.style.transform = 'scale(1)';
                         }
-                    
-                    } else if (window.innerWidth <= 1023 && window.innerWidth >= 768) {
+
+                    } else if (window.innerWidth <= 1920 && window.innerWidth > 1440) {
                         const scrollY = window.scrollY;
-                        const scale = Math.max(0.959, 1 - (scrollY - 240) / 1000);
-                        const scrollEnough = scrollY >= 240;
+                        const scale = Math.max(0.7170, 1 - (scrollY - 320) / 1000);
+                        const scrollEnough = scrollY >= 140;
 
                         if (scrollEnough) {
-                            mainPageHero.style.transform = `scale(${scale})`;
+                            mainPageZoom.style.transform = `scale(${scale})`;
                         } else {
-                        mainPageHero.style.transform = 'scale(1)'; 
+                            mainPageZoom.style.transform = 'scale(1)';
                         }
 
-                    } else if (window.innerWidth <= 1920 && window.innerWidth > 1023) {
+                    } else if (window.innerWidth <= 1440 && window.innerWidth > 767) {
                         const scrollY = window.scrollY;
-                        const scale = Math.max(0.7245, 1 - (scrollY - 320) / 1000);
+                        const scale = Math.max(0.95, 1 - (scrollY - 320) / 1000);
                         const scrollEnough = scrollY >= 320;
 
                         if (scrollEnough) {
-                            mainPageHero.style.transform = `scale(${scale})`;
+                            mainPageZoom.style.transform = `scale(${scale})`;
                         } else {
-                        mainPageHero.style.transform = 'scale(1)'; 
+                            mainPageZoom.style.transform = 'scale(1)';
                         }
-                    } else {
-                        mainPageHero.style.transform = 'scale(1)';
+                    }
+                    
+                    else {
+                        mainPageZoom.style.transform = 'scale(1)';
                     }
                 
                 }
+
+            
                 
                 window.addEventListener('scroll', handleScroll);
-            }
+        }
 
                 
 
