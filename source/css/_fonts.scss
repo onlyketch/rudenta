@@ -1,8 +1,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "Onest Regular";
-    src: local('Onest'),
-    	 url('../fonts/Onest-Regular.woff2') format("woff2"),  
+    src: url('../fonts/Onest-Regular.woff2') format("woff2"),  
          url('../fonts/Onest-Regular.woff') format("woff");
     font-weight: 400;
     font-style: normal;
@@ -11,8 +10,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "Onest Light";
-    src: local('Onest-Light'),
-    	 url('../fonts/Onest-Light.woff2') format("woff2"),  
+    src: url('../fonts/Onest-Light.woff2') format("woff2"),  
          url('../fonts/Onest-Light.woff') format("woff");
     font-weight: 300;
     font-style: normal;
@@ -21,8 +19,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "Onest Medium";
-    src: local('Onest-Medium'),
-    	 url('../fonts/Onest-Medium.woff2') format("woff2"),  
+    src: url('../fonts/Onest-Medium.woff2') format("woff2"),  
          url('../fonts/Onest-Medium.woff') format("woff");
     font-weight: 500;
     font-style: normal;
@@ -31,8 +28,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "Onest SemiBold";
-    src: local('Onest-SemiBold'),
-    	 url('../fonts/Onest-SemiBold.woff2') format("woff2"),  
+    src: url('../fonts/Onest-SemiBold.woff2') format("woff2"),  
          url('../fonts/Onest-SemiBold.woff') format("woff");
     font-weight: 600;
     font-style: normal;
@@ -41,8 +37,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "Onest Bold";
-    src: local('Onest-Bold'),
-    	 url('../fonts/Onest-Bold.woff2') format("woff2"),  
+    src: url('../fonts/Onest-Bold.woff2') format("woff2"),  
          url('../fonts/Onest-Bold.woff') format("woff");
     font-weight: 700;
     font-style: normal;
@@ -51,8 +46,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "SF Pro Display Regular";
-    src: local('SF-Pro-Display-Regular'),
-    	 url('../fonts/SF-Pro-Display-Regular.woff2') format("woff2"),  
+    src: url('../fonts/SF-Pro-Display-Regular.woff2') format("woff2"),  
          url('../fonts/SF-Pro-Display-Regular.woff') format("woff");
     font-weight: 400;
     font-style: normal;
@@ -61,8 +55,7 @@
 @font-face {
 	font-display: swap; 
     font-family: "SF Pro Display Medium";
-    src: local('SF-Pro-Display-Medium'),
-    	 url('../fonts/SF-Pro-Display-Medium.woff2') format("woff2"),  
+    src: url('../fonts/SF-Pro-Display-Medium.woff2') format("woff2"),  
          url('../fonts/SF-Pro-Display-Medium.woff') format("woff");
     font-weight: 500;
     font-style: normal;

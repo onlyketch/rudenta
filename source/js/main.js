@@ -126,6 +126,64 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 400);    
     });
 
+    document.addEventListener('click', function(e) {
+            if (callBackFormBodyOpen) {
+                const withinCallBackFormBody = e.composedPath().includes(callBackFormBody); 
+                const withinCallBackBtn1 = e.composedPath().includes(callBackFormBtns[0]);
+                const withinCallBackBtn2 = e.composedPath().includes(callBackFormBtns[1]);
+                const withinCallBackBtn3 = e.composedPath().includes(callBackFormBtns[2]);
+                const withinCallBackBtn4 = e.composedPath().includes(callBackFormBtns[3]);
+                const withinCallBackBtn5 = e.composedPath().includes(callBackFormBtns[4]);
+
+
+                if ( !withinCallBackFormBody && !withinCallBackBtn1 && !withinCallBackBtn2 && !withinCallBackBtn3 && !withinCallBackBtn4 && !withinCallBackBtn5 ) {
+
+                    if( window.innerWidth >= 1023 ) {
+
+                        if (callBackFormBodyOpen) {
+                            callBackFormBody.style.right = '-100%';
+                            callBackFormBodyOpen = false;
+                            setTimeout(function() {
+                                callBackFormBody.style.visibility = 'hidden';
+                            }, 500);
+                        }
+
+                    } else {
+                    
+                        if (callBackFormBodyOpen) {
+                            callBackFormBody.style.bottom = '-100%';
+                            callBackFormBodyOpen = false;
+                            setTimeout(function() {
+                                callBackFormBody.style.visibility = 'hidden';
+                            }, 500);
+                        }
+                    }
+
+                    setTimeout(function() {
+
+                        if (callBackNameHaveError || callBackPhoneHaveError || callBackCheckBoxHaveError) {
+                            callBackInputName.classList.remove('error');
+                            callBackInputPhone.classList.remove('error');
+                            callBackInputNameError.style.display = 'none';
+                            callBackInputPhoneError.style.display = 'none';
+                            callBackInputCheckBoxError.style.display = 'none';
+                            callBackNameHaveError = false;
+                            callBackPhoneHaveError = false;
+                            callBackCheckBoxHaveError = false;
+                        }
+
+                            callBackInputName.value = '';
+                            callBackInputPhone.value = '';
+                            callBackInputComment.value = '';
+                            callBackInputCheckBox.checked = false;
+                            callBackBox.style.visibility = 'hidden';
+                            document.body.classList.remove('body-overflow');
+                    }, 400); 
+                }
+
+            }
+        });
+
     callBackForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
@@ -994,13 +1052,15 @@ document.addEventListener('DOMContentLoaded', function() {
             window.addEventListener('resize', scaleMainPage);
         }
 
-        //Уменьшение масштаба zoom блока на главной при скролле
+        // Уменьшение масштаба zoom блока на главной при скролле
 
         if (document.querySelector('.main-page__zoom')) {
         
                 const mainPageZoom = document.querySelector('.main-page__zoom');
 
                 function handleScroll() {
+
+                    
 
                     if (window.innerWidth <= 2560 && window.innerWidth > 1920) {
                         const scrollY = window.scrollY;
@@ -1047,8 +1107,67 @@ document.addEventListener('DOMContentLoaded', function() {
                 window.addEventListener('scroll', handleScroll);
         }
 
-                
-
+        /* 
+            Добавить обрезку текста если более 3 строк
+            Если текст отзыва обрезан ... добавить кнопку Подробнее
+        */
+        if (document.querySelectorAll('.reviews__reviews-item-text').length > 0) {
             
+            const reviewsTextElems = document.querySelectorAll('.reviews__reviews-item-text');
+
+            reviewsTextElems.forEach(el => {
+                el.classList.add('truncate');
+            });
+
+            reviewsTextElems.forEach(el => {
+                if (el.scrollHeight > el.clientHeight) { 
+                    el.insertAdjacentHTML('afterend', '<button class="reviews__reviews-item-text-read-more">Подробнее</button>');
+                }
+            });
+
+            if (document.querySelectorAll('.reviews__reviews-item-text-read-more').length > 0) {
+                const reviewsTextMoreBtns = document.querySelectorAll('.reviews__reviews-item-text-read-more');
+                for (let btn of reviewsTextMoreBtns) {
+                    btn.addEventListener('click', function(e) {
+                        const reviewsItemRight = e.target.closest('.reviews__reviews-item-right');
+                        const reviewsTruncate = reviewsItemRight.querySelector('.reviews__reviews-item-text');
+                        
+                        reviewsTruncate.classList.remove('truncate');
+
+                        e.target.classList.add('hide-more');
+                    });
+                }
+            }
+        }
+
+        // Скрыть верхнюю часть меню при скролле
+
+        if (document.querySelector('.header')) {
+
+            const headerTop = document.querySelector('.header__top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 320) {
+                    headerTop.classList.add('header-top-hide');
+                } else {
+                    headerTop.classList.remove('header-top-hide');
+                }
+            });
+        }
+
+        // Обернуть содержимое нумерованных и маркированных списков в span
+
+        if (document.querySelector('.article__num-list')) {
+            document.querySelectorAll('.article__num-list li').forEach(li => {
+                
+                const wrapper = document.createElement('span');
+                
+                while (li.childNodes.length > 0) {
+                    wrapper.appendChild(li.childNodes[0]);
+                }
+                
+                li.appendChild(wrapper);
+            });
+        }
+   
     
 });

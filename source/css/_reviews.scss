@@ -928,6 +928,40 @@
         color: #202B39;
     }
 
+    &__reviews-item-text {
+        overflow: hidden;
+        max-height: 420px;
+        transition: max-height .3s linear;
+
+        &.truncate {
+            -webkit-line-clamp: 3;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            max-height: 62px;
+        }
+        
+
+        &-read-more {
+            display: flex;
+            font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            line-height: 20px;
+            color: #42C8F8;
+            padding: 0;
+            border: none;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+            white-space: nowrap;
+            background: transparent;
+            margin: 7px 7px 0 auto;
+
+            &.hide-more {
+                display: none;
+            }
+        }
+    }
+
     &__reviews-item-doctor {
         margin-top: 32px;
     }
@@ -971,11 +1005,8 @@
         overflow: hidden;
 
         img {
-            width: 54px;
-            height: 71px;
-            object-fit: contain;
-            padding-top: 5px;
-            transform: translateX(-3px);
+            width: 100%;
+            height: auto;
         }
     }
 

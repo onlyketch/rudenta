@@ -579,7 +579,7 @@
                     top: 0;
                     left: 270px;
                     width: 330px;
-                    height: 360px;
+                    height: 100%;
                     pointer-events: none;
 
                     @media (max-width: 767px) {
@@ -1446,7 +1446,9 @@
         }
 
         .container {
-            padding: 0 12px;
+            @media (max-width: 767px) {
+                padding: 0 12px;
+            }
         }
 
         .main-page__container {

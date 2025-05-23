@@ -1,10 +1,15 @@
 .header {
     background-color: transparent;
-    position: absolute;
+    position: fixed;
     top: 12px;
     width: 100%;
     z-index: 210;
     user-select: none;
+
+    .container {
+        padding: 0 62px;
+        box-sizing: border-box;
+    }
 
     &__top {
         font-family: 'Onest Regular', Arial, Helvetica, sans-serif;
@@ -14,6 +19,12 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        transition: all 1s ease-in;
+
+        &.header-top-hide {
+            visibility: hidden;
+            opacity: 0;
+        }
 
         &.dark-mode &-nav &-nav-link,
         &.dark-mode &-worktime,
@@ -236,6 +247,10 @@
             &:hover {
                 opacity: 0.4;
             }
+
+            @media (max-width: 1089px) { 
+                display: none;
+            }
         }
 
         &-social {
@@ -290,7 +305,7 @@
 
         }
 
-        @media (max-width: 1159px) {
+        @media (max-width: 1220px) {
             font-size: 13px;
         }
 
@@ -334,7 +349,7 @@
 
 .services-menu {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -380,9 +395,9 @@
 
     &__main-title,
     &__service-title {
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 20px;
-        line-height: 20px;
+        line-height: 24px;
     }
 
     &__main-total-counter,
@@ -400,9 +415,9 @@
     }
 
     &__main-service {
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 13px;
-        line-height: 13px;
+        line-height: 16px;
         padding-bottom: 16px;
         transition: all .2s ease-out;
         cursor: pointer;
@@ -430,7 +445,7 @@
         max-width: 281px;
         border-radius: 16px;
         background-color: #fff;
-        padding: 32px;
+        padding: 32px 26px;
         box-sizing: border-box;
         margin-left: 8px;
         color: #202B39;
@@ -441,7 +456,7 @@
     }
 
     &__service-title {
-        max-width: 210px;
+        max-width: 100%;
     }
 
     &__service-desc {
@@ -449,8 +464,8 @@
         font-size: 12px;
         line-height: 16px;
         opacity: 0.6;
-        max-width: 173px;
-        margin-top: 5px;
+        max-width: 100%;
+        margin-top: 12px;
     }
 
     &__service-list {
@@ -463,9 +478,9 @@
 
     &__service-link {
         position: relative;
-        font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+        font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
         font-size: 13px;
-        line-height: 13px;
+        line-height: 16px;
         text-decoration: none;
         color: #202B39;
         padding-bottom: 16px;
@@ -494,9 +509,9 @@
             padding-bottom: 0; 
         }
 
-        &:hover &-arrow {
-            display: inline-block;
-        }
+        // &:hover &-arrow {
+        //     display: inline-block;
+        // }
     }
 
     &__service-list:hover &__service-link:not(:hover) {
@@ -611,7 +626,7 @@
 
 .more-menu {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -659,9 +674,9 @@
         }
 
         &-title {
-            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
             font-size: 20px;
-            line-height: 20px;
+            line-height: 24px;
         }
 
         &-items {
@@ -675,9 +690,9 @@
             text-decoration: none;
             appearance: none;
             color: #202B39;
-            font-family: 'Onest SemiBold', Arial, Helvetica, sans-serif;
+            font-family: 'Onest Medium', Arial, Helvetica, sans-serif;
             font-size: 13px;
-            line-height: 13px;
+            line-height: 16px;
             padding-bottom: 16px;
             transition: all .2s ease-out;
             cursor: pointer;

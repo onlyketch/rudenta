@@ -273,6 +273,21 @@ document.addEventListener('DOMContentLoaded', function() {
           }, 500);
           
       });
+
+      document.addEventListener('click', function(e) {
+            if (resourcesPanelBody.classList.contains('open')) {
+                const withinBody = e.composedPath().includes(resourcesPanelBody);
+                const withinBtnAll = e.composedPath().includes(reviewsResourcesBtnAll); 
+
+                if ( !withinBody && !withinBtnAll ) {
+                    resourcesPanelBody.classList.remove('open');
+                    setTimeout(function() {
+                        resourcesPanel.classList.remove('show');
+                        document.body.classList.remove('body-overflow'); 
+                    }, 500);
+                }
+            }
+        });
   }
    /************ Reviews Resource Overlay End *************/
 
@@ -526,8 +541,29 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(function() {
             feedbackForm.classList.remove('show');
             document.body.classList.remove('body-overflow');
-        }, 400); 
+        }, 400);
       });
+        
+        
+     document.addEventListener('click', function(e) {
+         if (feedbackFormBody.classList.contains('open')) {
+             const withinBody = e.composedPath().includes(feedbackFormBody);
+             const withinBtn1 = e.composedPath().includes(feedbackCallButtons[0]);
+             const withinBtn2 = e.composedPath().includes(feedbackCallButtons[1]);
+             const withinBtn3 = e.composedPath().includes(feedbackCallButtons[2]);         
+             
+             if ( !withinBody && !withinBtn1 && !withinBtn2 && !withinBtn3 ) {
+                feedbackFormBody.classList.remove(feedbackFormOpenClass);
+                setTimeout(function() {
+                    feedbackForm.classList.remove('show');
+                    document.body.classList.remove('body-overflow');
+                }, 400);
+             }
+
+         }
+     });
+      
+    
 
       function showDropDown(fieldName) {
           let fieldInput = fieldName.querySelector('input');

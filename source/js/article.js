@@ -235,23 +235,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 slidesToScroll: 1,
                 infinite: false,
                 arrows: false,
+                infinite: false,
                 touchThreshold: 50,
                 speed: 200,
                 responsive: [
                     {
-                      breakpoint: 1022,
+                      breakpoint: 767,
                       settings: {
                         slidesToShow: 1,
-                        slidesToScroll: 1
+                        slidesToScroll: 1,
+                        infinite: false
                       }
-                    },
-                    {
-                        breakpoint: 361,
-                        settings: {
-                          slidesToShow: 0.94,
-                          slidesToScroll: 1
-                        }
-                      }
+                    }
                 ]
             });
 
@@ -456,6 +451,26 @@ document.addEventListener('DOMContentLoaded', function () {
             ]
         });
 
+        $('.article__reviews-slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+            const currentSlideElement = slick.$slides.eq(currentSlide)[0];
+
+            const activeText = currentSlideElement.querySelector('.reviews__reviews-item-text');
+            const activeButton = currentSlideElement.querySelector('.reviews__reviews-item-text-read-more');
+
+            if (activeText) {
+                if (!activeText.classList.contains('truncate')) {
+                    activeText.classList.add('truncate');
+                }
+            }
+
+            if (activeButton) {
+                if (activeButton.classList.contains('hide-more')) {
+                    activeButton.classList.remove('hide-more');
+                }
+            }
+        });
+
         articleReviewsControlsLeft.addEventListener('click', function () {
             $('.article__reviews-slider').slick('slickNext');
         });
@@ -507,6 +522,26 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                       }
                 ]
+            });
+
+            $('.article__reviews-slider-side').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+
+                const currentSlideElement = slick.$slides.eq(currentSlide)[0];
+
+                const activeText = currentSlideElement.querySelector('.reviews__reviews-item-text');
+                const activeButton = currentSlideElement.querySelector('.reviews__reviews-item-text-read-more');
+
+                if (activeText) {
+                    if (!activeText.classList.contains('truncate')) {
+                        activeText.classList.add('truncate');
+                    }
+                }
+
+                if (activeButton) {
+                    if (activeButton.classList.contains('hide-more')) {
+                        activeButton.classList.remove('hide-more');
+                    }
+                }
             });
 
             articleReviewsSideControlsLeft.addEventListener('click', function () {
