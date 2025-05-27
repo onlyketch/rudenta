@@ -895,18 +895,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const doctorsGallerySliderRight = document.querySelector('.main-page__doctors-gallery-head-right .slider-controls > .slider-controls-right');
 
             $('.main-page__doctors-gallery-slider').slick({
-                slidesToShow: 0.94, 
+                slidesToShow: 1, 
                 slidesToScroll: 1,
                 infinite: false,
                 arrows: false,
                 dots: false,
                 touchThreshold: 80,
                 speed: 300,
+                variableWidth: true,
                 responsive: [
                     {
                       breakpoint: 767,
                       settings: {
-                        slidesToShow: 1.05,
+                        slidesToShow: 1,
                         slidesToScroll: 1
                       }
                     }
@@ -1109,9 +1110,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         /* 
             Добавить обрезку текста если более 3 строк
-            Если текст отзыва обрезан ... добавить кнопку Подробнее
+            Если текст отзыва обрезан ... добавить кнопку Подробнее 
         */
-        if (document.querySelectorAll('.reviews__reviews-item-text').length > 0) {
+        if (document.querySelectorAll('.article__reviews-slider .reviews__reviews-item-text').length > 0) {
             
             const reviewsTextElems = document.querySelectorAll('.reviews__reviews-item-text');
 
@@ -1142,14 +1143,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Скрыть верхнюю часть меню при скролле
 
-        if (document.querySelector('.header')) {
+        if (document.querySelector('.header') && document.querySelector('.services-menu') && document.querySelector('.more-menu ')) {
 
-            const headerTop = document.querySelector('.header__top');
+            const header = document.querySelector('.header'); 
+            const serviceMenuWrapper = document.querySelector('.services-menu__wrapper');
+            const moreMenuWrapper = document.querySelector('.more-menu__wrapper');
+
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 320) {
-                    headerTop.classList.add('header-top-hide');
+                if (window.scrollY > 37) {
+                    header.classList.add('header-fixed');
+                    serviceMenuWrapper.classList.add('top-if-header-fixed');
+                    moreMenuWrapper.classList.add('top-if-header-fixed');
                 } else {
-                    headerTop.classList.remove('header-top-hide');
+                    header.classList.remove('header-fixed');
+                    serviceMenuWrapper.classList.remove('top-if-header-fixed');
+                    moreMenuWrapper.classList.remove('top-if-header-fixed');
                 }
             });
         }

@@ -4932,11 +4932,29 @@ em, i {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+.header.header-fixed {
+  top: 0;
+}
+.header.header-fixed .header__top {
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+}
+.header.header-fixed .header__area {
+  margin-top: 0;
 }
 .header .container {
   padding: 0 62px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  .header .container {
+    padding: 0 24px;
+  }
 }
 .header__top {
   font-family: "Onest Regular", Arial, Helvetica, sans-serif;
@@ -4952,12 +4970,9 @@ em, i {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-transition: all 1s ease-in;
-  transition: all 1s ease-in;
-}
-.header__top.header-top-hide {
-  visibility: hidden;
-  opacity: 0;
+  max-height: 16px;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 .header__top.dark-mode .header__top-nav .header__top-nav-link, .header__top.dark-mode .header__top-worktime, .header__top.dark-mode .header__top-mail {
   color: #202B39;
@@ -5038,6 +5053,8 @@ em, i {
   height: 56px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
 }
 .header__area-left {
   display: -webkit-box;
@@ -5340,6 +5357,9 @@ em, i {
       -ms-flex-align: start;
           align-items: flex-start;
 }
+.services-menu__wrapper.top-if-header-fixed {
+  top: 68px;
+}
 .services-menu__main {
   position: relative;
   width: 100%;
@@ -5628,6 +5648,9 @@ em, i {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+}
+.more-menu__wrapper.top-if-header-fixed {
+  top: 68px;
 }
 .more-menu__body {
   position: relative;
@@ -11133,14 +11156,16 @@ em, i {
 .reviews__reviews-item-text {
   overflow: hidden;
   max-height: 420px;
-  -webkit-transition: max-height 0.3s linear;
-  transition: max-height 0.3s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  will-change: max-height;
 }
 .reviews__reviews-item-text.truncate {
   -webkit-line-clamp: 3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   max-height: 62px;
+  text-overflow: ellipsis;
 }
 .reviews__reviews-item-text-read-more {
   display: -webkit-box;
@@ -11160,6 +11185,16 @@ em, i {
   white-space: nowrap;
   background: transparent;
   margin: 7px 7px 0 auto;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.reviews__reviews-item-text-read-more:hover {
+  color: #0096CB;
+}
+@media (max-width: 767px) {
+  .reviews__reviews-item-text-read-more:hover {
+    color: #42C8F8;
+  }
 }
 .reviews__reviews-item-text-read-more.hide-more {
   display: none;
@@ -17842,22 +17877,25 @@ em, i {
   color: #42C8F8;
 }
 .main-page__doctors-gallery-slider {
-  width: 330px;
+  width: 350px;
 }
 @media (max-width: 767px) {
   .main-page__doctors-gallery-slider {
     width: 100%;
+    max-width: 330px;
   }
 }
 .main-page__doctors-gallery-slider-slide {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  width: 330px !important;
-  margin-right: 20px;
+  width: 350px !important;
+  padding-right: 20px;
 }
 @media (max-width: 767px) {
   .main-page__doctors-gallery-slider-slide {
-    margin-right: 12px;
+    width: 100% !important;
+    max-width: 318px;
+    padding-right: 12px;
   }
 }
 .main-page__doctors-gallery-slider-slide .doctors__card {
@@ -17897,14 +17935,10 @@ em, i {
 }
 @media (max-width: 767px) {
   .main-page__doctors-gallery-slider-slide .doctors__card {
-    height: 438px;
-  }
-}
-@media (max-width: 376px) {
-  .main-page__doctors-gallery-slider-slide .doctors__card {
-    max-width: 300px;
+    max-width: 330px;
     aspect-ratio: 330/438;
-    height: auto;
+    margin: 0 12px 0 0;
+    height: 438px;
   }
 }
 .main-page__doctors-gallery-slider .slick-track {
@@ -17913,11 +17947,13 @@ em, i {
   display: flex;
 }
 .main-page__doctors-gallery-slider .slick-slide {
-  max-width: 330px !important;
+  max-width: 350px !important;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
-@media (max-width: 376px) {
+@media (max-width: 767px) {
   .main-page__doctors-gallery-slider .slick-slide {
-    max-width: 300px !important;
+    max-width: 318px !important;
   }
 }
 .main-page__callback {

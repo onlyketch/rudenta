@@ -931,13 +931,15 @@
     &__reviews-item-text {
         overflow: hidden;
         max-height: 420px;
-        transition: max-height .3s linear;
+        transition: all .2s linear;
+        will-change: max-height;
 
         &.truncate {
             -webkit-line-clamp: 3;
             display: -webkit-box;
             -webkit-box-orient: vertical;
             max-height: 62px;
+            text-overflow: ellipsis;
         }
         
 
@@ -955,6 +957,15 @@
             white-space: nowrap;
             background: transparent;
             margin: 7px 7px 0 auto;
+            transition: color .3s ease-out;
+
+            &:hover {
+                color: #0096CB;
+
+                @media (max-width: 767px) {
+                    color: #42C8F8;
+                }
+            }
 
             &.hide-more {
                 display: none;
