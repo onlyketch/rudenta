@@ -1546,16 +1546,16 @@
 
             &-photo {
                 position: absolute;
-                bottom: -56px;
+                bottom: -57px;
                 right: 81px;
-                width: 347px;
-                height: 528px;
+                width: 350px;
+                height: 533px;
                 user-select: none;
                 pointer-events: none;
 
                 @media (max-width: 767px) {
-                    width: 257px;
-                    height: 391px;
+                    width: 260px;
+                    height: 396px;
                     bottom: 0;
                     right: auto;
                     left: 50%;
